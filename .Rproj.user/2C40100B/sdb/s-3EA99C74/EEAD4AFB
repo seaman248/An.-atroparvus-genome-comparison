@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "#genes(data.frame): chr, start, end\n#chrs: examp: c('2L', '2R')\ncreate_xlims <- function(genes, chrs=c('X','2L', '2R', '3L', '3R'), strand){\n  xlims <- c()\n  for(i in 1:length(chrs)){\n    min_start <- min(genes[genes[,2]==chrs[i], 3])\n    max_end <- max(genes[genes[,2]==chrs[i], 4])\n    if(strand[i]){\n      xlims <- append(xlims, c(max_end, min_start))\n    } else {\n      xlims <- append(xlims, c(min_start, max_end))\n    }\n    \n  }\n  return(xlims)\n}\n",
+    "created" : 1485514182028.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2856092373",
+    "id" : "EEAD4AFB",
+    "lastKnownWriteTime" : 1485514195,
+    "last_content_update" : 1485514195428,
+    "path" : "~/rproj/full_gene/R/functions/create_xlims.R",
+    "project_path" : "R/functions/create_xlims.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
