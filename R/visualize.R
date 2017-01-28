@@ -75,7 +75,7 @@ rm(alb_order, atr_order, gam_order, alb_annot, atr_annot, gam_annot)
 # create phyl tree
 tree <- newick2phylog("((An_atroparvus,An_gambiae), An_albimanus);")
 
-tiff('./output/plot_c_p_m5_g100(main atr).tiff', width=20000, height=2500, units='px', compression = 'none', res=600)
+tiff('./output/plot_c_p_m5_g100(main atr).tiff', width=15000, height=2500, units='px', compression = 'none', res=600)
 plot_gene_map(
   dna_segs = dna_segs,
   xlims = xlims,
