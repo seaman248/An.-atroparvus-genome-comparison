@@ -19,6 +19,7 @@ rm(atr_order)
 genes[,c(13, 14)] <- through_chr(genes[,c(12, 13, 14)], order)
 genes[,c(3, 4)] <- through_chr(genes[,c(2, 3, 4)], order)
 rm(order)
+genes$atr_chr <- NULL
 
 # end coords to length
 
