@@ -39,5 +39,6 @@ through_num <- function (genes, order){
       IR<- IR + order[i, 4]
     } # end if exist
   } # end for
+  names(tGenes) <- names(genes)
   return(tGenes)
 }
