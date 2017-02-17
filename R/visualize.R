@@ -1,4 +1,5 @@
 library('genoPlotR')
+source('./R/process_data.R')
 source('./R/functions/create_seg.R')
 source('./R/functions/create_xlims.R')
 source('./R/functions/make_chr_annots.R')
@@ -75,7 +76,7 @@ rm(alb_order, atr_order, gam_order, alb_annot, atr_annot, gam_annot)
 # create phyl tree
 tree <- newick2phylog("((An_atroparvus,An_gambiae), An_albimanus);")
 
-tiff('./output/plot_c_p_m5_g100(main atr).tiff', width=15000, height=2500, units='px', compression = 'none', res=600)
+#tiff('./output/plot_c_p_m5_g100(main atr).tiff', width=15000, height=2500, units='px', compression = 'none', res=600)
 plot_gene_map(
   dna_segs = dna_segs,
   xlims = xlims,
@@ -83,4 +84,4 @@ plot_gene_map(
   dna_seg_labels = NULL,
   dna_seg_label_cex = 0
 )
-dev.off()
+#dev.off()

@@ -40,6 +40,14 @@ cent_right_peric_comparison <- list(
 peric_xlims <- mapply(create_xlims, genes=peric_genes, strand=cent_right_peric_comparison, chrs=chr_order_peric_comparison)
 
 
+# make annotations
+
+peric_annotations <- lapply(peric_segs, function(seg){
+  return(annotation(
+    x1=middle(seg),  text = seg$name, col = seg$col, rot=90
+  ))
+})
+
 peric_comparisons <- make_comparisons(peric_segs)
 
 tiff('./output/peric_reg.tiff', width=8000, height=5000, units='px', compression = 'none', res=600)
@@ -50,10 +58,12 @@ plot_gene_map(
 )
 dev.off()
 
-pdf('./output/peric_reg.pdf', width=50, height=20)
+pdf('./output/peric_reg.pdf', width=50, height=10)
 plot_gene_map(
   dna_segs = peric_segs,
   xlims=peric_xlims,
-  comparisons = peric_comparisons
+  comparisons = peric_comparisons, 
+  annotations = peric_annotations,
+  annotation_cex = 0.2
 )
 dev.off()

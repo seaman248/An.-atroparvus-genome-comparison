@@ -38,23 +38,23 @@ write.table(tableForGRIMM,
 
 # data into grim
 
-grimm_path <- '~/Документы/GRIMM_SYNTENY-2.02/grimm_synt'
+grimm_path <- '~/Documents/GRIMM_SYNTENY-2.02/grimm_synt'
 input_path <- '~/rproj/full_gene/data/processed/tableForGRIMM.txt'
 output_anchors <- '~/rproj/full_gene/data/processed/anchors'
 output_blocks <- '~/rproj/full_gene/data/processed/'
 
 anchor_command <- paste(grimm_path, '-A -f', input_path, '-d', output_anchors)
 
-system(anchor_command)
+system(anchor_command, wait = TRUE)
 
-min_block = 5
-min_gap=100
+min_block = '2'
+min_gap= '1000'
 
 blocks_command <- paste0(
   grimm_path, ' -f ', 
   output_anchors, '/unique_coords.txt', ' -d ', 
   output_blocks, 
-  ' -c -p -m ', min_block, ' -g ', min_gap
+  ' -c -n', min_block, ' -g ', min_gap, ' -Q'
   )
 
-
+system(blocks_command, wait=TRUE)
