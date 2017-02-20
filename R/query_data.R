@@ -5,7 +5,7 @@ source('./R/functions/through.R')
 
 # define species of interest
 sp_of_interest <- c(
-  'albimanus', 'atroparvus', 'gambiae', 'stephensi'
+  'albimanus', 'atroparvus', 'gambiae', 'sinensis'
 )
 
 # get table of orthologs from biomart
