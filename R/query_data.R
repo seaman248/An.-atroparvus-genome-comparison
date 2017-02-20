@@ -16,4 +16,4 @@ orths <- data.frame(mapply(function(or){
   or
 }, or=orths))
 
-write.csv2(orths, './data/processed/orthsList.csv')
+write.csv2(orths, './data/processed/orthsList.csv', row.names = FALSE)
