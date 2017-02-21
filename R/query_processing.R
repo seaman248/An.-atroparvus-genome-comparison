@@ -56,5 +56,5 @@ orths.fulltable[,c(6:10)] <- through_num(orths.fulltable[,c(6:10)], atr_order)
   
 # write csv
   
-  write.csv2(orths.naomit, './data/alb_atr_gam_sin.csv', row.names = FALSE)
+  write.csv2(orths.naomit, './data/alb_atr_gam_sin.csv', row.names = FALSE, quote=FALSE)
   
