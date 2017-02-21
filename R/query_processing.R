@@ -1,6 +1,7 @@
 source('./R/functions/arrange_chr.R')
 source('./R/functions/through.R')
 source('./R/functions/through_chr.R')
+source('./R/functions/changeSinCoords.R')
 orths.fulltable <- read.csv('./data/processed/alb_atr_gam_sin(with coords).csv')
 
 # Arrange atroparvus
@@ -27,9 +28,33 @@ orths.fulltable[,c(6:10)] <- through_num(orths.fulltable[,c(6:10)], atr_order)
   SinC.scaffolds <- SinC.scaffolds[c(1:49, 51),c(1, 2, 3, 5)]
   SinC.SinS <- read.csv2('https://github.com/seaman248/sinensis/raw/master/data/S2_to_C2_bridge.csv')[,c(3, 2)]
   SinC.fulltable <- read.csv('https://raw.githubusercontent.com/seaman248/sinensis/master/data/sinC_genes.csv')
-  # Replace SinS2 gene_id to SinC2
-  # Add SinC2 coordinates (Scf, start, end, strand)
+  
+  #
+  
+  orths.fulltable[,c(16:20)] <- changeSin(orths.fulltable[,c(16:20)], SinC.fulltable, SinC.SinS)
   # Make through num
+  orths.fulltable[,20] <- unlist(lapply(orths.fulltable[,20], function(n){
+    if(is.na(n)){
+      return(NA)
+    }else{
+      n <- paste0(n, '1')
+      as.numeric(n)
+    }
+  }))
+  orths.fulltable[,c(16:20)] <- through_num(orths.fulltable[,c(16:20)], SinC.scaffolds)
 
-# Remove all rows with strange chromosomes in albimanus and gambiae
+# Remove all NAs
+  
+  orths.naomit <- na.omit(orths.fulltable)
+  
+# Make names
+  names <- c('id', 'chr', 'start', 'end', 'strand')
 
+  names(orths.naomit) <- unlist(lapply(c('alb', 'atr', 'gam', 'sin'), function(sp){
+    paste0(sp, '_',names)
+  }))
+  
+# write csv
+  
+  write.csv2(orths.naomit, './data/alb_atr_gam_sin.csv', row.names = FALSE)
+  
