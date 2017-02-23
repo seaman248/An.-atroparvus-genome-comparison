@@ -1,6 +1,7 @@
 library(biomaRt)
 
 source('./R/Query/functions/config_ds.R')
+source('./R/Query/functions/find_ds.R')
 
 getGenesFromMart <- function(
   dsName, # name of dataset _ example : aatroparvus_eg_gene
