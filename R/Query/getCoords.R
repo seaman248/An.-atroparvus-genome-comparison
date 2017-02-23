@@ -8,4 +8,5 @@ if(!file.exists('./R/Query/output_data/gambiae_genes.csv')){
     write.csv(geneTable, pathToFile, row.names = FALSE)
     return(pathToFile)
   })
+  rm(list=ls())
 }
