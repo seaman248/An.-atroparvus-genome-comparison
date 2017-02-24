@@ -3,5 +3,3 @@ output/*.tiff
 
 R/Query/output_data/
 R/Clean/output_data/
-
-*.csv
