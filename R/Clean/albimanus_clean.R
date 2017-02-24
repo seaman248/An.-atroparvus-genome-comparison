@@ -23,3 +23,5 @@ alb_genes$chromosome_name <- revalue(alb_genes$chromosome_name, c(
 alb_genes[,c(3, 4)] <- seq_num(alb_genes[,c(2, 3, 4)], chrs = c(paste0('e', c(1:5))))
 
 write.csv2(alb_genes, './R/Clean/output_data/alb_clean.csv', row.names = F)
+
+rm(list=ls())
