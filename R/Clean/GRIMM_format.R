@@ -22,9 +22,6 @@ genes.trueorder <- bind_cols(lapply(names(orths), function(sp_name){
   genes[true_order, ]
 }))
 
-# rm excess
-rm(orths, genes.list)
-
 genes.trueorder <- na.omit(genes.trueorder)
 
 GRIMM.table <- genes.trueorder[,c(1:5, 7:10, 12:15)]
