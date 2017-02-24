@@ -12,7 +12,10 @@
   lapply(c('albimanus', 'atroparvus', 'gambiae'), function(sp){
     files <- list.files('./R/Clean')
     file <- paste0('./R/Clean/' ,files[grep(sp, files)])
-    source(file)
+    source(file, echo=F)
+    return(NULL)
   })
   
   ## Conmbine all sps in one table for GRIMM_synteny
+  source('./R/Clean/GRIMM_format.R')
+  
