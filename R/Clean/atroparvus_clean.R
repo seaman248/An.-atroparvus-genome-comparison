@@ -26,6 +26,6 @@ atr_genes$chromosome_name <- revalue(atr_genes$chromosome_name, c(
 
 # save to file
 
-write.csv2(atr_genes, './R/Clean/output_data/atr_clean.csv')
+write.csv2(atr_genes, './R/Clean/output_data/atr_clean.csv', row.names = F)
 
 rm(list=ls())
