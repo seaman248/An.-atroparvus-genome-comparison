@@ -1,5 +1,8 @@
 output/*.tiff
-.Rproj.user
+.Rproj.user/*
 
 R/Query/output_data/
 R/Clean/output_data/
+.RData
+.DS_Store
+.Rproj.user
