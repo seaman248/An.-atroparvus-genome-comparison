@@ -1,2 +1,5 @@
 output/*.tiff
 .Rproj.user
+
+R/Query/output_data/
+R/Clean/output_data/

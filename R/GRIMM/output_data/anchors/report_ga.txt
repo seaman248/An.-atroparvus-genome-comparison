@@ -1,0 +1,36 @@
+Mon Feb 27 14:11:31 2017: Start job
+Mon Feb 27 14:11:31 2017: Scan anchors
+Mon Feb 27 14:11:31 2017: Allocate space
+Mon Feb 27 14:11:31 2017: Read anchors
+Parameters:
+Algorithm:             GRIMM-Anchors
+Input file:            /home/seaman/rproj/full_genome_comparison/R/Clean/output_data/GRIMM.txt
+  # species:           3
+  # alignments:        9658
+Output directory:      /home/seaman/rproj/full_genome_comparison/R/GRIMM/output_data/anchors
+Tandem repeats         Do not condense
+Ambiguous sign thresh: 0.666667
+
+Mon Feb 27 14:11:31 2017: Sort anchors
+Mon Feb 27 14:11:31 2017: Sorting species 1
+Mon Feb 27 14:11:31 2017: Sorting species 2
+Mon Feb 27 14:11:31 2017: Sorting species 3
+Mon Feb 27 14:11:31 2017: Sort for each species
+Mon Feb 27 14:11:31 2017: Determine conflicting alignments
+1812 conflicts in species 1
+2041 conflicts in species 2
+1585 conflicts in species 3
+Mon Feb 27 14:11:31 2017: Output anchors and repeats
+5620 anchors output:
+   5580 as-is anchors
+   40 merged anchors
+   Used 5673 input alignments for those
+1336 repeats output:
+   40 merged anchors
+   1296 non-merged repeat families
+6916 components:
+   5580 as-is anchors
+   40 merged anchors
+   1296 non-merged repeat families
+Mon Feb 27 14:11:31 2017: Free space
+Mon Feb 27 14:11:31 2017: Done
