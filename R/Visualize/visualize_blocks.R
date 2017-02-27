@@ -37,3 +37,5 @@ plot_gene_map(
   comparisons = comparisons,
   xlims = xlims
 )
+
+rm(list=ls())
