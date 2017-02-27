@@ -1,0 +1,36 @@
+Wed Feb 22 16:59:15 2017: Start job
+Wed Feb 22 16:59:15 2017: Scan anchors
+Wed Feb 22 16:59:15 2017: Allocate space
+Wed Feb 22 16:59:15 2017: Read anchors
+Parameters:
+Algorithm:             GRIMM-Anchors
+Input file:            ./data/processed/GRIMM_by_chr/grimm_table.txt
+  # species:           3
+  # alignments:        614
+Output directory:      ./data/processed/GRIMM_by_chr/anchors
+Tandem repeats         Do not condense
+Ambiguous sign thresh: 0.666667
+
+Wed Feb 22 16:59:15 2017: Sort anchors
+Wed Feb 22 16:59:15 2017: Sorting species 1
+Wed Feb 22 16:59:15 2017: Sorting species 2
+Wed Feb 22 16:59:15 2017: Sorting species 3
+Wed Feb 22 16:59:15 2017: Sort for each species
+Wed Feb 22 16:59:15 2017: Determine conflicting alignments
+7 conflicts in species 1
+30 conflicts in species 2
+11 conflicts in species 3
+Wed Feb 22 16:59:15 2017: Output anchors and repeats
+532 anchors output:
+   531 as-is anchors
+   1 merged anchors
+   Used 533 input alignments for those
+41 repeats output:
+   1 merged anchors
+   40 non-merged repeat families
+572 components:
+   531 as-is anchors
+   1 merged anchors
+   40 non-merged repeat families
+Wed Feb 22 16:59:15 2017: Free space
+Wed Feb 22 16:59:15 2017: Done
