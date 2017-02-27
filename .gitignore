@@ -6,3 +6,4 @@ R/Clean/output_data/
 .RData
 .DS_Store
 .Rproj.user
+.Rhistory
