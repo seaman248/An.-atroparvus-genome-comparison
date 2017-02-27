@@ -20,6 +20,6 @@
   source('./R/Clean/GRIMM_format.R')
 
 ### Make GRIMM
-  
+  source('./R/GRIMM/make_blocks.R')
 
 ### Visualize Results
