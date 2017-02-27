@@ -23,3 +23,4 @@
   source('./R/GRIMM/make_blocks.R')
 
 ### Visualize Results
+  source('./R/Visualize/visualize_blocks.R')

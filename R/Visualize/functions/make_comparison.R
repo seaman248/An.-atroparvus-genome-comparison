@@ -1,4 +1,4 @@
-source('./R/functions/genCol.R')
+source('R/Visualize/functions/genCol.R')
 
 make_comparisons <- function(segs){
   comparisons <- list()
