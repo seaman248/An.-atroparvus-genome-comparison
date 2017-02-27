@@ -19,7 +19,12 @@ genes.trueorder <- bind_cols(lapply(names(orths), function(sp_name){
   genes <- genes.list[[sp_name]]
   
   true_order <- match(order, genes$ensembl_gene_id)
-  genes[true_order, ]
+  genes <- genes[true_order, ]
+  
+  # change end column to length
+  genes[,4] <- genes[,4] - genes[,3]
+  
+  return(genes)
 }))
 
 genes.trueorder <- na.omit(genes.trueorder)
