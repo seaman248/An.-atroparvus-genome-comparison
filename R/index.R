@@ -18,4 +18,8 @@
   
   ## Conmbine all sps in one table for GRIMM_synteny
   source('./R/Clean/GRIMM_format.R')
+
+### Make GRIMM
   
+
+### Visualize Results
