@@ -29,11 +29,15 @@ GRIMM_reports <- lapply(elements, function(el){
     blocks_command <- make_grimm_command(input=paste0(work_dir, 'anchors/unique_coords.txt'), output=paste0(work_dir), A=F)
     system(blocks_command, wait = T)
   # read reports
-    readLines(paste0('.', work_dir, 'blocks/report.txt'))
+    list(readLines(paste0('.', work_dir, 'blocks/report.txt')),
+         read.table(paste0('.', work_dir, 'blocks/blocks.txt'))
+    )
 })
+names(GRIMM_reports) <- elements
 
 # Extract distance tables 
-distance_tables <- lapply(GRIMM_reports, function(report){ 
+distance_tables <- lapply(GRIMM_reports, function(report){
+  report <- report[[1]]
   distance_row <- grep('Distance Matrix', report) 
   rows_with_table <- (distance_row+1):(distance_row+3) 
   distance_table <- report[rows_with_table] 
@@ -44,13 +48,31 @@ distance_tables <- lapply(GRIMM_reports, function(report){
   rownames(table) <- c('alb', 'atr', 'gam') 
   return(table) 
 }) 
-names(distance_tables) <- elements 
+names(distance_tables) <- elements
+
+# Normalize distance tables
+
+distance_tables_normalize <- lapply(elements, function(el){
+  nblocks <- nrow(GRIMM_reports[[el]][[2]])
+  dist_table <- distance_tables[[el]]
+  as.data.frame(t(data.frame(
+    atr_gam = round(dist_table[2, 3] / nblocks, digits = 2),
+    atr_alb = round(dist_table[1, 2] / nblocks, digits = 2),
+    alb_gam = round(dist_table[1, 3] / nblocks, digits = 2)
+  )))
+})
 
 # Calculate mean reverse distance 
 mean_distance <- lapply(distance_tables, function(table){ 
   mean <- (table[1, 2]+table[1, 3]+table[2, 3])/3 
   round(mean, digits=1) 
 }) 
+
+# Normalize mean
+mean_dist_normalize <- lapply(elements, function(el){
+  m <- mean_distance[[el]]/nrow(GRIMM_reports[[el]][[2]])
+  round(m, digits = 2)
+})
 
 # Visualize discance_tables 
 distance_plot <- lapply(distance_tables, tableGrob) 

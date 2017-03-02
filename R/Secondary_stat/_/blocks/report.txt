@@ -1,7 +1,7 @@
-Mon Feb 27 16:19:32 2017: Start job
-Mon Feb 27 16:19:32 2017: Scan anchors
-Mon Feb 27 16:19:32 2017: Allocate space
-Mon Feb 27 16:19:32 2017: Read anchors
+Thu Mar  2 10:19:13 2017: Start job
+Thu Mar  2 10:19:13 2017: Scan anchors
+Thu Mar  2 10:19:13 2017: Allocate space
+Thu Mar  2 10:19:13 2017: Read anchors
 Parameters:
 Algorithm:             GRIMM-Synteny
 Input file:            /home/seaman/rproj/full_genome_comparison/R/Secondary_stat/_/anchors/unique_coords.txt
@@ -24,12 +24,12 @@ Overlaps/containments: Repair
 Formatting:            Matlab friendly
 Permutation complexity
   Reject RS cells      
-Mon Feb 27 16:19:32 2017: Form components
-Mon Feb 27 16:19:32 2017: Determine component coordinates
-Mon Feb 27 16:19:32 2017: Filter out small components
-Mon Feb 27 16:19:32 2017: Sort anchors by component then species
-Mon Feb 27 16:19:32 2017: Determine signs of blocks
-Mon Feb 27 16:19:32 2017: Block overlap analysis
+Thu Mar  2 10:19:13 2017: Form components
+Thu Mar  2 10:19:13 2017: Determine component coordinates
+Thu Mar  2 10:19:13 2017: Filter out small components
+Thu Mar  2 10:19:13 2017: Sort anchors by component then species
+Thu Mar  2 10:19:13 2017: Determine signs of blocks
+Thu Mar  2 10:19:13 2017: Block overlap analysis
 Overlap: Block 28 overlaps 29 in species 1
  "e5" 140810045 85029 1 "e5" 177635212 111893 -1 "e5" 202850975 157150 -1
  "e5" 140837868 210445 1 "e5" 177442371 271146 -1 "e5" 224038484 208548 1
@@ -38,13 +38,13 @@ Overlap: Block 29 overlaps 28 in species 2
  "e5" 140837868 210445 1 "e5" 177442371 271146 -1 "e5" 224038484 208548 1
  "e5" 140810045 85029 1 "e5" 177635212 111893 -1 "e5" 202850975 157150 -1
 
-Mon Feb 27 16:19:32 2017: Condensing strips of consecutive blocks
-Mon Feb 27 16:19:32 2017: Blocks were condensed, must recompute several steps
-Mon Feb 27 16:19:32 2017: Determine component coordinates
-Mon Feb 27 16:19:32 2017: Filter out small components
-Mon Feb 27 16:19:32 2017: Sort anchors by component then species
-Mon Feb 27 16:19:32 2017: Determine signs of blocks
-Mon Feb 27 16:19:32 2017: Block overlap analysis
+Thu Mar  2 10:19:13 2017: Condensing strips of consecutive blocks
+Thu Mar  2 10:19:13 2017: Blocks were condensed, must recompute several steps
+Thu Mar  2 10:19:13 2017: Determine component coordinates
+Thu Mar  2 10:19:13 2017: Filter out small components
+Thu Mar  2 10:19:13 2017: Sort anchors by component then species
+Thu Mar  2 10:19:13 2017: Determine signs of blocks
+Thu Mar  2 10:19:13 2017: Block overlap analysis
 Overlap: Block 20 overlaps 21 in species 1
  "e5" 140605509 289565 1 "e5" 177635212 369804 -1 "e5" 202850975 401414 -1
  "e5" 140837868 210445 1 "e5" 177442371 271146 -1 "e5" 224038484 208548 1
@@ -53,7 +53,7 @@ Overlap: Block 21 overlaps 20 in species 2
  "e5" 140837868 210445 1 "e5" 177442371 271146 -1 "e5" 224038484 208548 1
  "e5" 140605509 289565 1 "e5" 177635212 369804 -1 "e5" 202850975 401414 -1
 
-Mon Feb 27 16:19:32 2017: Microrearrangement analysis
+Thu Mar  2 10:19:13 2017: Microrearrangement analysis
 Block lengths and support are genome-by-genome.
 Other parameters are a below-the-diagonal triangular genome vs. genome matrix
 printed in 1 row.
@@ -1554,7 +1554,7 @@ Totals: 817 anchors in 124 blocks
   # fortresses       |    0 |    0    0 
   # reuses           |    0 |    0    0 
 
-Mon Feb 27 16:19:32 2017: Macrorearrangement analysis
+Thu Mar  2 10:19:13 2017: Macrorearrangement analysis
 Macrorearrangement analysis
 # species:              3
 # blocks:               124
@@ -1614,8 +1614,8 @@ Number of breakpoint reuses Matrix:
    48    0   34
    53   34    0
 
-Mon Feb 27 16:19:32 2017: MGR microrearrangement files
-Mon Feb 27 16:19:32 2017: Breakpoint graph complexity analysis TODO
-Mon Feb 27 16:19:32 2017: Nadeau-Taylor model tests TODO
-Mon Feb 27 16:19:32 2017: Free space
-Mon Feb 27 16:19:32 2017: Done
+Thu Mar  2 10:19:13 2017: MGR microrearrangement files
+Thu Mar  2 10:19:13 2017: Breakpoint graph complexity analysis TODO
+Thu Mar  2 10:19:13 2017: Nadeau-Taylor model tests TODO
+Thu Mar  2 10:19:13 2017: Free space
+Thu Mar  2 10:19:13 2017: Done
