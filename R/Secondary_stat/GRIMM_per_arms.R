@@ -4,8 +4,10 @@ library(grid)
 source('./R/GRIMM/functions/make_grimm_command.R')
 
 GRIMMtable.full <- read.table('./R/Clean/output_data/GRIMM.txt', header = TRUE) 
+genome_size <- read.csv('./R/Secondary_stat/input_data/genomes_size.csv')[,-1]
 
-elements <- paste0('e', c(1:5)) 
+elements <- paste0('e', c(1:5))
+row.names(genome_size) <- elements
 # prepare table for GRIMM_synteny by chromosome 
 
 GRIMM_tables.elX <- lapply(elements, function(elX){ 
@@ -52,27 +54,39 @@ names(distance_tables) <- elements
 
 # Normalize distance tables
 
+lengths <- lapply(elements, function(el){
+  length <- list(
+    alb = genome_size[el, 1],
+    atr = genome_size[el, 2]
+  )
+})
+
+names(lengths) <- elements
+
 distance_tables_normalize <- lapply(elements, function(el){
-  nblocks <- nrow(GRIMM_reports[[el]][[2]])
   dist_table <- distance_tables[[el]]
-  as.data.frame(t(data.frame(
-    atr_gam = round(dist_table[2, 3] / nblocks, digits = 2),
-    atr_alb = round(dist_table[1, 2] / nblocks, digits = 2),
-    alb_gam = round(dist_table[1, 3] / nblocks, digits = 2)
-  )))
+  data.frame(
+    atr_gam = round(dist_table[2, 3] / lengths[[el]]$atr, digits = 2),
+    atr_alb = round(dist_table[1, 2] / lengths[[el]]$atr, digits = 2),
+    alb_gam = round(dist_table[1, 3] / lengths[[el]]$alb, digits = 2)
+  )
 })
 
-# Calculate mean reverse distance 
-mean_distance <- lapply(distance_tables, function(table){ 
-  mean <- (table[1, 2]+table[1, 3]+table[2, 3])/3 
-  round(mean, digits=1) 
-}) 
+# Calculate mean normalize reverse distance 
+RDperMB <- bind_cols(lapply(distance_tables_normalize, function(tab){
+  tab$mean <- mean(unlist(tab[1, 1:3]))
+  tab <- round(tab, digits = 2)
+  as.data.frame(t(tab))
+}))
 
-# Normalize mean
-mean_dist_normalize <- lapply(elements, function(el){
-  m <- mean_distance[[el]]/nrow(GRIMM_reports[[el]][[2]])
-  round(m, digits = 2)
-})
+RDperMBperMY <- bind_cols(lapply(distance_tables_normalize, function(tab){
+  tab[1,1] <- tab[1,1] / 58
+  tab[1,2] <- tab[1,2] / 42
+  tab[1,3] <- tab[1,3] / 100
+  tab$mean <- mean(unlist(tab[1, 1:3]))
+  tab <- round(tab, digits = 3)
+  as.data.frame(t(tab))
+}))
 
 # Visualize discance_tables 
 distance_plot <- lapply(distance_tables, tableGrob) 
