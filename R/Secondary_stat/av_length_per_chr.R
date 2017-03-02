@@ -8,9 +8,9 @@ blocks <- parse_blocks(
 )
 
 blocks_length <- lapply(blocks, function(blocks_sp){
-  as.list(tapply(blocks_sp$end, blocks_sp$chr, mean))
+  t <- as.list(tapply(blocks_sp$end, blocks_sp$chr, sd))
 })
 
-blocks_length <- as.data.frame(bind_rows(blocks_length))
+blocks_length <- as.data.frame(bind_rows(blocks_length))/1000
 
-colMeans(blocks_length)
+blocks_length[4,] <- round(colMeans(blocks_length), digits=2)
