@@ -1,5 +1,6 @@
 library(gridExtra) 
-library(grid) 
+library(grid)
+library(dplyr)
 
 source('./R/GRIMM/functions/make_grimm_command.R')
 
@@ -81,7 +82,7 @@ RDperMB <- bind_cols(lapply(distance_tables_normalize, function(tab){
 
 RDperMBperMY <- bind_cols(lapply(distance_tables_normalize, function(tab){
   tab[1,1] <- tab[1,1] / 58
-  tab[1,2] <- tab[1,2] / 42
+  tab[1,2] <- tab[1,2] / 100
   tab[1,3] <- tab[1,3] / 100
   tab$mean <- mean(unlist(tab[1, 1:3]))
   tab <- round(tab, digits = 3)
