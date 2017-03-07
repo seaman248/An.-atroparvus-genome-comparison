@@ -8,7 +8,7 @@ blocks <- parse_blocks(
 )
 
 blocks_length <- lapply(blocks, function(blocks_sp){
-  t <- as.list(tapply(blocks_sp$end, blocks_sp$chr, sd))
+  t <- as.list(tapply(blocks_sp$end, blocks_sp$chr, mean))
 })
 
 blocks_length <- as.data.frame(bind_rows(blocks_length))/1000
