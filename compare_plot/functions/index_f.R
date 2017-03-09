@@ -1,4 +1,6 @@
 library(lattice)
+library(randomcoloR)
+library(fields)
 # ############################################################
 devide_tables <- function(table){
   sp_tables <- lapply(seq(1, ncol(table), 5), function(range){
