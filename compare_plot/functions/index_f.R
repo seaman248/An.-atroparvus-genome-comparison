@@ -12,6 +12,26 @@ devide_tables <- function(table){
 }
 
 # ############################################################
+orth_matches <- function(tlist, main_sp){
+  # Declare x axis of matrix
+  x_genes <- tlist[[main_sp]]
+  
+  # Sort x by start coordinate
+  x_sorted <- x_genes[order(x_genes[,3]), ]
+  
+  # Generate compare matrix for every sp for compare with main sp
+  orth_matches <- lapply(tlist[-main_sp], function(y_genes){
+    # Sort y by start coordinate
+    y_sorted <- y_genes[order(y_genes[,3]), ]
+    
+    # Compute matches
+    matches <- match(row.names(y_sorted), row.names(x_sorted))
+    
+  })
+  return(orth_matches)
+}
+
+# ############################################################
 compare_matrixes <- function (tlist, main_sp = 1){
   # Declare x axis of matrix
   x_genes <- tlist[[main_sp]]
@@ -27,15 +47,15 @@ compare_matrixes <- function (tlist, main_sp = 1){
     # Compute matches
     matches <- match(row.names(y_sorted), row.names(x_sorted))
     
-    # Generate list of row that will be combine into matrix
-    matrix_dim <- nrow(x_sorted)
-    list_of_row <- lapply(matches, function(match){
-      row <- rep(0, matrix_dim)
-      row[match] <- y_sorted[match, 2]
-      return(row)
-    })
-    
-    do.call('rbind', list_of_row)
+    # # Generate list of row that will be combine into matrix
+    # matrix_dim <- nrow(x_sorted)
+    # list_of_row <- lapply(matches, function(match){
+    #   row <- rep(0, matrix_dim)
+    #   row[match] <- y_sorted[match, 2]
+    #   return(row)
+    # })
+    # 
+    # do.call('rbind', list_of_row)
   })
   
   return(matrixes_list)
