@@ -12,78 +12,81 @@ devide_tables <- function(table){
 }
 
 # ############################################################
-orth_matches <- function(tlist, main_sp){
+orth_matches <- function(tlist, main_sp, order){
   # Declare x axis of matrix
   x_genes <- tlist[[main_sp]]
-  
+  x_order <- order[[main_sp]]
   # Sort x by start coordinate
-  x_sorted <- x_genes[order(x_genes[,3]), ]
+  x_sorted <- x_genes[order(x_genes[,3]* x_order), ]
   
   # Generate compare matrix for every sp for compare with main sp
-  orth_matches <- lapply(tlist[-main_sp], function(y_genes){
+  orth_matches <- mapply(function(y_genes, y_order){
     # Sort y by start coordinate
-    y_sorted <- y_genes[order(y_genes[,3]), ]
+    y_sorted <- y_genes[order(y_genes[,3]*y_order), ]
     
     # Compute matches
     matches <- match(row.names(y_sorted), row.names(x_sorted))
     
-  })
+  }, tlist[-main_sp], order[-main_sp], SIMPLIFY = FALSE)
+  
   return(orth_matches)
 }
 
 # ############################################################
-compare_matrixes <- function (tlist, main_sp = 1){
-  # Declare x axis of matrix
-  x_genes <- tlist[[main_sp]]
+compare_matrix <- function (matches, chrs){
+  # Define size of matrix
+  matrix_size <- length(matches)
   
-  # Sort x by start coordinate
-  x_sorted <- x_genes[order(x_genes[,3]), ]
-  
-  # Generate compare matrix for every sp for compare with main sp
-  matrixes_list <- lapply(tlist[-main_sp], function(y_genes){
-    # Sort y by start coordinate
-    y_sorted <- y_genes[order(y_genes[,3]), ]
-    
-    # Compute matches
-    matches <- match(row.names(y_sorted), row.names(x_sorted))
-    
-    # # Generate list of row that will be combine into matrix
-    # matrix_dim <- nrow(x_sorted)
-    # list_of_row <- lapply(matches, function(match){
-    #   row <- rep(0, matrix_dim)
-    #   row[match] <- y_sorted[match, 2]
-    #   return(row)
-    # })
-    # 
-    # do.call('rbind', list_of_row)
+  # Generate matrix as list of rows
+  result_matrix <- sapply(matches, function(match){
+    row <- rep(0, matrix_size)
+    row[match] <- 1
+    return(row)
   })
   
-  return(matrixes_list)
+  return(as.matrix(result_matrix))
 }
 
+# # ############################################################
+# genLabels <- function(pos){
+#   pos <- pos[order(pos)]
+#   pos <- pos - min(pos)
+#   pos <- pos / 1000000
+#   
+#   labels <- round(pos, 0)
+#   coords <- labels / max(labels)
+#   
+#   extract <- seq(1, length(pos), 10)
+#   
+#   labels <- list(
+#     labels = labels[extract],
+#     coords = coords[extract]
+#   )
+#   return(labels)
+# }
+
 # ############################################################
-compare_plot <- function (table, main_sp=1, sps){
-  # Make list of gene tables for each sp
-  tlist <- devide_tables(table)
-  names(tlist) <- sps
+compare_plot <- function (tlist, matches, main_sp=1){
+  
   # Make matrixes for generate plot
-  matrixes_list <- compare_matrixes(tlist, main_sp)
+  matrixes_list <- lapply(names(tlist[-main_sp]), function(sp_name){
+    compare_matrix(matches[[sp_name]], tlist[[sp_name]][,2])
+  })
   
   # Define parameters for plot
   titles <- paste0(names(tlist[main_sp]), '/', names(tlist[-main_sp]))
-  colours <- c('white', randomColor(5))
-  x_labels <- tlist[[main_sp]][,1]
-  x_label_coords <- seq(0, 1, 1/(length(x_labels)-1))
-  y_labels <- tlist[-main_sp]
-  
+  # x_labels <- genLabels(tlist[[main_sp]][,3])
+  # y_labels <- lapply(tlist[-main_sp], function(genes){
+  #   labels <- genLabels(genes[,3])
+  # })
   # Generate plot for each matrix
   par(mfrow=c(1, length(matrixes_list)))
-  
-  mapply(function(matrix, title, y_label){
-    image(matrix, col = colours, axes = F, asp=1)
-    axis(1, labels=x_labels, at=x_label_coords, las=2, cex=0.3, line=0.3)
-    axis(2, labels=y_label[,1], at=x_label_coords, las=1, cex=0.3, line=0.3)
+
+  mapply(function(matrix, title){
+    image(matrix, col=c('white', 'black'), axes = F, asp=1)
+    # axis(1, labels=x_labels$labels, at=x_labels$coords, las=2, cex=0.3, line=0.3)
+    # axis(2, labels=y_labels$labels, at=y_labels$coords, las=1, cex=0.3, line=0.3)
     title(title)
-    image.plot(matrix, legend.only = TRUE, col = colours)
-  }, matrixes_list, titles, y_labels)
+    #image.plot(matrix, legend.only = TRUE, col = colours)
+  }, matrixes_list, titles)
 }
