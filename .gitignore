@@ -7,3 +7,5 @@ R/Clean/output_data/
 .DS_Store
 .Rproj.user
 .Rhistory
+
+compare_plot/output_data/test_output/*
