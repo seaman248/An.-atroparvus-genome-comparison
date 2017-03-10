@@ -47,23 +47,6 @@ compare_matrix <- function (matches, chrs){
   return(as.matrix(result_matrix))
 }
 
-# # ############################################################
-# genLabels <- function(pos){
-#   pos <- pos[order(pos)]
-#   pos <- pos - min(pos)
-#   pos <- pos / 1000000
-#   
-#   labels <- round(pos, 0)
-#   coords <- labels / max(labels)
-#   
-#   extract <- seq(1, length(pos), 10)
-#   
-#   labels <- list(
-#     labels = labels[extract],
-#     coords = coords[extract]
-#   )
-#   return(labels)
-# }
 
 # ############################################################
 compare_plot <- function (tlist, matches, main_sp=1){
@@ -75,11 +58,6 @@ compare_plot <- function (tlist, matches, main_sp=1){
   
   # Define parameters for plot
   titles <- paste0(names(tlist[main_sp]), '/', names(tlist[-main_sp]))
-  # x_labels <- genLabels(tlist[[main_sp]][,3])
-  # y_labels <- lapply(tlist[-main_sp], function(genes){
-  #   labels <- genLabels(genes[,3])
-  # })
-  # Generate plot for each matrix
   par(mfrow=c(1, length(matrixes_list)))
 
   mapply(function(matrix, title){
