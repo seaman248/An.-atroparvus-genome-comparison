@@ -1,6 +1,7 @@
 library(lattice)
 library(randomcoloR)
 library(fields)
+library(SDMTools)
 # ############################################################
 devide_tables <- function(table){
   sp_tables <- lapply(seq(1, ncol(table), 5), function(range){
@@ -53,7 +54,9 @@ compare_plot <- function (tlist, matches, main_sp=1){
   
   # Make matrixes for generate plot
   matrixes_list <- lapply(names(tlist[-main_sp]), function(sp_name){
-    compare_matrix(matches[[sp_name]], tlist[[sp_name]][,2])
+    m <- compare_matrix(matches[[sp_name]], tlist[[sp_name]][,2])
+    #m <- ConnCompLabel(m)
+    m
   })
   
   # Define parameters for plot
