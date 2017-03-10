@@ -13,6 +13,39 @@ devide_tables <- function(table){
 }
 
 # ############################################################
+findSquareCoords <- function(matrix){
+  library(igraph)
+  library(raster)
+  
+  Rmat <- raster(matrix)
+  Clumps <- as.matrix(clump(Rmat, directions = 8))
+  #turn the clumps into a list
+  tot <- max(Clumps, na.rm=TRUE)
+  
+  lapply(1:tot, function(i){
+    # res <- list(which(Clumps == i, arr.ind = T))
+    res <- as.data.frame(which(Clumps == i, arr.ind = T))
+    rc <- c(
+      (min(res$row)-0.5), #/ dim(matrix)[1],
+      (max(res$row)+0.5), #/ dim(matrix)[1],
+      (min(res$col)-0.5), #/ dim(matrix)[2],
+      (max(res$col)+0.5) #/ dim(matrix)[2]
+    )
+    direction <- sign(sum(diff(res$row)))
+    
+    if(direction == 1){
+      bc = 'blue'
+    } else {
+      bc = 'red'
+    }
+    if(direction != 0){
+      rect(rc[1], rc[3], rc[2], rc[4], border=bc, lwd=0.7)
+    }
+  })
+  #return(res)
+}
+
+# ############################################################
 orth_matches <- function(tlist, main_sp, order){
   # Declare x axis of matrix
   x_genes <- tlist[[main_sp]]
@@ -61,13 +94,24 @@ compare_plot <- function (tlist, matches, main_sp=1){
   
   # Define parameters for plot
   titles <- paste0(names(tlist[main_sp]), '/', names(tlist[-main_sp]))
+  
+  # Draw plots
   par(mfrow=c(1, length(matrixes_list)))
 
   mapply(function(matrix, title){
-    image(matrix, col=c('white', 'black'), axes = F, asp=1)
+    # Draw main image
+    image(as.asc(matrix), col= c('white', 'black'))
+    # Draw axis labels
     # axis(1, labels=x_labels$labels, at=x_labels$coords, las=2, cex=0.3, line=0.3)
     # axis(2, labels=y_labels$labels, at=y_labels$coords, las=1, cex=0.3, line=0.3)
+    segments(0, 0, dim(matrix)[1], dim(matrix)[2], lwd = 0.4, col = 'grey')
+    # Find and draw rectangles
+    findSquareCoords(matrix)
+    
+    # Draw title
     title(title)
+    
+    # Draw color legend
     #image.plot(matrix, legend.only = TRUE, col = colours)
   }, matrixes_list, titles)
 }
