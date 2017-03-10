@@ -97,14 +97,16 @@ compare_plot <- function (tlist, matches, main_sp=1){
   
   # Draw plots
   par(mfrow=c(1, length(matrixes_list)))
+  
+  # Define y_labs
 
   mapply(function(matrix, title){
     # Draw main image
-    image(as.asc(matrix), col= c('white', 'black'))
-    # Draw axis labels
-    # axis(1, labels=x_labels$labels, at=x_labels$coords, las=2, cex=0.3, line=0.3)
-    # axis(2, labels=y_labels$labels, at=y_labels$coords, las=1, cex=0.3, line=0.3)
-    segments(0, 0, dim(matrix)[1], dim(matrix)[2], lwd = 0.4, col = 'grey')
+    image(as.asc(matrix), col= c('white', 'black'), xlab = '', ylab = '')
+    
+    # Draw central diagonal
+    segments(0, 0, dim(matrix)[1], dim(matrix)[2], lwd = 0.4, col = 'black')
+    
     # Find and draw rectangles
     findSquareCoords(matrix)
     

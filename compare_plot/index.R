@@ -3,7 +3,7 @@ source('./compare_plot/load_data.R')
 
 genes_to_compare <- genes.trueorder[genes.trueorder[, 2]==4 & genes.trueorder[, 7]==4 & genes.trueorder[, 12]==4, ]
 genes_to_compare <- genes_to_compare[order(genes_to_compare[,8]*-1),]
-genes_to_compare <- genes_to_compare[1:200,]
+genes_to_compare <- genes_to_compare[1:500,]
 
 e4_orders <- list(
   alb = 1,
@@ -18,3 +18,5 @@ names(tlist) <- c('alb', 'atr', 'gam')
 matches <- orth_matches(tlist, main_sp = 2, order = e4_orders)
 
 compare_plot(tlist, matches, main_sp = 2)
+
+
