@@ -25,7 +25,7 @@ arm_strand <- list(
   gam=c(F, T, F, T, F)
 )
 xlims <- as.list(data.frame(mapply(create_xlims, genes=blocks, strand=arm_strand)))
-
+print(xlims)
 
 # comparisons
 comparisons <- make_comparisons(seqs)
