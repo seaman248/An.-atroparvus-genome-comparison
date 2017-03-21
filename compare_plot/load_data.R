@@ -14,3 +14,5 @@ sps[, c(6, 11, 16, 21)] <- lapply(c(6, 11, 16, 21), function(col_n){
 sps_e4 <- na.omit(sps[sps[, c(3, 8, 13, 18)] == 'e4', ])
 
 sps_e4 <- sps_e4[order(sps_e4[, 9]*-1), ]
+
+devide_tables(sps_e4)
