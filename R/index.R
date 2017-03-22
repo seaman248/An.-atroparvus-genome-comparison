@@ -9,7 +9,7 @@
   
 ### Clean data
   ## Separate file per species
-  lapply(c('albimanus', 'atroparvus', 'gambiae'), function(sp){
+  lapply(c('atroparvus', 'gambiae'), function(sp){
     files <- list.files('./R/Clean')
     file <- paste0('./R/Clean/' ,files[grep(sp, files)])
     source(file, echo=F)

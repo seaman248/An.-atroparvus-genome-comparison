@@ -1,6 +1,6 @@
 make_grimm_command <- function(input='/R/Clean/output_data/GRIMM.txt',
                                output='/R/GRIMM/output_data',
-                               A=T, min_block = 2, gap = '115000',
+                               A=T, min_block = 1, gap = '3000',
                                 grimm_path = '~/Documents/GRIMM_SYNTENY-2.02/grimm_synt'){
   input <- paste0(getwd(), input)
   output <- paste0(getwd(), output)
