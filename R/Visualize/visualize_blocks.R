@@ -21,7 +21,7 @@ seqs <- lapply(blocks, create_seqs)
 # create xlims
 arm_strand <- list(
   alb=c(F, T, F, F, T),
-  atr=c(T, T, T, T, T),
+  atr=c(T, T, F, T, F),
   gam=c(F, T, F, T, F)
 )
 xlims <- as.list(data.frame(mapply(create_xlims, genes=blocks, strand=arm_strand)))

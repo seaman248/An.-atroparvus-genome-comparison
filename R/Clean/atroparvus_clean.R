@@ -7,6 +7,11 @@ atr_genes <- read.csv('./R/Query/output_data/atroparvus_genes.csv')
 # translate coordinates of scaffold to coordinate of chromosomes
 atr_order <- read.csv2('./R/Clean/input_data/atr_order.csv')
 
+for(chr in c('2L', '3L')){
+  m <- which(atr_order$chr == chr)
+  atr_order[m, ] <- atr_order[rev(m), ]
+}
+
 atr_genes <- na.omit(scf_to_chr(atr_genes, atr_order))
 
 rm(atr_order)

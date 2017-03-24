@@ -1,7 +1,7 @@
-Tue Mar  7 10:44:41 2017: Start job
-Tue Mar  7 10:44:41 2017: Scan anchors
-Tue Mar  7 10:44:41 2017: Allocate space
-Tue Mar  7 10:44:41 2017: Read anchors
+Fri Mar 24 15:24:13 2017: Start job
+Fri Mar 24 15:24:13 2017: Scan anchors
+Fri Mar 24 15:24:13 2017: Allocate space
+Fri Mar 24 15:24:13 2017: Read anchors
 Parameters:
 Algorithm:             GRIMM-Anchors
 Input file:            /home/seaman/rproj/full_genome_comparison/R/Secondary_stat/_/e5.txt
@@ -11,16 +11,16 @@ Output directory:      /home/seaman/rproj/full_genome_comparison/R/Secondary_sta
 Tandem repeats         Do not condense
 Ambiguous sign thresh: 0.666667
 
-Tue Mar  7 10:44:41 2017: Sort anchors
-Tue Mar  7 10:44:41 2017: Sorting species 1
-Tue Mar  7 10:44:41 2017: Sorting species 2
-Tue Mar  7 10:44:41 2017: Sorting species 3
-Tue Mar  7 10:44:41 2017: Sort for each species
-Tue Mar  7 10:44:41 2017: Determine conflicting alignments
+Fri Mar 24 15:24:13 2017: Sort anchors
+Fri Mar 24 15:24:13 2017: Sorting species 1
+Fri Mar 24 15:24:13 2017: Sorting species 2
+Fri Mar 24 15:24:13 2017: Sorting species 3
+Fri Mar 24 15:24:13 2017: Sort for each species
+Fri Mar 24 15:24:13 2017: Determine conflicting alignments
 187 conflicts in species 1
 243 conflicts in species 2
 154 conflicts in species 3
-Tue Mar  7 10:44:41 2017: Output anchors and repeats
+Fri Mar 24 15:24:13 2017: Output anchors and repeats
 921 anchors output:
    918 as-is anchors
    3 merged anchors
@@ -32,5 +32,5 @@ Tue Mar  7 10:44:41 2017: Output anchors and repeats
    918 as-is anchors
    3 merged anchors
    216 non-merged repeat families
-Tue Mar  7 10:44:41 2017: Free space
-Tue Mar  7 10:44:41 2017: Done
+Fri Mar 24 15:24:13 2017: Free space
+Fri Mar 24 15:24:13 2017: Done

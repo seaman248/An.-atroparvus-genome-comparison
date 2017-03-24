@@ -91,6 +91,6 @@ RDperMBperMY <- bind_cols(lapply(distance_tables_normalize, function(tab){
 
 # Visualize discance_tables 
 distance_plot <- lapply(distance_tables, tableGrob) 
-text_grobs <- lapply(paste0(elements, ', (mean=', mean_distance,')'), textGrob) 
+text_grobs <- lapply(paste0(elements, ', (mean=', RDperMBperMY[4,],')'), textGrob) 
 
 grid.arrange(grobs=c(distance_plot, text_grobs), nrow=2, ncol=5, heights=unit(c(1,10), c("in", "mm"))) 
