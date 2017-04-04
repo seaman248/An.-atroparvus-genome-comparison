@@ -7,12 +7,15 @@ source('R/Visualize/functions/make_comparison.R')
 
 blocks <- parse_blocks(read.table('./R/GRIMM/output_data/blocks/blocks.txt'))
 
+
 # length to end
 blocks <- lapply(blocks, function(set){
+
+  # length of block to end coordinate
   set$end <- set$start+set$end
+  set$col
   set
 })
-
 
 # create seq
 seqs <- lapply(blocks, create_seqs)

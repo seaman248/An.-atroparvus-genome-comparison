@@ -7,6 +7,6 @@ create_seqs <- function(genes){
     end=genes[,3],
     strand=genes[,4],
     gene_type='blocks',
-    col=unlist(lapply(genes[,4], genCol))
+    col=genes$col
   )))
 }

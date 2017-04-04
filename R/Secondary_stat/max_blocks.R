@@ -21,3 +21,7 @@ top_scfs <- lapply(conservative_genes, function(genset){
 })
 
 unname(unlist(top_scfs))
+
+lapply(conservative_genes, function(cg){
+  write(paste0(cg$ensembl_gene_id, collapse = ','), './R/Secondary_stat/max_blocks.txt', append=T)
+})
