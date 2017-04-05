@@ -46,22 +46,22 @@ findSquareCoords <- function(matrix){
 }
 
 # ############################################################
-orth_matches <- function(tlist, main_sp, order){
+orth_matches <- function(tlist, main_sp){
   # Declare x axis of matrix
   x_genes <- tlist[[main_sp]]
-  x_order <- order[[main_sp]]
-  # Sort x by start coordinate
-  x_sorted <- x_genes[order(x_genes[,3]* x_order), ]
+
+    # Sort x by start coordinate
+  x_sorted <- x_genes[order(x_genes[,3]), ]
   
   # Generate compare matrix for every sp for compare with main sp
-  orth_matches <- mapply(function(y_genes, y_order){
+  orth_matches <- mapply(function(y_genes){
     # Sort y by start coordinate
-    y_sorted <- y_genes[order(y_genes[,3]*y_order), ]
+    y_sorted <- y_genes[order(y_genes[,3]), ]
     
     # Compute matches
     matches <- match(row.names(y_sorted), row.names(x_sorted))
     
-  }, tlist[-main_sp], order[-main_sp], SIMPLIFY = FALSE)
+  }, tlist[-main_sp], SIMPLIFY = FALSE)
   
   return(orth_matches)
 }
@@ -96,7 +96,7 @@ compare_plot <- function (tlist, matches, main_sp=1){
   titles <- paste0(names(tlist[main_sp]), '/', names(tlist[-main_sp]))
   
   # Draw plots
-  par(mfrow=c(1, length(matrixes_list)))
+  #par(mfrow=c(1, length(matrixes_list)))
   
   # Define y_labs
 
