@@ -10,10 +10,8 @@ blocks <- parse_blocks(read.table('./R/GRIMM/output_data/blocks/blocks.txt'))
 
 # length to end
 blocks <- lapply(blocks, function(set){
-
-  # length of block to end coordinate
+  set$col[set$end > 400000] <- 'black'
   set$end <- set$start+set$end
-  set$col
   set
 })
 
