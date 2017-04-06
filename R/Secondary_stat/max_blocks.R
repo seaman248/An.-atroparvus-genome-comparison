@@ -43,7 +43,7 @@ atr_genes_blocks <- lapply(alb_ids_set, function(alb_ids){
 block_coords <- bind_rows(lapply(names(atr_genes_blocks), function(n){
   block_genes <- atr_genes_blocks[[n]]
   scfs <- table(as.character(block_genes[, 2]))
-  scfs <- scfs[scfs>2]
+  scfs <- scfs[scfs>3]
   bind_rows(lapply(names(scfs), function(scf){
     data.frame(
       block = n,
