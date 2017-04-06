@@ -28,14 +28,25 @@ atr_blocks <- apply(UCB, 1, function(ucb_row){
 atr_blocks <- bind_rows(atr_blocks)
 
 exp_mart <- useMart('expression', host=vb_host, dataset = 'vb')
-dev_exp <- getBM(
-  attributes = c('p-value', 'ensembl_gene_id'),
-  filters = c('hyb_annotation_type', 'experiment_id'),
-  values = list(
-    c('DevelopmentalStage'),
-    c(29)
-  ),
-  mart = exp_mart
-)
+
+# dev_exp <- getBM(
+#   attributes = c('p-value', 'ensembl_gene_id'),
+#   filters = c('hyb_annotation_type', 'experiment_id'),
+#   values = list(
+#     c('DevelopmentalStage'),
+#     c(29)
+#   ),
+#   mart = exp_mart
+# )
 
 
+find_coords <- function(apx, scf){
+  atr_scfs <- read.csv2('./R/Clean/input_data/atr_order.csv')
+  length <- atr_scfs[atr_scfs[,2] == scf, 4]
+  start <- UCB[UCB$scf == scf, 3]
+  end <- UCB[UCB$scf == scf, 4]
+  data.frame(
+    start = apx * start / length,
+    end = apx * end / length
+  )
+}
