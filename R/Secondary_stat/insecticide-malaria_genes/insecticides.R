@@ -50,3 +50,20 @@ find_coords <- function(apx, scf){
     end = apx * end / length
   )
 }
+
+agam_scf_loc <- read.csv('./data/agam_scfs_location.csv', stringsAsFactors = F)
+agam_scf_loc <- agam_scf_loc[agam_scf_loc[, 2] != '' & agam_scf_loc[, 2] != 'Unknown', ]
+agam_scf_loc[, 1] <- paste0('supercont1.', agam_scf_loc[, 1])
+
+apply(UCB, 1, function(row){
+  df <- getBM(
+    attributes = c('aaegypti_eg_chromosome'),
+    filters = c('chromosomal_region'),
+    values = paste0(c(row[-1], 1), collapse = ':'),
+    mart = genes_mart
+  )
+  res <- table(agam_scf_loc[which(!is.na(match(agam_scf_loc[, 1], unique(df[, 1])))), 2])
+  res['block'] <- row[1]
+  res
+})
+
