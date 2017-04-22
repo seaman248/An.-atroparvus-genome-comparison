@@ -2,17 +2,12 @@ library(dplyr)
 
 
 ###
-
-
-atr_blocks <- read.table('./R/GRIMM/output_data/blocks/blocks.txt')[,c(6:9)]
 atr_grimm <- read.table('./R/Clean/output_data/GRIMM.txt', stringsAsFactors = F)[, c(1, 6:9)]
 orthologs <- read.csv2('./R/Query/output_data/orthologs.csv', stringsAsFactors = F)
 
 alb_genes <- read.csv('./R/Query/output_data/albimanus_genes.csv')
 atr_genes <- read.csv('./R/Query/output_data/atroparvus_genes.csv')
 gam_genes <- read.csv('./R/Query/output_data/gambiae_genes.csv')
-
-topmost_blocks <- atr_blocks[atr_blocks[,3] > 1000000, ]
 
 atr_grimm <- transform(atr_grimm, V7 = as.numeric(V7), V8 = as.numeric(V8), V9 = as.numeric(V9))
 
@@ -39,6 +34,8 @@ atr_genes_blocks <- lapply(alb_ids_set, function(alb_ids){
 })
 
 # Находим точные координаты консервативных блоков у An. atroparvus
+
+names(atr_genes_blocks) <- rownames(atr_blocks[match(topmost_blocks$V8, atr_blocks$V8), ])
 
 block_coords <- bind_rows(lapply(names(atr_genes_blocks), function(n){
   block_genes <- atr_genes_blocks[[n]]

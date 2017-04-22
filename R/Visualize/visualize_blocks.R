@@ -10,14 +10,15 @@ blocks <- parse_blocks(read.table('./R/GRIMM/output_data/blocks/blocks.txt'))
 
 # length to end
 blocks <- lapply(blocks, function(set){
-  set$col[set$end > 1000000] <- 'black'
+  set$strand <- set$strand * blocks[[2]][4]
+  set$col[set$strand == -1] <- 'red'
+  set$col[set$strand == 1] <- 'blue'
   set$end <- set$start+set$end
   set
 })
 
 # create seq
 seqs <- lapply(blocks, create_seqs)
-
 
 # create xlims
 arm_strand <- list(
