@@ -2,7 +2,7 @@ library(dplyr)
 
 
 ###
-atr_grimm <- read.table('./R/Clean/output_data/GRIMM.txt', stringsAsFactors = F)[, c(1, 6:9)]
+atr_grimm <- read.table('./R/Clean/output_data/GRIMM.txt', stringsAsFactors = F, header = T)[, c(1, 6:9)]
 orthologs <- read.csv2('./R/Query/output_data/orthologs.csv', stringsAsFactors = F)
 
 alb_genes <- read.csv('./R/Query/output_data/albimanus_genes.csv')
