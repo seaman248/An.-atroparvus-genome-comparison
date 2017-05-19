@@ -6,7 +6,7 @@ create_seqs <- function(genes){
     start=genes[,2],
     end=genes[,3],
     strand=genes[,4],
-    gene_type='blocks',
-    col=genes$col
+    gene_type='side_blocks'
+    #, col=genes$col
   )))
 }

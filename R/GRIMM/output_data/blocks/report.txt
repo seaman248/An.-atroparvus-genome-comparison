@@ -1,7 +1,7 @@
-Tue Apr  4 15:49:06 2017: Start job
-Tue Apr  4 15:49:06 2017: Scan anchors
-Tue Apr  4 15:49:06 2017: Allocate space
-Tue Apr  4 15:49:06 2017: Read anchors
+Thu May 18 11:50:50 2017: Start job
+Thu May 18 11:50:50 2017: Scan anchors
+Thu May 18 11:50:50 2017: Allocate space
+Thu May 18 11:50:50 2017: Read anchors
 Parameters:
 Algorithm:             GRIMM-Synteny
 Input file:            /home/seaman/rproj/full_genome_comparison/R/GRIMM/output_data/anchors/unique_coords.txt
@@ -24,16 +24,16 @@ Overlaps/containments: Repair
 Formatting:            Matlab friendly
 Permutation complexity
   Reject RS cells      
-Tue Apr  4 15:49:06 2017: Form components
-Tue Apr  4 15:49:06 2017: Determine component coordinates
-Tue Apr  4 15:49:06 2017: Filter out small components
-Tue Apr  4 15:49:06 2017: Sort anchors by component then species
-Tue Apr  4 15:49:06 2017: Determine signs of blocks
+Thu May 18 11:50:50 2017: Form components
+Thu May 18 11:50:50 2017: Determine component coordinates
+Thu May 18 11:50:50 2017: Filter out small components
+Thu May 18 11:50:50 2017: Sort anchors by component then species
+Thu May 18 11:50:50 2017: Determine signs of blocks
 Block 45, species 3: r=0.089994 but combinatorial sign=-1
  e1 6007003 17957 1 e1 6630906 29521 -1 e1 14272803 45986 -1
 Block 940, species 3: r=-0.248063 but combinatorial sign=1
  e5 168421221 145855 1 e4 59759949 216517 -1 e3 88940413 251901 1
-Tue Apr  4 15:49:06 2017: Block overlap analysis
+Thu May 18 11:50:50 2017: Block overlap analysis
 Overlap: Block 6 overlaps 7 in species 1
  e1 569050 40141 1 e1 15015231 37058 -1 e1 9874701 51521 -1
  e1 582193 41181 1 e1 14982245 27680 1 e1 212901 38909 1
@@ -138,16 +138,16 @@ Containment: Block 742 contains block 743 in species 3, anchor counts (4,0,5), s
  e4 127922352 142227 1 e4 20286413 145472 1 e4 145751354 198955 -1
  e4 128064777 8071 1 e4 37919560 9170 -1 e4 145793235 10706 1
 
-Tue Apr  4 15:49:06 2017: Blocks were split, must recompute several steps
-Tue Apr  4 15:49:06 2017: Determine component coordinates
-Tue Apr  4 15:49:06 2017: Filter out small components
-Tue Apr  4 15:49:06 2017: Sort anchors by component then species
-Tue Apr  4 15:49:06 2017: Determine signs of blocks
+Thu May 18 11:50:50 2017: Blocks were split, must recompute several steps
+Thu May 18 11:50:50 2017: Determine component coordinates
+Thu May 18 11:50:50 2017: Filter out small components
+Thu May 18 11:50:50 2017: Sort anchors by component then species
+Thu May 18 11:50:50 2017: Determine signs of blocks
 Block 45, species 3: r=0.089994 but combinatorial sign=-1
  e1 6007003 17957 1 e1 6630906 29521 -1 e1 14272803 45986 -1
 Block 943, species 3: r=-0.248063 but combinatorial sign=1
  e5 168421221 145855 1 e4 59759949 216517 -1 e3 88940413 251901 1
-Tue Apr  4 15:49:06 2017: Block overlap analysis
+Thu May 18 11:50:50 2017: Block overlap analysis
 Overlap: Block 7 overlaps 8 in species 1
  e1 569050 40141 1 e1 15015231 37058 -1 e1 9874701 51521 -1
  e1 582193 41181 1 e1 14982245 27680 1 e1 212901 38909 1
@@ -200,15 +200,15 @@ Overlap: Block 758 overlaps 598 in species 3
  e4 131655619 26927 1 e4 48756976 33163 -1 e4 136473895 68224 -1
  e4 99749841 30320 1 e4 48801892 42610 1 e4 136482818 66086 1
 
-Tue Apr  4 15:49:06 2017: Condensing strips of consecutive blocks
-Tue Apr  4 15:49:06 2017: Blocks were condensed, must recompute several steps
-Tue Apr  4 15:49:06 2017: Determine component coordinates
-Tue Apr  4 15:49:06 2017: Filter out small components
-Tue Apr  4 15:49:06 2017: Sort anchors by component then species
-Tue Apr  4 15:49:06 2017: Determine signs of blocks
+Thu May 18 11:50:50 2017: Condensing strips of consecutive blocks
+Thu May 18 11:50:50 2017: Blocks were condensed, must recompute several steps
+Thu May 18 11:50:50 2017: Determine component coordinates
+Thu May 18 11:50:50 2017: Filter out small components
+Thu May 18 11:50:50 2017: Sort anchors by component then species
+Thu May 18 11:50:50 2017: Determine signs of blocks
 Block 44, species 3: r=0.089994 but combinatorial sign=-1
  e1 6007003 17957 1 e1 6630906 29521 -1 e1 14272803 45986 -1
-Tue Apr  4 15:49:06 2017: Block overlap analysis
+Thu May 18 11:50:50 2017: Block overlap analysis
 Overlap: Block 7 overlaps 8 in species 1
  e1 569050 40141 1 e1 15015231 37058 -1 e1 9874701 51521 -1
  e1 582193 41181 1 e1 14982245 27680 1 e1 212901 38909 1
@@ -261,7 +261,7 @@ Overlap: Block 627 overlaps 505 in species 3
  e4 131655619 26927 1 e4 48756976 33163 -1 e4 136473895 68224 -1
  e4 99749841 30320 1 e4 48801892 42610 1 e4 136482818 66086 1
 
-Tue Apr  4 15:49:06 2017: Microrearrangement analysis
+Thu May 18 11:50:50 2017: Microrearrangement analysis
 Block lengths and support are genome-by-genome.
 Other parameters are a below-the-diagonal triangular genome vs. genome matrix
 printed in 1 row.
@@ -9550,7 +9550,7 @@ Totals: 5040 anchors in 773 blocks
   # fortresses       |    0 |    0    0 
   # reuses           |    0 |    0    0 
 
-Tue Apr  4 15:49:06 2017: Macrorearrangement analysis
+Thu May 18 11:50:50 2017: Macrorearrangement analysis
 Macrorearrangement analysis
 # species:              3
 # blocks:               773
@@ -9610,8 +9610,8 @@ Number of breakpoint reuses Matrix:
   315    0  182
   410  182    0
 
-Tue Apr  4 15:49:06 2017: MGR microrearrangement files
-Tue Apr  4 15:49:06 2017: Breakpoint graph complexity analysis TODO
-Tue Apr  4 15:49:06 2017: Nadeau-Taylor model tests TODO
-Tue Apr  4 15:49:06 2017: Free space
-Tue Apr  4 15:49:06 2017: Done
+Thu May 18 11:50:50 2017: MGR microrearrangement files
+Thu May 18 11:50:50 2017: Breakpoint graph complexity analysis TODO
+Thu May 18 11:50:50 2017: Nadeau-Taylor model tests TODO
+Thu May 18 11:50:50 2017: Free space
+Thu May 18 11:50:50 2017: Done
