@@ -53,6 +53,15 @@ distance_tables <- lapply(GRIMM_reports, function(report){
 }) 
 names(distance_tables) <- elements
 
+# Extract reusage tables
+reusage_tables <- lapply(GRIMM_reports, function(report){
+  report <- report[[1]]
+  reusage_row <- grep('Number of breakpoint reuses Matrix', report)
+  
+  rows_with_table <- (reusage_row+1):(reusage_row+3)
+  reusage_table <- matrix(report[rows_with_table], nrow = 3)
+})
+
 # Normalize distance tables
 
 lengths <- lapply(elements, function(el){
