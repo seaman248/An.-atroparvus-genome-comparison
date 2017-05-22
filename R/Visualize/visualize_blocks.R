@@ -57,51 +57,23 @@ xlims <- lapply(names(blocks), function(sp){
 })
 
 comparisons <- lapply(1:(length(seqs)-1), function(n){
+  bold <- 200
+  
+  start1 <- middle(seqs[[n]]) - bold/2
+  end1 <- middle(seqs[[n]]) + bold/2
+  start2 <- middle(seqs[[n+1]]) - bold/2
+  end2 <- middle(seqs[[n+1]]) + bold/2
+  
   comp <- data.frame(
-    start1 = seqs[[n]]$start, end1 = seqs[[n]]$end,
-    start2 = seqs[[n+1]]$start, end2 = seqs[[n+1]]$end
+    start1 = start1, end1 = end1,
+    start2 = start2, end2 = end2
   )
-  comp$col <- 'grey'
+  comp$col <- 'blue'
+  comp$col[seqs[[n]]$strand != seqs[[n+1]]$strand] <- 'red'
   comparison(comp)
 })
 
-# names(blocks) <- c('alb', 'atr', 'gam')
-# 
-# # create seq
-# seqs <- lapply(blocks, create_seqs)
-# 
-# # create xlims
-# 
-# xlims <- lapply(names(blocks), function(sp){
-#   coords <- blocks[[sp]] %>%
-#     group_by(chr) %>%
-#     summarise(start = min(start), end = as.numeric(max(end)))
-#   
-#   coords <- as.data.frame(coords)
-#   
-#   rows_to_change <- arm_strand[[sp]]
-# 
-#   coords[rows_to_change, c(2, 3)] <- coords[rows_to_change, c(3, 2)]
-# 
-#   as.vector(t(as.matrix(coords[, c(2, 3)])))[c(9, 10)]
-# })
-# 
-# names(xlims) <- names(blocks)
-# 
-# # comparisons
-# comparisons <- make_comparisons(seqs)
-# 
-# comparisons <- lapply(1:(length(blocks)-1), function(n){
-#   coords <- data.frame(
-#     start1 = blocks[[n]]$start, end1 = blocks[[n]]$end,
-#     start2 = blocks[[n+1]]$start, end2 = blocks[[n+1]]$end
-#   )
-#   coords$col <- 'grey'
-#   coords$col[blocks[[n]]$chr != blocks[[n+1]]$chr] <- 'red'
-#   coords$direction <- 1
-#   comparison(coords)
-# })
-# 
+
 # # visualize
 
 plot_gene_map(
