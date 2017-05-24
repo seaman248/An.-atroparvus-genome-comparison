@@ -1,36 +1,34 @@
-Thu May 18 11:50:49 2017: Start job
-Thu May 18 11:50:49 2017: Scan anchors
-Thu May 18 11:50:49 2017: Allocate space
-Thu May 18 11:50:49 2017: Read anchors
+Tue May 23 14:41:37 2017: Start job
+Tue May 23 14:41:37 2017: Scan anchors
+Tue May 23 14:41:37 2017: Allocate space
+Tue May 23 14:41:37 2017: Read anchors
 Parameters:
 Algorithm:             GRIMM-Anchors
 Input file:            /home/seaman/rproj/full_genome_comparison/R/Clean/output_data/GRIMM.txt
-  # species:           3
+  # species:           2
   # alignments:        9658
 Output directory:      /home/seaman/rproj/full_genome_comparison/R/GRIMM/output_data/anchors
 Tandem repeats         Do not condense
 Ambiguous sign thresh: 0.666667
 
-Thu May 18 11:50:49 2017: Sort anchors
-Thu May 18 11:50:49 2017: Sorting species 1
-Thu May 18 11:50:49 2017: Sorting species 2
-Thu May 18 11:50:49 2017: Sorting species 3
-Thu May 18 11:50:49 2017: Sort for each species
-Thu May 18 11:50:49 2017: Determine conflicting alignments
-1812 conflicts in species 1
-2041 conflicts in species 2
-1585 conflicts in species 3
-Thu May 18 11:50:49 2017: Output anchors and repeats
-5620 anchors output:
-   5580 as-is anchors
-   40 merged anchors
-   Used 5673 input alignments for those
-1336 repeats output:
-   40 merged anchors
-   1296 non-merged repeat families
-6916 components:
-   5580 as-is anchors
-   40 merged anchors
-   1296 non-merged repeat families
-Thu May 18 11:50:49 2017: Free space
-Thu May 18 11:50:49 2017: Done
+Tue May 23 14:41:37 2017: Sort anchors
+Tue May 23 14:41:37 2017: Sorting species 1
+Tue May 23 14:41:37 2017: Sorting species 2
+Tue May 23 14:41:37 2017: Sort for each species
+Tue May 23 14:41:37 2017: Determine conflicting alignments
+2041 conflicts in species 1
+1585 conflicts in species 2
+Tue May 23 14:41:37 2017: Output anchors and repeats
+6112 anchors output:
+   5993 as-is anchors
+   119 merged anchors
+   Used 6356 input alignments for those
+1130 repeats output:
+   119 merged anchors
+   1011 non-merged repeat families
+7123 components:
+   5993 as-is anchors
+   119 merged anchors
+   1011 non-merged repeat families
+Tue May 23 14:41:37 2017: Free space
+Tue May 23 14:41:37 2017: Done

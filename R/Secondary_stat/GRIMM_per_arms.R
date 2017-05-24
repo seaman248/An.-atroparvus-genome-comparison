@@ -1,4 +1,4 @@
-library(gridExtra) 
+# library(gridExtra) 
 library(grid)
 library(dplyr)
 
@@ -6,6 +6,8 @@ source('./R/GRIMM/functions/make_grimm_command.R')
 
 GRIMMtable.full <- read.table('./R/Clean/output_data/GRIMM.txt', header = TRUE) 
 genome_size <- read.csv('./R/Secondary_stat/input_data/genomes_size.csv')[,-1]
+
+sps <- c('atr', 'gam')
 
 elements <- paste0('e', c(1:5))
 row.names(genome_size) <- elements
@@ -47,8 +49,8 @@ distance_tables <- lapply(GRIMM_reports, function(report){
   con <- textConnection(distance_table) 
   table <- read.table(con) 
   close(con) 
-  names(table) <- c('alb', 'atr', 'gam') 
-  rownames(table) <- c('alb', 'atr', 'gam') 
+  names(table) <- sps
+  rownames(table) <- sps
   return(table) 
 }) 
 names(distance_tables) <- elements
@@ -73,33 +75,46 @@ lengths <- lapply(elements, function(el){
 
 names(lengths) <- elements
 
-distance_tables_normalize <- lapply(elements, function(el){
-  dist_table <- distance_tables[[el]]
-  data.frame(
-    atr_gam = round(dist_table[2, 3] / lengths[[el]]$atr, digits = 2),
-    atr_alb = round(dist_table[1, 2] / lengths[[el]]$atr, digits = 2),
-    alb_gam = round(dist_table[1, 3] / lengths[[el]]$alb, digits = 2)
-  )
-})
+# distance_tables_normalize <- lapply(elements, function(el){
+#   dist_table <- distance_tables[[el]]
+#   data.frame(
+#     atr_gam = round(dist_table[2, 3] / lengths[[el]]$atr, digits = 2),
+#     atr_alb = round(dist_table[1, 2] / lengths[[el]]$atr, digits = 2),
+#     alb_gam = round(dist_table[1, 3] / lengths[[el]]$alb, digits = 2)
+#   )
+# })
+# 
+# # Calculate mean normalize reverse distance 
+# RDperMB <- bind_cols(lapply(distance_tables_normalize, function(tab){
+#   tab$mean <- mean(unlist(tab[1, 1:3]))
+#   tab <- round(tab, digits = 2)
+#   as.data.frame(t(tab))
+# }))
 
-# Calculate mean normalize reverse distance 
-RDperMB <- bind_cols(lapply(distance_tables_normalize, function(tab){
-  tab$mean <- mean(unlist(tab[1, 1:3]))
-  tab <- round(tab, digits = 2)
-  as.data.frame(t(tab))
-}))
-
-RDperMBperMY <- bind_cols(lapply(distance_tables_normalize, function(tab){
-  tab[1,1] <- tab[1,1] / 58
-  tab[1,2] <- tab[1,2] / 100
-  tab[1,3] <- tab[1,3] / 100
-  tab$mean <- mean(unlist(tab[1, 1:3]))
-  tab <- round(tab, digits = 3)
-  as.data.frame(t(tab))
-}))
+# RDperMBperMY <- bind_cols(lapply(distance_tables_normalize, function(tab){
+#   tab[1,1] <- tab[1,1] / 58
+#   tab[1,2] <- tab[1,2] / 100
+#   tab[1,3] <- tab[1,3] / 100
+#   tab$mean <- mean(unlist(tab[1, 1:3]))
+#   tab <- round(tab, digits = 3)
+#   as.data.frame(t(tab))
+# }))
 
 # Visualize discance_tables 
-distance_plot <- lapply(distance_tables, tableGrob) 
-text_grobs <- lapply(paste0(elements, ', (mean=', RDperMBperMY[4,],')'), textGrob) 
+# distance_plot <- lapply(distance_tables, tableGrob) 
+# text_grobs <- lapply(paste0(elements, ', (mean=', RDperMBperMY[4,],')'), textGrob) 
+# 
+# grid.arrange(grobs=c(distance_plot, text_grobs), nrow=2, ncol=5, heights=unit(c(1,10), c("in", "mm"))) 
 
-grid.arrange(grobs=c(distance_plot, text_grobs), nrow=2, ncol=5, heights=unit(c(1,10), c("in", "mm"))) 
+
+bind_cols(lapply(GRIMM_reports, function(report){
+  report <- report[[1]]
+  anchors_text <- report[grep('\\: \\d anchors', report)]
+  
+  blocks_lengths <- as.numeric(sapply(strsplit(anchors_text, ' '), '[', 3))
+  
+  data.frame(
+    n = length(blocks_lengths),
+    blocks_length = round(mean(blocks_lengths), 2)
+  )
+}))

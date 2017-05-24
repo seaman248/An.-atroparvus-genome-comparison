@@ -29,7 +29,16 @@ genes.trueorder <- bind_cols(lapply(names(orths), function(sp_name){
 
 genes.trueorder <- na.omit(genes.trueorder)
 
-GRIMM.table <- genes.trueorder[,c(1:5, 7:10, 12:15)]
+alb_range <- 2:5
+atr_range <- 7:10
+gam_range <- 12:15
+
+GRIMM.table <- genes.trueorder[,c(
+  1,
+  alb_range,
+  atr_range
+  # gam_range
+)]
 
 write.table(GRIMM.table, './R/Clean/output_data/GRIMM.txt', row.names = F, quote = F)
 

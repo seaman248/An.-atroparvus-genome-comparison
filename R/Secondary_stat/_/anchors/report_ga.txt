@@ -1,36 +1,34 @@
-Fri May 19 12:57:22 2017: Start job
-Fri May 19 12:57:22 2017: Scan anchors
-Fri May 19 12:57:22 2017: Allocate space
-Fri May 19 12:57:22 2017: Read anchors
+Tue May 23 14:58:50 2017: Start job
+Tue May 23 14:58:50 2017: Scan anchors
+Tue May 23 14:58:50 2017: Allocate space
+Tue May 23 14:58:50 2017: Read anchors
 Parameters:
 Algorithm:             GRIMM-Anchors
 Input file:            /home/seaman/rproj/full_genome_comparison/R/Secondary_stat/_/e5.txt
-  # species:           3
+  # species:           2
   # alignments:        1474
 Output directory:      /home/seaman/rproj/full_genome_comparison/R/Secondary_stat/_//anchors
 Tandem repeats         Do not condense
 Ambiguous sign thresh: 0.666667
 
-Fri May 19 12:57:22 2017: Sort anchors
-Fri May 19 12:57:22 2017: Sorting species 1
-Fri May 19 12:57:22 2017: Sorting species 2
-Fri May 19 12:57:22 2017: Sorting species 3
-Fri May 19 12:57:22 2017: Sort for each species
-Fri May 19 12:57:22 2017: Determine conflicting alignments
+Tue May 23 14:58:50 2017: Sort anchors
+Tue May 23 14:58:50 2017: Sorting species 1
+Tue May 23 14:58:50 2017: Sorting species 2
+Tue May 23 14:58:50 2017: Sort for each species
+Tue May 23 14:58:50 2017: Determine conflicting alignments
 187 conflicts in species 1
 243 conflicts in species 2
-154 conflicts in species 3
-Fri May 19 12:57:22 2017: Output anchors and repeats
-921 anchors output:
-   918 as-is anchors
-   3 merged anchors
-   Used 924 input alignments for those
-219 repeats output:
-   3 merged anchors
-   216 non-merged repeat families
-1137 components:
-   918 as-is anchors
-   3 merged anchors
-   216 non-merged repeat families
-Fri May 19 12:57:22 2017: Free space
-Fri May 19 12:57:22 2017: Done
+Tue May 23 14:58:50 2017: Output anchors and repeats
+1008 anchors output:
+   996 as-is anchors
+   12 merged anchors
+   Used 1070 input alignments for those
+168 repeats output:
+   12 merged anchors
+   156 non-merged repeat families
+1164 components:
+   996 as-is anchors
+   12 merged anchors
+   156 non-merged repeat families
+Tue May 23 14:58:50 2017: Free space
+Tue May 23 14:58:50 2017: Done
