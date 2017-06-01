@@ -10,7 +10,7 @@ names(blocks) <- c('alb', 'atr', 'gam')
 
 c_left_arms <- list(
   alb = c(1, -1, 1, 1, -1),
-  atr = c(-1, -1, 1, -1, 1),
+  atr = c(1, -1, 1, -1, 1),
   gam = c(1, -1, 1, -1, 1)
 )
 

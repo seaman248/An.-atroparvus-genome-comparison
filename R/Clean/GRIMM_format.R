@@ -35,7 +35,8 @@ gam_range <- 12:15
 
 GRIMM.table <- genes.trueorder[,c(
   1,
-  alb_range,
+  gam_range,
+  # alb_range,
   atr_range
   # gam_range
 )]
