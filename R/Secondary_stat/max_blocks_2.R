@@ -4,7 +4,7 @@ library(biomaRt)
 
 report <- readLines('./R/GRIMM/output_data/blocks/report.txt')
 results <- read.table('./R/GRIMM/output_data/blocks/blocks.txt')
-anchors <- read.table('./R/GRIMM/output_data/anchors/unique_coords.txt')
+anchors <- read.table('./R/GRIMM/output_data/anchors/unique_coords.txt', header = T)
 
 
 orthologs <- read.csv2('./R/Query/output_data/orthologs.csv')
@@ -52,13 +52,15 @@ getmode <- function(v) {
 }
 
 atr_coords <- bind_rows(apply(big_blocks, 1, function(row){
+  sp2_anchors_rows <- match(anchors$X0.3, genes[[sp2]][, 3])
+  
   block_genes <- genes[[sp2]] %>%
-    filter(start_position >= row[7], end_position <= row[8]) %>%
-    filter(chromosome_name == getmode(chromosome_name)) %>%
+    slice(sp2_anchors_rows) %>%
+    filter(start_position >= row[7], end_position <= row[8], chromosome_name == row[6]) %>%
     arrange(start_position)
   
   scfs <- scfs_coords[[sp2]][match(block_genes[, 1], scfs_coords[[sp2]][, 1]), c(2, 3, 4)]
-  
+
   coords <- scfs %>%
     group_by(chromosome_name) %>%
     summarise(start = min(start_position), end = max(end_position), block = row[1]) %>%
@@ -68,17 +70,22 @@ atr_coords <- bind_rows(apply(big_blocks, 1, function(row){
 }))
 
 sp1_coords <- bind_rows(apply(big_blocks, 1, function(row){
+
+  sp1_anchors_rows <-match(anchors$X0.1, genes[[sp1]][, 3])
+  
   block_genes <- genes[[sp1]] %>%
-    filter(start_position >= row[3], end_position <= row[4]) %>%
-    filter(chromosome_name == getmode(chromosome_name)) %>%
+    slice(sp1_anchors_rows) %>%
+    filter(start_position >= row[3], end_position <= row[4], chromosome_name == row[2]) %>%
     arrange(start_position) %>%
     summarise(chr = unique(chromosome_name), start = min(start_position), end = max(end_position), block = row[1]) %>%
     mutate(coords = paste0(chr, ':', start, '-', end))
+  
   block_genes['coords']
+  
 }))
 
 result_table <- bind_cols(atr_coords, sp1_coords, big_blocks)[, c(1, 2, 3, 13)]
-colnames(result_table) <- c('block_id', 'atr_coords', 'gam_coords', 'anchors')
+colnames(result_table) <- c('block_id', 'atr_coords', paste0(sp1, '_coords'), 'anchors')
 
 write.csv2(result_table, paste0('./R/Secondary_stat/output_data/', sp2, '-', sp1, '-big_blocks.csv'), quote = F)
 

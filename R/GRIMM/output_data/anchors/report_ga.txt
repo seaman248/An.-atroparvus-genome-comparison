@@ -1,7 +1,7 @@
-Thu Jun  1 16:01:18 2017: Start job
-Thu Jun  1 16:01:18 2017: Scan anchors
-Thu Jun  1 16:01:18 2017: Allocate space
-Thu Jun  1 16:01:18 2017: Read anchors
+Fri Jun  2 11:16:02 2017: Start job
+Fri Jun  2 11:16:02 2017: Scan anchors
+Fri Jun  2 11:16:02 2017: Allocate space
+Fri Jun  2 11:16:02 2017: Read anchors
 Parameters:
 Algorithm:             GRIMM-Anchors
 Input file:            /home/seaman/rproj/full_genome_comparison/R/Clean/output_data/GRIMM.txt
@@ -11,14 +11,14 @@ Output directory:      /home/seaman/rproj/full_genome_comparison/R/GRIMM/output_
 Tandem repeats         Do not condense
 Ambiguous sign thresh: 0.666667
 
-Thu Jun  1 16:01:18 2017: Sort anchors
-Thu Jun  1 16:01:18 2017: Sorting species 1
-Thu Jun  1 16:01:18 2017: Sorting species 2
-Thu Jun  1 16:01:18 2017: Sort for each species
-Thu Jun  1 16:01:18 2017: Determine conflicting alignments
+Fri Jun  2 11:16:02 2017: Sort anchors
+Fri Jun  2 11:16:02 2017: Sorting species 1
+Fri Jun  2 11:16:02 2017: Sorting species 2
+Fri Jun  2 11:16:02 2017: Sort for each species
+Fri Jun  2 11:16:02 2017: Determine conflicting alignments
 1812 conflicts in species 1
 2041 conflicts in species 2
-Thu Jun  1 16:01:18 2017: Output anchors and repeats
+Fri Jun  2 11:16:02 2017: Output anchors and repeats
 6141 anchors output:
    6035 as-is anchors
    106 merged anchors
@@ -30,5 +30,5 @@ Thu Jun  1 16:01:18 2017: Output anchors and repeats
    6035 as-is anchors
    106 merged anchors
    979 non-merged repeat families
-Thu Jun  1 16:01:18 2017: Free space
-Thu Jun  1 16:01:18 2017: Done
+Fri Jun  2 11:16:02 2017: Free space
+Fri Jun  2 11:16:02 2017: Done
