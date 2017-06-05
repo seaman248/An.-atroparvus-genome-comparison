@@ -1,6 +1,4 @@
 library(dplyr)
-library(ggplot2)
-library(biomaRt)
 
 report <- readLines('./R/GRIMM/output_data/blocks/report.txt')
 results <- read.table('./R/GRIMM/output_data/blocks/blocks.txt')
