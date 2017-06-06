@@ -1,7 +1,7 @@
 library(dplyr)
 
 # load clean table for every sp
-active_sps <- c('alb', 'atr')
+active_sps <- c('gam', 'atr')
 
 genes.list <- lapply(active_sps, function(sp){
   data.folder <- './R/Clean/output_data/'

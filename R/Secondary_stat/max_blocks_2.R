@@ -101,10 +101,10 @@ sp1_coords <- bind_rows(apply(big_blocks, 1, function(row){
     # mutate(coords = paste0(chr, ':', start, '-', end))
 }))
 
-result_table <- bind_cols(atr_coords, sp1_coords, big_blocks)[, c(1, 2, 3, 13)]
+result_table <- bind_cols(atr_coords, sp1_coords, big_blocks)[, c(1, 2, 7, 17)]
 colnames(result_table) <- c('block_id', 'atr_coords', paste0(sp1, '_coords'), 'anchors')
 
-# write.csv2(result_table, paste0('./R/Secondary_stat/output_data/', sp2, '-', sp1, '-big_blocks.csv'), quote = F)
+write.csv2(result_table, paste0('./R/Secondary_stat/output_data/', sp2, '-', sp1, '-big_blocks.csv'), quote = F)
 
 # run
 # source('./R/Clean/GRIMM_format.R')

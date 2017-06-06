@@ -1,34 +1,34 @@
-Fri Jun  2 11:16:02 2017: Start job
-Fri Jun  2 11:16:02 2017: Scan anchors
-Fri Jun  2 11:16:02 2017: Allocate space
-Fri Jun  2 11:16:02 2017: Read anchors
+Tue Jun  6 14:11:16 2017: Start job
+Tue Jun  6 14:11:16 2017: Scan anchors
+Tue Jun  6 14:11:17 2017: Allocate space
+Tue Jun  6 14:11:17 2017: Read anchors
 Parameters:
 Algorithm:             GRIMM-Anchors
 Input file:            /home/seaman/rproj/full_genome_comparison/R/Clean/output_data/GRIMM.txt
   # species:           2
-  # alignments:        9658
+  # alignments:        9714
 Output directory:      /home/seaman/rproj/full_genome_comparison/R/GRIMM/output_data/anchors
 Tandem repeats         Do not condense
 Ambiguous sign thresh: 0.666667
 
-Fri Jun  2 11:16:02 2017: Sort anchors
-Fri Jun  2 11:16:02 2017: Sorting species 1
-Fri Jun  2 11:16:02 2017: Sorting species 2
-Fri Jun  2 11:16:02 2017: Sort for each species
-Fri Jun  2 11:16:02 2017: Determine conflicting alignments
-1812 conflicts in species 1
-2041 conflicts in species 2
-Fri Jun  2 11:16:02 2017: Output anchors and repeats
-6141 anchors output:
-   6035 as-is anchors
-   106 merged anchors
-   Used 6477 input alignments for those
-1085 repeats output:
-   106 merged anchors
-   979 non-merged repeat families
-7120 components:
-   6035 as-is anchors
-   106 merged anchors
-   979 non-merged repeat families
-Fri Jun  2 11:16:02 2017: Free space
-Fri Jun  2 11:16:02 2017: Done
+Tue Jun  6 14:11:17 2017: Sort anchors
+Tue Jun  6 14:11:17 2017: Sorting species 1
+Tue Jun  6 14:11:17 2017: Sorting species 2
+Tue Jun  6 14:11:17 2017: Sort for each species
+Tue Jun  6 14:11:17 2017: Determine conflicting alignments
+1614 conflicts in species 1
+2070 conflicts in species 2
+Tue Jun  6 14:11:17 2017: Output anchors and repeats
+6128 anchors output:
+   6010 as-is anchors
+   118 merged anchors
+   Used 6376 input alignments for those
+1136 repeats output:
+   118 merged anchors
+   1018 non-merged repeat families
+7146 components:
+   6010 as-is anchors
+   118 merged anchors
+   1018 non-merged repeat families
+Tue Jun  6 14:11:17 2017: Free space
+Tue Jun  6 14:11:17 2017: Done
