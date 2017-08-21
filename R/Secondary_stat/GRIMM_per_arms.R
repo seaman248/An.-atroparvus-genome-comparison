@@ -7,7 +7,7 @@ source('./R/GRIMM/functions/make_grimm_command.R')
 GRIMMtable.full <- read.table('./R/Clean/output_data/GRIMM.txt', header = TRUE) 
 genome_size <- read.csv('./R/Secondary_stat/input_data/genomes_size.csv')[,-1]
 
-sps <- c('atr', 'gam')
+sps <- active_sps
 
 elements <- paste0('e', c(1:5))
 row.names(genome_size) <- elements

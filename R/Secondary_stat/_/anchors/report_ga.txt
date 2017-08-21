@@ -1,34 +1,34 @@
-Tue May 23 14:58:50 2017: Start job
-Tue May 23 14:58:50 2017: Scan anchors
-Tue May 23 14:58:50 2017: Allocate space
-Tue May 23 14:58:50 2017: Read anchors
+Tue Jun  6 16:13:49 2017: Start job
+Tue Jun  6 16:13:49 2017: Scan anchors
+Tue Jun  6 16:13:49 2017: Allocate space
+Tue Jun  6 16:13:49 2017: Read anchors
 Parameters:
 Algorithm:             GRIMM-Anchors
 Input file:            /home/seaman/rproj/full_genome_comparison/R/Secondary_stat/_/e5.txt
   # species:           2
-  # alignments:        1474
+  # alignments:        1763
 Output directory:      /home/seaman/rproj/full_genome_comparison/R/Secondary_stat/_//anchors
 Tandem repeats         Do not condense
 Ambiguous sign thresh: 0.666667
 
-Tue May 23 14:58:50 2017: Sort anchors
-Tue May 23 14:58:50 2017: Sorting species 1
-Tue May 23 14:58:50 2017: Sorting species 2
-Tue May 23 14:58:50 2017: Sort for each species
-Tue May 23 14:58:50 2017: Determine conflicting alignments
-187 conflicts in species 1
-243 conflicts in species 2
-Tue May 23 14:58:50 2017: Output anchors and repeats
-1008 anchors output:
-   996 as-is anchors
-   12 merged anchors
-   Used 1070 input alignments for those
-168 repeats output:
-   12 merged anchors
-   156 non-merged repeat families
-1164 components:
-   996 as-is anchors
-   12 merged anchors
-   156 non-merged repeat families
-Tue May 23 14:58:50 2017: Free space
-Tue May 23 14:58:50 2017: Done
+Tue Jun  6 16:13:49 2017: Sort anchors
+Tue Jun  6 16:13:49 2017: Sorting species 1
+Tue Jun  6 16:13:49 2017: Sorting species 2
+Tue Jun  6 16:13:49 2017: Sort for each species
+Tue Jun  6 16:13:49 2017: Determine conflicting alignments
+429 conflicts in species 1
+388 conflicts in species 2
+Tue Jun  6 16:13:49 2017: Output anchors and repeats
+1121 anchors output:
+   1114 as-is anchors
+   7 merged anchors
+   Used 1178 input alignments for those
+140 repeats output:
+   7 merged anchors
+   133 non-merged repeat families
+1254 components:
+   1114 as-is anchors
+   7 merged anchors
+   133 non-merged repeat families
+Tue Jun  6 16:13:49 2017: Free space
+Tue Jun  6 16:13:49 2017: Done

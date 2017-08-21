@@ -1,12 +1,12 @@
-Tue May 23 14:58:50 2017: Start job
-Tue May 23 14:58:50 2017: Scan anchors
-Tue May 23 14:58:50 2017: Allocate space
-Tue May 23 14:58:50 2017: Read anchors
+Tue Jun  6 16:13:49 2017: Start job
+Tue Jun  6 16:13:49 2017: Scan anchors
+Tue Jun  6 16:13:49 2017: Allocate space
+Tue Jun  6 16:13:49 2017: Read anchors
 Parameters:
 Algorithm:             GRIMM-Synteny
 Input file:            /home/seaman/rproj/full_genome_comparison/R/Secondary_stat/_/anchors/unique_coords.txt
   # species:           2
-  # anchors:           1008
+  # anchors:           1121
   genome1:             genome1
   genome2:             genome2
 Output directory:      /home/seaman/rproj/full_genome_comparison/R/Secondary_stat/_//blocks
@@ -23,40 +23,64 @@ Overlaps/containments: Repair
 Formatting:            Matlab friendly
 Permutation complexity
   Reject RS cells      
-Tue May 23 14:58:50 2017: Form components
-Tue May 23 14:58:50 2017: Determine component coordinates
-Tue May 23 14:58:50 2017: Filter out small components
-Tue May 23 14:58:50 2017: Sort anchors by component then species
-Tue May 23 14:58:50 2017: Determine signs of blocks
-Tue May 23 14:58:50 2017: Block overlap analysis
-Tue May 23 14:58:50 2017: Condensing strips of consecutive blocks
-Tue May 23 14:58:50 2017: Blocks were condensed, must recompute several steps
-Tue May 23 14:58:50 2017: Determine component coordinates
-Tue May 23 14:58:50 2017: Filter out small components
-Tue May 23 14:58:50 2017: Sort anchors by component then species
-Tue May 23 14:58:50 2017: Determine signs of blocks
-Tue May 23 14:58:50 2017: Block overlap analysis
-Tue May 23 14:58:50 2017: Microrearrangement analysis
+Tue Jun  6 16:13:49 2017: Form components
+Tue Jun  6 16:13:49 2017: Determine component coordinates
+Tue Jun  6 16:13:49 2017: Filter out small components
+Tue Jun  6 16:13:49 2017: Sort anchors by component then species
+Tue Jun  6 16:13:49 2017: Determine signs of blocks
+Block 63, species 2: r=-0.321846 but combinatorial sign=1
+ "e5" 147075087 11987 1 "e5" 222650045 13840 1
+Tue Jun  6 16:13:49 2017: Block overlap analysis
+Overlap: Block 27 overlaps 28 in species 1
+ "e5" 140605509 289565 1 "e5" 202850975 401414 -1
+ "e5" 140837868 210445 1 "e5" 224038484 208548 1
+
+Tue Jun  6 16:13:49 2017: Condensing strips of consecutive blocks
+Tue Jun  6 16:13:49 2017: Blocks were condensed, must recompute several steps
+Tue Jun  6 16:13:49 2017: Determine component coordinates
+Tue Jun  6 16:13:49 2017: Filter out small components
+Tue Jun  6 16:13:49 2017: Sort anchors by component then species
+Tue Jun  6 16:13:49 2017: Determine signs of blocks
+Block 42, species 2: r=-0.321846 but combinatorial sign=1
+ "e5" 147075087 11987 1 "e5" 222650045 13840 1
+Tue Jun  6 16:13:49 2017: Block overlap analysis
+Overlap: Block 19 overlaps 20 in species 1
+ "e5" 140104094 790980 1 "e5" 202850975 956129 -1
+ "e5" 140837868 210445 1 "e5" 224038484 208548 1
+
+Tue Jun  6 16:13:49 2017: Microrearrangement analysis
 Block lengths and support are genome-by-genome.
 Other parameters are a below-the-diagonal triangular genome vs. genome matrix
 printed in 1 row.
 
-block 1: 5 anchors
-  Block lengths           80638    227269
-  Support (nuc)           18178     21938
-  Support (%)         22.54272%  9.65288%
+block 1: 3 anchors
+  Block lengths           31048     73031
+  Support (nuc)            9793      6171
+  Support (%)         31.54148%  8.44984%
+  distance           |    0 
+  # breakpoints      |    0 
+  # long cycles      |    0 
+  # hurdles          |    0 
+  # fortresses       |    0 
+  # reuses           |    0 
+  Anchor correlation | 1.00 
+
+block 2: 43 anchors
+  Block lengths          555803    980058
+  Support (nuc)          176221    240234
+  Support (%)         31.70566% 24.51222%
   distance           |    1 
   # breakpoints      |    2 
   # long cycles      |    1 
   # hurdles          |    0 
   # fortresses       |    0 
   # reuses           |    0 
-  Anchor correlation | 0.99 
+  Anchor correlation | 1.00 
 
-block 2: 57 anchors
-  Block lengths          811748   1012763
-  Support (nuc)          238860    288708
-  Support (%)         29.42539% 28.50697%
+block 3: 11 anchors
+  Block lengths          174923    228971
+  Support (nuc)           36278     23163
+  Support (%)         20.73941% 10.11613%
   distance           |    0 
   # breakpoints      |    0 
   # long cycles      |    0 
@@ -65,22 +89,46 @@ block 2: 57 anchors
   # reuses           |    0 
   Anchor correlation | 1.00 
 
-block 3: 8 anchors
-  Block lengths           62677     86829
-  Support (nuc)           32642     28479
-  Support (%)         52.07971% 32.79895%
-  distance           |    2 
-  # breakpoints      |    3 
+block 4: 14 anchors
+  Block lengths          111702    238356
+  Support (nuc)           62069     50920
+  Support (%)         55.56660% 21.36300%
+  distance           |    3 
+  # breakpoints      |    6 
+  # long cycles      |    3 
+  # hurdles          |    0 
+  # fortresses       |    0 
+  # reuses           |    0 
+  Anchor correlation | 0.68 
+
+block 5: 3 anchors
+  Block lengths           32953    218444
+  Support (nuc)           32331    215334
+  Support (%)         98.11246% 98.57629%
+  distance           |    0 
+  # breakpoints      |    0 
+  # long cycles      |    0 
+  # hurdles          |    0 
+  # fortresses       |    0 
+  # reuses           |    0 
+  Anchor correlation | 0.63 
+
+block 6: 27 anchors
+  Block lengths         1314381   2078641
+  Support (nuc)          124565    242597
+  Support (%)          9.47708% 11.67094%
+  distance           |    1 
+  # breakpoints      |    2 
   # long cycles      |    1 
   # hurdles          |    0 
   # fortresses       |    0 
-  # reuses           |    1 
-  Anchor correlation | 0.99 
+  # reuses           |    0 
+  Anchor correlation | 1.00 
 
-block 4: 30 anchors
-  Block lengths         1405855   1736946
-  Support (nuc)          134663    279375
-  Support (%)          9.57873% 16.08427%
+block 7: 2 anchors
+  Block lengths           91059     98086
+  Support (nuc)            7804      7202
+  Support (%)          8.57027%  7.34254%
   distance           |    0 
   # breakpoints      |    0 
   # long cycles      |    0 
@@ -89,46 +137,10 @@ block 4: 30 anchors
   # reuses           |    0 
   Anchor correlation | 1.00 
 
-block 5: 16 anchors
-  Block lengths          232981    323240
-  Support (nuc)           50120     75744
-  Support (%)         21.51248% 23.43274%
-  distance           |    0 
-  # breakpoints      |    0 
-  # long cycles      |    0 
-  # hurdles          |    0 
-  # fortresses       |    0 
-  # reuses           |    0 
-  Anchor correlation | 1.00 
-
-block 6: 15 anchors
-  Block lengths          208178    312237
-  Support (nuc)           74457    116977
-  Support (%)         35.76603% 37.46417%
-  distance           |    0 
-  # breakpoints      |    0 
-  # long cycles      |    0 
-  # hurdles          |    0 
-  # fortresses       |    0 
-  # reuses           |    0 
-  Anchor correlation | 1.00 
-
-block 7: 12 anchors
-  Block lengths          169968    221488
-  Support (nuc)           57082    117432
-  Support (%)         33.58397% 53.01958%
-  distance           |    0 
-  # breakpoints      |    0 
-  # long cycles      |    0 
-  # hurdles          |    0 
-  # fortresses       |    0 
-  # reuses           |    0 
-  Anchor correlation | 1.00 
-
-block 8: 27 anchors
-  Block lengths          646010    973265
-  Support (nuc)          104837    146313
-  Support (%)         16.22839% 15.03321%
+block 8: 15 anchors
+  Block lengths          232981    329498
+  Support (nuc)           52667    137562
+  Support (%)         22.60571% 41.74896%
   distance           |    0 
   # breakpoints      |    0 
   # long cycles      |    0 
@@ -137,22 +149,34 @@ block 8: 27 anchors
   # reuses           |    0 
   Anchor correlation | 0.98 
 
-block 9: 21 anchors
-  Block lengths          328626    444384
-  Support (nuc)          117418    225844
-  Support (%)         35.72998% 50.82181%
+block 9: 2 anchors
+  Block lengths           13258     17616
+  Support (nuc)           10410     16914
+  Support (%)         78.51863% 96.01499%
   distance           |    0 
   # breakpoints      |    0 
   # long cycles      |    0 
   # hurdles          |    0 
   # fortresses       |    0 
   # reuses           |    0 
-  Anchor correlation | 1.00 
+  Anchor correlation | 0.91 
 
 block 10: 2 anchors
-  Block lengths           49690     51229
-  Support (nuc)           12898      4995
-  Support (%)         25.95693%  9.75034%
+  Block lengths            8959     36092
+  Support (nuc)            7276     30104
+  Support (%)         81.21442% 83.40907%
+  distance           |    0 
+  # breakpoints      |    0 
+  # long cycles      |    0 
+  # hurdles          |    0 
+  # fortresses       |    0 
+  # reuses           |    0 
+  Anchor correlation | 0.63 
+
+block 11: 8 anchors
+  Block lengths          156534    209064
+  Support (nuc)           52725     58508
+  Support (%)         33.68278% 27.98569%
   distance           |    0 
   # breakpoints      |    0 
   # long cycles      |    0 
@@ -161,10 +185,22 @@ block 10: 2 anchors
   # reuses           |    0 
   Anchor correlation | 1.00 
 
-block 11: 24 anchors
-  Block lengths          442804    562645
-  Support (nuc)           94303     88498
-  Support (%)         21.29678% 15.72892%
+block 12: 16 anchors
+  Block lengths          176780    242061
+  Support (nuc)           71084     61116
+  Support (%)         40.21043% 25.24818%
+  distance           |    0 
+  # breakpoints      |    0 
+  # long cycles      |    0 
+  # hurdles          |    0 
+  # fortresses       |    0 
+  # reuses           |    0 
+  Anchor correlation | 1.00 
+
+block 13: 6 anchors
+  Block lengths           71863     96797
+  Support (nuc)           28005     13261
+  Support (%)         38.96998% 13.69980%
   distance           |    1 
   # breakpoints      |    2 
   # long cycles      |    1 
@@ -173,10 +209,22 @@ block 11: 24 anchors
   # reuses           |    0 
   Anchor correlation | 1.00 
 
-block 12: 4 anchors
-  Block lengths          170806    242210
-  Support (nuc)            5917     11036
-  Support (%)          3.46416%  4.55638%
+block 14: 14 anchors
+  Block lengths          250951    385117
+  Support (nuc)           54904     41606
+  Support (%)         21.87837% 10.80347%
+  distance           |    0 
+  # breakpoints      |    0 
+  # long cycles      |    0 
+  # hurdles          |    0 
+  # fortresses       |    0 
+  # reuses           |    0 
+  Anchor correlation | 0.95 
+
+block 15: 7 anchors
+  Block lengths          226893    353787
+  Support (nuc)           13926     18961
+  Support (%)          6.13769%  5.35944%
   distance           |    0 
   # breakpoints      |    0 
   # long cycles      |    0 
@@ -185,130 +233,10 @@ block 12: 4 anchors
   # reuses           |    0 
   Anchor correlation | 1.00 
 
-block 13: 10 anchors
-  Block lengths          362384    520662
-  Support (nuc)           61467     80688
-  Support (%)         16.96184% 15.49719%
-  distance           |    0 
-  # breakpoints      |    0 
-  # long cycles      |    0 
-  # hurdles          |    0 
-  # fortresses       |    0 
-  # reuses           |    0 
-  Anchor correlation | 1.00 
-
-block 14: 2 anchors
-  Block lengths           23661     29310
-  Support (nuc)            4878      9324
-  Support (%)         20.61620% 31.81167%
-  distance           |    0 
-  # breakpoints      |    0 
-  # long cycles      |    0 
-  # hurdles          |    0 
-  # fortresses       |    0 
-  # reuses           |    0 
-  Anchor correlation | 1.00 
-
-block 15: 12 anchors
-  Block lengths          237037    209197
-  Support (nuc)           58747     73961
-  Support (%)         24.78389% 35.35471%
-  distance           |    1 
-  # breakpoints      |    2 
-  # long cycles      |    1 
-  # hurdles          |    0 
-  # fortresses       |    0 
-  # reuses           |    0 
-  Anchor correlation | 0.99 
-
-block 16: 7 anchors
-  Block lengths          105379    101243
-  Support (nuc)           18352     21980
-  Support (%)         17.41523% 21.71014%
-  distance           |    0 
-  # breakpoints      |    0 
-  # long cycles      |    0 
-  # hurdles          |    0 
-  # fortresses       |    0 
-  # reuses           |    0 
-  Anchor correlation | 1.00 
-
-block 17: 15 anchors
-  Block lengths          717005    947570
-  Support (nuc)           74329    117173
-  Support (%)         10.36659% 12.36563%
-  distance           |    0 
-  # breakpoints      |    0 
-  # long cycles      |    0 
-  # hurdles          |    0 
-  # fortresses       |    0 
-  # reuses           |    0 
-  Anchor correlation | 1.00 
-
-block 18: 5 anchors
-  Block lengths          222170    336689
-  Support (nuc)           19697     76038
-  Support (%)          8.86573% 22.58405%
-  distance           |    0 
-  # breakpoints      |    0 
-  # long cycles      |    0 
-  # hurdles          |    0 
-  # fortresses       |    0 
-  # reuses           |    0 
-  Anchor correlation | 0.99 
-
-block 19: 11 anchors
-  Block lengths          270454    466404
-  Support (nuc)           44428     88768
-  Support (%)         16.42719% 19.03243%
-  distance           |    0 
-  # breakpoints      |    0 
-  # long cycles      |    0 
-  # hurdles          |    0 
-  # fortresses       |    0 
-  # reuses           |    0 
-  Anchor correlation | 0.99 
-
-block 20: 10 anchors
-  Block lengths          173610    273505
-  Support (nuc)           38049    106637
-  Support (%)         21.91636% 38.98905%
-  distance           |    0 
-  # breakpoints      |    0 
-  # long cycles      |    0 
-  # hurdles          |    0 
-  # fortresses       |    0 
-  # reuses           |    0 
-  Anchor correlation | 0.99 
-
-block 21: 4 anchors
-  Block lengths           87463    113231
-  Support (nuc)           16376     30327
-  Support (%)         18.72335% 26.78330%
-  distance           |    0 
-  # breakpoints      |    0 
-  # long cycles      |    0 
-  # hurdles          |    0 
-  # fortresses       |    0 
-  # reuses           |    0 
-  Anchor correlation | 1.00 
-
-block 22: 6 anchors
-  Block lengths           81652    113090
-  Support (nuc)           31567     43413
-  Support (%)         38.66041% 38.38801%
-  distance           |    0 
-  # breakpoints      |    0 
-  # long cycles      |    0 
-  # hurdles          |    0 
-  # fortresses       |    0 
-  # reuses           |    0 
-  Anchor correlation | 0.99 
-
-block 23: 3 anchors
-  Block lengths           51322     48861
-  Support (nuc)           13514     26024
-  Support (%)         26.33179% 53.26129%
+block 16: 11 anchors
+  Block lengths          150667    576018
+  Support (nuc)           32882     55524
+  Support (%)         21.82429%  9.63928%
   distance           |    0 
   # breakpoints      |    0 
   # long cycles      |    0 
@@ -317,10 +245,10 @@ block 23: 3 anchors
   # reuses           |    0 
   Anchor correlation | 0.98 
 
-block 24: 11 anchors
-  Block lengths          340940    417113
-  Support (nuc)           45382    104868
-  Support (%)         13.31085% 25.14139%
+block 17: 9 anchors
+  Block lengths          177456    245695
+  Support (nuc)           66811     70263
+  Support (%)         37.64933% 28.59765%
   distance           |    0 
   # breakpoints      |    0 
   # long cycles      |    0 
@@ -329,10 +257,430 @@ block 24: 11 anchors
   # reuses           |    0 
   Anchor correlation | 0.99 
 
-block 25: 2 anchors
-  Block lengths            7634      9370
-  Support (nuc)            4663      6573
-  Support (%)         61.08200% 70.14941%
+block 18: 3 anchors
+  Block lengths           49690     66253
+  Support (nuc)           21428     13417
+  Support (%)         43.12336% 20.25116%
+  distance           |    0 
+  # breakpoints      |    0 
+  # long cycles      |    0 
+  # hurdles          |    0 
+  # fortresses       |    0 
+  # reuses           |    0 
+  Anchor correlation | 0.99 
+
+block 19: 13 anchors
+  Block lengths          790980    956129
+  Support (nuc)           60183     74411
+  Support (%)          7.60866%  7.78253%
+  distance           |    0 
+  # breakpoints      |    0 
+  # long cycles      |    0 
+  # hurdles          |    0 
+  # fortresses       |    0 
+  # reuses           |    0 
+  Anchor correlation | 1.00 
+
+block 20: 14 anchors
+  Block lengths          210445    208548
+  Support (nuc)           60087     36900
+  Support (%)         28.55235% 17.69377%
+  distance           |    3 
+  # breakpoints      |    3 
+  # long cycles      |    1 
+  # hurdles          |    1 
+  # fortresses       |    0 
+  # reuses           |    3 
+  Anchor correlation | 0.89 
+
+block 21: 4 anchors
+  Block lengths          170806    253123
+  Support (nuc)            5917     19646
+  Support (%)          3.46416%  7.76144%
+  distance           |    0 
+  # breakpoints      |    0 
+  # long cycles      |    0 
+  # hurdles          |    0 
+  # fortresses       |    0 
+  # reuses           |    0 
+  Anchor correlation | 1.00 
+
+block 22: 10 anchors
+  Block lengths          181133    187632
+  Support (nuc)           44082     56487
+  Support (%)         24.33681% 30.10521%
+  distance           |    1 
+  # breakpoints      |    2 
+  # long cycles      |    1 
+  # hurdles          |    0 
+  # fortresses       |    0 
+  # reuses           |    0 
+  Anchor correlation | 1.00 
+
+block 23: 10 anchors
+  Block lengths          189970    168353
+  Support (nuc)           49073     25781
+  Support (%)         25.83197% 15.31366%
+  distance           |    0 
+  # breakpoints      |    0 
+  # long cycles      |    0 
+  # hurdles          |    0 
+  # fortresses       |    0 
+  # reuses           |    0 
+  Anchor correlation | 1.00 
+
+block 24: 4 anchors
+  Block lengths           23661     27989
+  Support (nuc)           17136     14942
+  Support (%)         72.42297% 53.38526%
+  distance           |    0 
+  # breakpoints      |    0 
+  # long cycles      |    0 
+  # hurdles          |    0 
+  # fortresses       |    0 
+  # reuses           |    0 
+  Anchor correlation | 0.99 
+
+block 25: 4 anchors
+  Block lengths          115834    170947
+  Support (nuc)           17625     16711
+  Support (%)         15.21574%  9.77554%
+  distance           |    0 
+  # breakpoints      |    0 
+  # long cycles      |    0 
+  # hurdles          |    0 
+  # fortresses       |    0 
+  # reuses           |    0 
+  Anchor correlation | 0.99 
+
+block 26: 15 anchors
+  Block lengths          203971    284206
+  Support (nuc)           55150     45579
+  Support (%)         27.03816% 16.03731%
+  distance           |    2 
+  # breakpoints      |    4 
+  # long cycles      |    2 
+  # hurdles          |    0 
+  # fortresses       |    0 
+  # reuses           |    0 
+  Anchor correlation | 0.99 
+
+block 27: 16 anchors
+  Block lengths          725413   1024891
+  Support (nuc)           70953    222196
+  Support (%)          9.78105% 21.67996%
+  distance           |    1 
+  # breakpoints      |    2 
+  # long cycles      |    1 
+  # hurdles          |    0 
+  # fortresses       |    0 
+  # reuses           |    0 
+  Anchor correlation | 0.99 
+
+block 28: 5 anchors
+  Block lengths          222170    328580
+  Support (nuc)           19697     37210
+  Support (%)          8.86573% 11.32449%
+  distance           |    0 
+  # breakpoints      |    0 
+  # long cycles      |    0 
+  # hurdles          |    0 
+  # fortresses       |    0 
+  # reuses           |    0 
+  Anchor correlation | 1.00 
+
+block 29: 23 anchors
+  Block lengths          337077    374409
+  Support (nuc)           84835    100958
+  Support (%)         25.16784% 26.96463%
+  distance           |    2 
+  # breakpoints      |    4 
+  # long cycles      |    2 
+  # hurdles          |    0 
+  # fortresses       |    0 
+  # reuses           |    0 
+  Anchor correlation | 0.90 
+
+block 30: 15 anchors
+  Block lengths          611966    785614
+  Support (nuc)           58569    128488
+  Support (%)          9.57063% 16.35511%
+  distance           |    0 
+  # breakpoints      |    0 
+  # long cycles      |    0 
+  # hurdles          |    0 
+  # fortresses       |    0 
+  # reuses           |    0 
+  Anchor correlation | 1.00 
+
+block 31: 10 anchors
+  Block lengths          144255    170584
+  Support (nuc)           40478     80012
+  Support (%)         28.06003% 46.90475%
+  distance           |    1 
+  # breakpoints      |    2 
+  # long cycles      |    1 
+  # hurdles          |    0 
+  # fortresses       |    0 
+  # reuses           |    0 
+  Anchor correlation | 1.00 
+
+block 32: 12 anchors
+  Block lengths          386744    499960
+  Support (nuc)           56110     66509
+  Support (%)         14.50831% 13.30286%
+  distance           |    0 
+  # breakpoints      |    0 
+  # long cycles      |    0 
+  # hurdles          |    0 
+  # fortresses       |    0 
+  # reuses           |    0 
+  Anchor correlation | 1.00 
+
+block 33: 4 anchors
+  Block lengths          290008    428439
+  Support (nuc)           11223      6927
+  Support (%)          3.86989%  1.61680%
+  distance           |    0 
+  # breakpoints      |    0 
+  # long cycles      |    0 
+  # hurdles          |    0 
+  # fortresses       |    0 
+  # reuses           |    0 
+  Anchor correlation | 1.00 
+
+block 34: 6 anchors
+  Block lengths          323515    684594
+  Support (nuc)           71292     60667
+  Support (%)         22.03669%  8.86175%
+  distance           |    0 
+  # breakpoints      |    0 
+  # long cycles      |    0 
+  # hurdles          |    0 
+  # fortresses       |    0 
+  # reuses           |    0 
+  Anchor correlation | 1.00 
+
+block 35: 3 anchors
+  Block lengths           85236     94045
+  Support (nuc)           33056     27557
+  Support (%)         38.78174% 29.30193%
+  distance           |    0 
+  # breakpoints      |    0 
+  # long cycles      |    0 
+  # hurdles          |    0 
+  # fortresses       |    0 
+  # reuses           |    0 
+  Anchor correlation | 0.93 
+
+block 36: 13 anchors
+  Block lengths          234265    250007
+  Support (nuc)           80816     70146
+  Support (%)         34.49768% 28.05761%
+  distance           |    0 
+  # breakpoints      |    0 
+  # long cycles      |    0 
+  # hurdles          |    0 
+  # fortresses       |    0 
+  # reuses           |    0 
+  Anchor correlation | 1.00 
+
+block 37: 27 anchors
+  Block lengths          648874    887187
+  Support (nuc)          104365    213750
+  Support (%)         16.08402% 24.09300%
+  distance           |    3 
+  # breakpoints      |    4 
+  # long cycles      |    1 
+  # hurdles          |    0 
+  # fortresses       |    0 
+  # reuses           |    2 
+  Anchor correlation | 0.99 
+
+block 38: 2 anchors
+  Block lengths            8627     12850
+  Support (nuc)            4103     12460
+  Support (%)         47.55999% 96.96498%
+  distance           |    0 
+  # breakpoints      |    0 
+  # long cycles      |    0 
+  # hurdles          |    0 
+  # fortresses       |    0 
+  # reuses           |    0 
+  Anchor correlation | 0.90 
+
+block 39: 12 anchors
+  Block lengths          216424    334575
+  Support (nuc)           30460     41863
+  Support (%)         14.07422% 12.51229%
+  distance           |    0 
+  # breakpoints      |    0 
+  # long cycles      |    0 
+  # hurdles          |    0 
+  # fortresses       |    0 
+  # reuses           |    0 
+  Anchor correlation | 1.00 
+
+block 40: 4 anchors
+  Block lengths           79921    115640
+  Support (nuc)           10967      8944
+  Support (%)         13.72230%  7.73435%
+  distance           |    0 
+  # breakpoints      |    0 
+  # long cycles      |    0 
+  # hurdles          |    0 
+  # fortresses       |    0 
+  # reuses           |    0 
+  Anchor correlation | 1.00 
+
+block 41: 4 anchors
+  Block lengths          207546    330197
+  Support (nuc)            9068      5268
+  Support (%)          4.36915%  1.59541%
+  distance           |    0 
+  # breakpoints      |    0 
+  # long cycles      |    0 
+  # hurdles          |    0 
+  # fortresses       |    0 
+  # reuses           |    0 
+  Anchor correlation | 1.00 
+
+block 42: 2 anchors
+  Block lengths           11987     13840
+  Support (nuc)            8738     13574
+  Support (%)         72.89564% 98.07803%
+  distance           |    1 
+  # breakpoints      |    2 
+  # long cycles      |    1 
+  # hurdles          |    0 
+  # fortresses       |    0 
+  # reuses           |    0 
+  Anchor correlation | 0.28 
+
+block 43: 24 anchors
+  Block lengths          596291    849514
+  Support (nuc)           98276     99861
+  Support (%)         16.48121% 11.75507%
+  distance           |    1 
+  # breakpoints      |    2 
+  # long cycles      |    1 
+  # hurdles          |    0 
+  # fortresses       |    0 
+  # reuses           |    0 
+  Anchor correlation | 1.00 
+
+block 44: 14 anchors
+  Block lengths          382740    654059
+  Support (nuc)           35235    114719
+  Support (%)          9.20599% 17.53955%
+  distance           |    0 
+  # breakpoints      |    0 
+  # long cycles      |    0 
+  # hurdles          |    0 
+  # fortresses       |    0 
+  # reuses           |    0 
+  Anchor correlation | 0.98 
+
+block 45: 2 anchors
+  Block lengths           37750     53614
+  Support (nuc)            3089      2073
+  Support (%)          8.18278%  3.86653%
+  distance           |    0 
+  # breakpoints      |    0 
+  # long cycles      |    0 
+  # hurdles          |    0 
+  # fortresses       |    0 
+  # reuses           |    0 
+  Anchor correlation | 1.00 
+
+block 46: 4 anchors
+  Block lengths           17895     19800
+  Support (nuc)           12068      9712
+  Support (%)         67.43783% 49.05051%
+  distance           |    0 
+  # breakpoints      |    0 
+  # long cycles      |    0 
+  # hurdles          |    0 
+  # fortresses       |    0 
+  # reuses           |    0 
+  Anchor correlation | 0.98 
+
+block 47: 5 anchors
+  Block lengths           68007     93305
+  Support (nuc)           15212     34563
+  Support (%)         22.36829% 37.04303%
+  distance           |    0 
+  # breakpoints      |    0 
+  # long cycles      |    0 
+  # hurdles          |    0 
+  # fortresses       |    0 
+  # reuses           |    0 
+  Anchor correlation | 1.00 
+
+block 48: 2 anchors
+  Block lengths           14141     25934
+  Support (nuc)           12959     23828
+  Support (%)         91.64133% 91.87939%
+  distance           |    0 
+  # breakpoints      |    0 
+  # long cycles      |    0 
+  # hurdles          |    0 
+  # fortresses       |    0 
+  # reuses           |    0 
+  Anchor correlation | 0.63 
+
+block 49: 2 anchors
+  Block lengths            8202      7081
+  Support (nuc)            6764      4812
+  Support (%)         82.46769% 67.95650%
+  distance           |    0 
+  # breakpoints      |    0 
+  # long cycles      |    0 
+  # hurdles          |    0 
+  # fortresses       |    0 
+  # reuses           |    0 
+  Anchor correlation | 0.99 
+
+block 50: 18 anchors
+  Block lengths          116585    181281
+  Support (nuc)           54197     37980
+  Support (%)         46.48711% 20.95090%
+  distance           |    0 
+  # breakpoints      |    0 
+  # long cycles      |    0 
+  # hurdles          |    0 
+  # fortresses       |    0 
+  # reuses           |    0 
+  Anchor correlation | 0.99 
+
+block 51: 16 anchors
+  Block lengths          522334    701232
+  Support (nuc)           39920     41017
+  Support (%)          7.64262%  5.84928%
+  distance           |    0 
+  # breakpoints      |    0 
+  # long cycles      |    0 
+  # hurdles          |    0 
+  # fortresses       |    0 
+  # reuses           |    0 
+  Anchor correlation | 1.00 
+
+block 52: 3 anchors
+  Block lengths           26707     33292
+  Support (nuc)           14159      6045
+  Support (%)         53.01606% 18.15752%
+  distance           |    0 
+  # breakpoints      |    0 
+  # long cycles      |    0 
+  # hurdles          |    0 
+  # fortresses       |    0 
+  # reuses           |    0 
+  Anchor correlation | 0.98 
+
+block 53: 3 anchors
+  Block lengths           27907     42890
+  Support (nuc)           20160     19967
+  Support (%)         72.23994% 46.55398%
   distance           |    0 
   # breakpoints      |    0 
   # long cycles      |    0 
@@ -341,346 +689,10 @@ block 25: 2 anchors
   # reuses           |    0 
   Anchor correlation | 0.96 
 
-block 26: 11 anchors
-  Block lengths          430075    648188
-  Support (nuc)          114761    143512
-  Support (%)         26.68395% 22.14049%
-  distance           |    0 
-  # breakpoints      |    0 
-  # long cycles      |    0 
-  # hurdles          |    0 
-  # fortresses       |    0 
-  # reuses           |    0 
-  Anchor correlation | 1.00 
-
-block 27: 12 anchors
-  Block lengths          234265    315828
-  Support (nuc)           69743     76677
-  Support (%)         29.77099% 24.27809%
-  distance           |    0 
-  # breakpoints      |    0 
-  # long cycles      |    0 
-  # hurdles          |    0 
-  # fortresses       |    0 
-  # reuses           |    0 
-  Anchor correlation | 1.00 
-
-block 28: 28 anchors
-  Block lengths          660575    821314
-  Support (nuc)          105129    151049
-  Support (%)         15.91477% 18.39114%
-  distance           |    0 
-  # breakpoints      |    0 
-  # long cycles      |    0 
-  # hurdles          |    0 
-  # fortresses       |    0 
-  # reuses           |    0 
-  Anchor correlation | 1.00 
-
-block 29: 8 anchors
-  Block lengths          216424    237514
-  Support (nuc)           23583     68566
-  Support (%)         10.89667% 28.86819%
-  distance           |    0 
-  # breakpoints      |    0 
-  # long cycles      |    0 
-  # hurdles          |    0 
-  # fortresses       |    0 
-  # reuses           |    0 
-  Anchor correlation | 1.00 
-
-block 30: 3 anchors
-  Block lengths           44644     57222
-  Support (nuc)            6039      5082
-  Support (%)         13.52701%  8.88120%
-  distance           |    0 
-  # breakpoints      |    0 
-  # long cycles      |    0 
-  # hurdles          |    0 
-  # fortresses       |    0 
-  # reuses           |    0 
-  Anchor correlation | 1.00 
-
-block 31: 2 anchors
-  Block lengths            9152     13438
-  Support (nuc)            1821     11738
-  Support (%)         19.89729% 87.34931%
-  distance           |    0 
-  # breakpoints      |    0 
-  # long cycles      |    0 
-  # hurdles          |    0 
-  # fortresses       |    0 
-  # reuses           |    0 
-  Anchor correlation | 0.94 
-
-block 32: 3 anchors
-  Block lengths           33092     33039
-  Support (nuc)           12813     13247
-  Support (%)         38.71933% 40.09504%
-  distance           |    0 
-  # breakpoints      |    0 
-  # long cycles      |    0 
-  # hurdles          |    0 
-  # fortresses       |    0 
-  # reuses           |    0 
-  Anchor correlation | 0.99 
-
-block 33: 32 anchors
-  Block lengths         1016566   1045430
-  Support (nuc)          120345    247311
-  Support (%)         11.83839% 23.65639%
-  distance           |    0 
-  # breakpoints      |    0 
-  # long cycles      |    0 
-  # hurdles          |    0 
-  # fortresses       |    0 
-  # reuses           |    0 
-  Anchor correlation | 1.00 
-
-block 34: 3 anchors
-  Block lengths           12627      9644
-  Support (nuc)            9448      5555
-  Support (%)         74.82379% 57.60058%
-  distance           |    0 
-  # breakpoints      |    0 
-  # long cycles      |    0 
-  # hurdles          |    0 
-  # fortresses       |    0 
-  # reuses           |    0 
-  Anchor correlation | 0.99 
-
-block 35: 5 anchors
-  Block lengths           68007     94213
-  Support (nuc)           15212     36905
-  Support (%)         22.36829% 39.17188%
-  distance           |    0 
-  # breakpoints      |    0 
-  # long cycles      |    0 
-  # hurdles          |    0 
-  # fortresses       |    0 
-  # reuses           |    0 
-  Anchor correlation | 1.00 
-
-block 36: 2 anchors
-  Block lengths           14141     16488
-  Support (nuc)           12959     15492
-  Support (%)         91.64133% 93.95924%
-  distance           |    0 
-  # breakpoints      |    0 
-  # long cycles      |    0 
-  # hurdles          |    0 
-  # fortresses       |    0 
-  # reuses           |    0 
-  Anchor correlation | 0.83 
-
-block 37: 2 anchors
-  Block lengths            8202      9392
-  Support (nuc)            6764      7523
-  Support (%)         82.46769% 80.10009%
-  distance           |    0 
-  # breakpoints      |    0 
-  # long cycles      |    0 
-  # hurdles          |    0 
-  # fortresses       |    0 
-  # reuses           |    0 
-  Anchor correlation | 0.97 
-
-block 38: 14 anchors
-  Block lengths          104722    114777
-  Support (nuc)           48184     38906
-  Support (%)         46.01134% 33.89704%
-  distance           |    0 
-  # breakpoints      |    0 
-  # long cycles      |    0 
-  # hurdles          |    0 
-  # fortresses       |    0 
-  # reuses           |    0 
-  Anchor correlation | 1.00 
-
-block 39: 19 anchors
-  Block lengths          571362    778016
-  Support (nuc)           51718     89504
-  Support (%)          9.05170% 11.50413%
-  distance           |    0 
-  # breakpoints      |    0 
-  # long cycles      |    0 
-  # hurdles          |    0 
-  # fortresses       |    0 
-  # reuses           |    0 
-  Anchor correlation | 1.00 
-
-block 40: 10 anchors
-  Block lengths          166045    230597
-  Support (nuc)           59910     59236
-  Support (%)         36.08058% 25.68811%
-  distance           |    0 
-  # breakpoints      |    0 
-  # long cycles      |    0 
-  # hurdles          |    0 
-  # fortresses       |    0 
-  # reuses           |    0 
-  Anchor correlation | 1.00 
-
-block 41: 3 anchors
-  Block lengths           65153     68982
-  Support (nuc)           11342      9772
-  Support (%)         17.40825% 14.16601%
-  distance           |    0 
-  # breakpoints      |    0 
-  # long cycles      |    0 
-  # hurdles          |    0 
-  # fortresses       |    0 
-  # reuses           |    0 
-  Anchor correlation | 1.00 
-
-block 42: 3 anchors
-  Block lengths           55208     76572
-  Support (nuc)           16770     34574
-  Support (%)         30.37603% 45.15227%
-  distance           |    0 
-  # breakpoints      |    0 
-  # long cycles      |    0 
-  # hurdles          |    0 
-  # fortresses       |    0 
-  # reuses           |    0 
-  Anchor correlation | 0.99 
-
-block 43: 7 anchors
-  Block lengths          191406    234358
-  Support (nuc)           11721     45799
-  Support (%)          6.12363% 19.54232%
-  distance           |    0 
-  # breakpoints      |    0 
-  # long cycles      |    0 
-  # hurdles          |    0 
-  # fortresses       |    0 
-  # reuses           |    0 
-  Anchor correlation | 1.00 
-
-block 44: 2 anchors
-  Block lengths           22962     28053
-  Support (nuc)           16723     22012
-  Support (%)         72.82902% 78.46576%
-  distance           |    0 
-  # breakpoints      |    0 
-  # long cycles      |    0 
-  # hurdles          |    0 
-  # fortresses       |    0 
-  # reuses           |    0 
-  Anchor correlation | 0.94 
-
-block 45: 3 anchors
-  Block lengths           28452     44777
-  Support (nuc)           23574     17680
-  Support (%)         82.85534% 39.48456%
-  distance           |    0 
-  # breakpoints      |    0 
-  # long cycles      |    0 
-  # hurdles          |    0 
-  # fortresses       |    0 
-  # reuses           |    0 
-  Anchor correlation | 0.94 
-
-block 46: 11 anchors
-  Block lengths          213127    300974
-  Support (nuc)           24297     34020
-  Support (%)         11.40024% 11.30330%
-  distance           |    0 
-  # breakpoints      |    0 
-  # long cycles      |    0 
-  # hurdles          |    0 
-  # fortresses       |    0 
-  # reuses           |    0 
-  Anchor correlation | 1.00 
-
-block 47: 6 anchors
-  Block lengths          100337    143502
-  Support (nuc)           19408     72690
-  Support (%)         19.34281% 50.65435%
-  distance           |    1 
-  # breakpoints      |    2 
-  # long cycles      |    1 
-  # hurdles          |    0 
-  # fortresses       |    0 
-  # reuses           |    0 
-  Anchor correlation | 0.81 
-
-block 48: 4 anchors
-  Block lengths           44525     55807
-  Support (nuc)           12953     16187
-  Support (%)         29.09152% 29.00532%
-  distance           |    0 
-  # breakpoints      |    0 
-  # long cycles      |    0 
-  # hurdles          |    0 
-  # fortresses       |    0 
-  # reuses           |    0 
-  Anchor correlation | 1.00 
-
-block 49: 2 anchors
-  Block lengths           33146     39262
-  Support (nuc)           26000     12733
-  Support (%)         78.44084% 32.43085%
-  distance           |    0 
-  # breakpoints      |    0 
-  # long cycles      |    0 
-  # hurdles          |    0 
-  # fortresses       |    0 
-  # reuses           |    0 
-  Anchor correlation | 0.94 
-
-block 50: 18 anchors
-  Block lengths          635777    711881
-  Support (nuc)           86094    121081
-  Support (%)         13.54154% 17.00860%
-  distance           |    0 
-  # breakpoints      |    0 
-  # long cycles      |    0 
-  # hurdles          |    0 
-  # fortresses       |    0 
-  # reuses           |    0 
-  Anchor correlation | 1.00 
-
-block 51: 7 anchors
-  Block lengths           91028    111860
-  Support (nuc)           27048     38096
-  Support (%)         29.71393% 34.05686%
-  distance           |    0 
-  # breakpoints      |    0 
-  # long cycles      |    0 
-  # hurdles          |    0 
-  # fortresses       |    0 
-  # reuses           |    0 
-  Anchor correlation | 0.99 
-
-block 52: 20 anchors
-  Block lengths          475328    647566
-  Support (nuc)          106473    151593
-  Support (%)         22.39990% 23.40966%
-  distance           |    0 
-  # breakpoints      |    0 
-  # long cycles      |    0 
-  # hurdles          |    0 
-  # fortresses       |    0 
-  # reuses           |    0 
-  Anchor correlation | 1.00 
-
-block 53: 4 anchors
-  Block lengths          106174    128061
-  Support (nuc)           23731     24475
-  Support (%)         22.35105% 19.11199%
-  distance           |    1 
-  # breakpoints      |    2 
-  # long cycles      |    1 
-  # hurdles          |    0 
-  # fortresses       |    0 
-  # reuses           |    0 
-  Anchor correlation | 1.00 
-
 block 54: 7 anchors
-  Block lengths          120925    136214
-  Support (nuc)           14532     40788
-  Support (%)         12.01737% 29.94406%
+  Block lengths           86737    124353
+  Support (nuc)           40652     29494
+  Support (%)         46.86812% 23.71796%
   distance           |    0 
   # breakpoints      |    0 
   # long cycles      |    0 
@@ -689,10 +701,10 @@ block 54: 7 anchors
   # reuses           |    0 
   Anchor correlation | 0.99 
 
-block 55: 8 anchors
-  Block lengths           80689     83877
-  Support (nuc)           38719     42800
-  Support (%)         47.98548% 51.02710%
+block 55: 3 anchors
+  Block lengths           65153     80246
+  Support (nuc)           11342     11539
+  Support (%)         17.40825% 14.37953%
   distance           |    0 
   # breakpoints      |    0 
   # long cycles      |    0 
@@ -701,10 +713,22 @@ block 55: 8 anchors
   # reuses           |    0 
   Anchor correlation | 1.00 
 
-block 56: 19 anchors
-  Block lengths          477538    478095
-  Support (nuc)           67887    115537
-  Support (%)         14.21604% 24.16612%
+block 56: 3 anchors
+  Block lengths           55208     77639
+  Support (nuc)           16770     70288
+  Support (%)         30.37603% 90.53182%
+  distance           |    0 
+  # breakpoints      |    0 
+  # long cycles      |    0 
+  # hurdles          |    0 
+  # fortresses       |    0 
+  # reuses           |    0 
+  Anchor correlation | 0.93 
+
+block 57: 7 anchors
+  Block lengths          191406    214999
+  Support (nuc)           11721     58543
+  Support (%)          6.12363% 27.22943%
   distance           |    0 
   # breakpoints      |    0 
   # long cycles      |    0 
@@ -713,94 +737,10 @@ block 56: 19 anchors
   # reuses           |    0 
   Anchor correlation | 1.00 
 
-block 57: 13 anchors
-  Block lengths          584223    665604
-  Support (nuc)           73040    109699
-  Support (%)         12.50208% 16.48112%
-  distance           |    0 
-  # breakpoints      |    0 
-  # long cycles      |    0 
-  # hurdles          |    0 
-  # fortresses       |    0 
-  # reuses           |    0 
-  Anchor correlation | 1.00 
-
-block 58: 10 anchors
-  Block lengths          411544    515020
-  Support (nuc)           43688     50270
-  Support (%)         10.61563%  9.76079%
-  distance           |    0 
-  # breakpoints      |    0 
-  # long cycles      |    0 
-  # hurdles          |    0 
-  # fortresses       |    0 
-  # reuses           |    0 
-  Anchor correlation | 1.00 
-
-block 59: 3 anchors
-  Block lengths           19512     19587
-  Support (nuc)           16518     16941
-  Support (%)         84.65560% 86.49104%
-  distance           |    0 
-  # breakpoints      |    0 
-  # long cycles      |    0 
-  # hurdles          |    0 
-  # fortresses       |    0 
-  # reuses           |    0 
-  Anchor correlation | 0.98 
-
-block 60: 9 anchors
-  Block lengths          240443    322531
-  Support (nuc)           90263    116681
-  Support (%)         37.54029% 36.17668%
-  distance           |    0 
-  # breakpoints      |    0 
-  # long cycles      |    0 
-  # hurdles          |    0 
-  # fortresses       |    0 
-  # reuses           |    0 
-  Anchor correlation | 0.97 
-
-block 61: 6 anchors
-  Block lengths           52065     53864
-  Support (nuc)           30115     35970
-  Support (%)         57.84116% 66.77930%
-  distance           |    0 
-  # breakpoints      |    0 
-  # long cycles      |    0 
-  # hurdles          |    0 
-  # fortresses       |    0 
-  # reuses           |    0 
-  Anchor correlation | 0.98 
-
-block 62: 3 anchors
-  Block lengths           20216     27330
-  Support (nuc)            8846     14783
-  Support (%)         43.75742% 54.09074%
-  distance           |    0 
-  # breakpoints      |    0 
-  # long cycles      |    0 
-  # hurdles          |    0 
-  # fortresses       |    0 
-  # reuses           |    0 
-  Anchor correlation | 0.98 
-
-block 63: 13 anchors
-  Block lengths          251505    262202
-  Support (nuc)           75158     69293
-  Support (%)         29.88330% 26.42733%
-  distance           |    0 
-  # breakpoints      |    0 
-  # long cycles      |    0 
-  # hurdles          |    0 
-  # fortresses       |    0 
-  # reuses           |    0 
-  Anchor correlation | 1.00 
-
-block 64: 5 anchors
-  Block lengths          202184    224577
-  Support (nuc)           21367     53067
-  Support (%)         10.56810% 23.62976%
+block 58: 5 anchors
+  Block lengths           55941     67709
+  Support (nuc)           40297     26245
+  Support (%)         72.03482% 38.76146%
   distance           |    0 
   # breakpoints      |    0 
   # long cycles      |    0 
@@ -809,10 +749,82 @@ block 64: 5 anchors
   # reuses           |    0 
   Anchor correlation | 0.99 
 
-block 65: 3 anchors
-  Block lengths           15050     13724
-  Support (nuc)            6265      8042
-  Support (%)         41.62791% 58.59808%
+block 59: 11 anchors
+  Block lengths          282586    286830
+  Support (nuc)           23367     37722
+  Support (%)          8.26899% 13.15134%
+  distance           |    0 
+  # breakpoints      |    0 
+  # long cycles      |    0 
+  # hurdles          |    0 
+  # fortresses       |    0 
+  # reuses           |    0 
+  Anchor correlation | 1.00 
+
+block 60: 8 anchors
+  Block lengths           47190     88005
+  Support (nuc)           20131     28457
+  Support (%)         42.65946% 32.33566%
+  distance           |    0 
+  # breakpoints      |    0 
+  # long cycles      |    0 
+  # hurdles          |    0 
+  # fortresses       |    0 
+  # reuses           |    0 
+  Anchor correlation | 0.98 
+
+block 61: 3 anchors
+  Block lengths            4558      6079
+  Support (nuc)            4189      4221
+  Support (%)         91.90434% 69.43576%
+  distance           |    0 
+  # breakpoints      |    0 
+  # long cycles      |    0 
+  # hurdles          |    0 
+  # fortresses       |    0 
+  # reuses           |    0 
+  Anchor correlation | 0.98 
+
+block 62: 4 anchors
+  Block lengths           51896     67740
+  Support (nuc)           15114     60714
+  Support (%)         29.12363% 89.62799%
+  distance           |    0 
+  # breakpoints      |    0 
+  # long cycles      |    0 
+  # hurdles          |    0 
+  # fortresses       |    0 
+  # reuses           |    0 
+  Anchor correlation | 0.95 
+
+block 63: 5 anchors
+  Block lengths           19680     40071
+  Support (nuc)           16859     19846
+  Support (%)         85.66565% 49.52709%
+  distance           |    0 
+  # breakpoints      |    0 
+  # long cycles      |    0 
+  # hurdles          |    0 
+  # fortresses       |    0 
+  # reuses           |    0 
+  Anchor correlation | 0.96 
+
+block 64: 3 anchors
+  Block lengths           90302    121418
+  Support (nuc)           34690     33843
+  Support (%)         38.41554% 27.87313%
+  distance           |    0 
+  # breakpoints      |    0 
+  # long cycles      |    0 
+  # hurdles          |    0 
+  # fortresses       |    0 
+  # reuses           |    0 
+  Anchor correlation | 0.99 
+
+block 65: 19 anchors
+  Block lengths          659171    739552
+  Support (nuc)           74713     83482
+  Support (%)         11.33439% 11.28819%
   distance           |    0 
   # breakpoints      |    0 
   # long cycles      |    0 
@@ -822,117 +834,9 @@ block 65: 3 anchors
   Anchor correlation | 0.99 
 
 block 66: 6 anchors
-  Block lengths           40384     29630
-  Support (nuc)           14857     18431
-  Support (%)         36.78932% 62.20385%
-  distance           |    0 
-  # breakpoints      |    0 
-  # long cycles      |    0 
-  # hurdles          |    0 
-  # fortresses       |    0 
-  # reuses           |    0 
-  Anchor correlation | 0.92 
-
-block 67: 19 anchors
-  Block lengths          304141    343297
-  Support (nuc)           76439     77165
-  Support (%)         25.13275% 22.47762%
-  distance           |    0 
-  # breakpoints      |    0 
-  # long cycles      |    0 
-  # hurdles          |    0 
-  # fortresses       |    0 
-  # reuses           |    0 
-  Anchor correlation | 1.00 
-
-block 68: 13 anchors
-  Block lengths          302081    454294
-  Support (nuc)           61627     67495
-  Support (%)         20.40082% 14.85712%
-  distance           |    1 
-  # breakpoints      |    2 
-  # long cycles      |    1 
-  # hurdles          |    0 
-  # fortresses       |    0 
-  # reuses           |    0 
-  Anchor correlation | 0.98 
-
-block 69: 2 anchors
-  Block lengths           13798     19888
-  Support (nuc)           12447      8760
-  Support (%)         90.20873% 44.04666%
-  distance           |    0 
-  # breakpoints      |    0 
-  # long cycles      |    0 
-  # hurdles          |    0 
-  # fortresses       |    0 
-  # reuses           |    0 
-  Anchor correlation | 0.91 
-
-block 70: 16 anchors
-  Block lengths          378817    271475
-  Support (nuc)           74004     90990
-  Support (%)         19.53555% 33.51690%
-  distance           |    0 
-  # breakpoints      |    0 
-  # long cycles      |    0 
-  # hurdles          |    0 
-  # fortresses       |    0 
-  # reuses           |    0 
-  Anchor correlation | 0.96 
-
-block 71: 8 anchors
-  Block lengths           92158    116883
-  Support (nuc)           28538     39086
-  Support (%)         30.96638% 33.44028%
-  distance           |    0 
-  # breakpoints      |    0 
-  # long cycles      |    0 
-  # hurdles          |    0 
-  # fortresses       |    0 
-  # reuses           |    0 
-  Anchor correlation | 0.98 
-
-block 72: 2 anchors
-  Block lengths           19430     20977
-  Support (nuc)           15086     16611
-  Support (%)         77.64282% 79.18673%
-  distance           |    0 
-  # breakpoints      |    0 
-  # long cycles      |    0 
-  # hurdles          |    0 
-  # fortresses       |    0 
-  # reuses           |    0 
-  Anchor correlation | 0.98 
-
-block 73: 2 anchors
-  Block lengths            3846      4270
-  Support (nuc)            2695      3850
-  Support (%)         70.07280% 90.16393%
-  distance           |    0 
-  # breakpoints      |    0 
-  # long cycles      |    0 
-  # hurdles          |    0 
-  # fortresses       |    0 
-  # reuses           |    0 
-  Anchor correlation | 0.92 
-
-block 74: 8 anchors
-  Block lengths           85281    143710
-  Support (nuc)           33704     56857
-  Support (%)         39.52111% 39.56370%
-  distance           |    0 
-  # breakpoints      |    0 
-  # long cycles      |    0 
-  # hurdles          |    0 
-  # fortresses       |    0 
-  # reuses           |    0 
-  Anchor correlation | 0.96 
-
-block 75: 2 anchors
-  Block lengths           15934     15599
-  Support (nuc)            9207      9708
-  Support (%)         57.78210% 62.23476%
+  Block lengths           98778    111217
+  Support (nuc)           26916     18869
+  Support (%)         27.24898% 16.96593%
   distance           |    0 
   # breakpoints      |    0 
   # long cycles      |    0 
@@ -941,10 +845,10 @@ block 75: 2 anchors
   # reuses           |    0 
   Anchor correlation | 0.99 
 
-block 76: 11 anchors
-  Block lengths          374552    402837
-  Support (nuc)           54977     51503
-  Support (%)         14.67807% 12.78507%
+block 67: 6 anchors
+  Block lengths          170631    198829
+  Support (nuc)           50702     49198
+  Support (%)         29.71441% 24.74388%
   distance           |    0 
   # breakpoints      |    0 
   # long cycles      |    0 
@@ -953,10 +857,514 @@ block 76: 11 anchors
   # reuses           |    0 
   Anchor correlation | 1.00 
 
-block 77: 6 anchors
-  Block lengths           64001     71009
-  Support (nuc)           52323     36162
-  Support (%)         81.75341% 50.92594%
+block 68: 15 anchors
+  Block lengths          214093    288293
+  Support (nuc)           70295     70547
+  Support (%)         32.83386% 24.47059%
+  distance           |    1 
+  # breakpoints      |    2 
+  # long cycles      |    1 
+  # hurdles          |    0 
+  # fortresses       |    0 
+  # reuses           |    0 
+  Anchor correlation | 1.00 
+
+block 69: 3 anchors
+  Block lengths           75851    127725
+  Support (nuc)           14130     13027
+  Support (%)         18.62863% 10.19926%
+  distance           |    1 
+  # breakpoints      |    2 
+  # long cycles      |    1 
+  # hurdles          |    0 
+  # fortresses       |    0 
+  # reuses           |    0 
+  Anchor correlation | 1.00 
+
+block 70: 6 anchors
+  Block lengths          146924    151167
+  Support (nuc)            8385     17938
+  Support (%)          5.70703% 11.86635%
+  distance           |    0 
+  # breakpoints      |    0 
+  # long cycles      |    0 
+  # hurdles          |    0 
+  # fortresses       |    0 
+  # reuses           |    0 
+  Anchor correlation | 1.00 
+
+block 71: 7 anchors
+  Block lengths           71570     95477
+  Support (nuc)           30466     27412
+  Support (%)         42.56812% 28.71058%
+  distance           |    0 
+  # breakpoints      |    0 
+  # long cycles      |    0 
+  # hurdles          |    0 
+  # fortresses       |    0 
+  # reuses           |    0 
+  Anchor correlation | 0.99 
+
+block 72: 24 anchors
+  Block lengths          427746    741842
+  Support (nuc)           88232    162461
+  Support (%)         20.62719% 21.89968%
+  distance           |    0 
+  # breakpoints      |    0 
+  # long cycles      |    0 
+  # hurdles          |    0 
+  # fortresses       |    0 
+  # reuses           |    0 
+  Anchor correlation | 0.96 
+
+block 73: 4 anchors
+  Block lengths           43849     67435
+  Support (nuc)           23275     14397
+  Support (%)         53.07989% 21.34945%
+  distance           |    0 
+  # breakpoints      |    0 
+  # long cycles      |    0 
+  # hurdles          |    0 
+  # fortresses       |    0 
+  # reuses           |    0 
+  Anchor correlation | 0.99 
+
+block 74: 3 anchors
+  Block lengths           96061    179085
+  Support (nuc)           11830     17668
+  Support (%)         12.31509%  9.86571%
+  distance           |    0 
+  # breakpoints      |    0 
+  # long cycles      |    0 
+  # hurdles          |    0 
+  # fortresses       |    0 
+  # reuses           |    0 
+  Anchor correlation | 1.00 
+
+block 75: 10 anchors
+  Block lengths          434160    462331
+  Support (nuc)           37353     70458
+  Support (%)          8.60351% 15.23973%
+  distance           |    0 
+  # breakpoints      |    0 
+  # long cycles      |    0 
+  # hurdles          |    0 
+  # fortresses       |    0 
+  # reuses           |    0 
+  Anchor correlation | 1.00 
+
+block 76: 4 anchors
+  Block lengths           38789     36799
+  Support (nuc)           20751     31159
+  Support (%)         53.49713% 84.67350%
+  distance           |    0 
+  # breakpoints      |    0 
+  # long cycles      |    0 
+  # hurdles          |    0 
+  # fortresses       |    0 
+  # reuses           |    0 
+  Anchor correlation | 0.88 
+
+block 77: 15 anchors
+  Block lengths          396414    419976
+  Support (nuc)           50538    104847
+  Support (%)         12.74879% 24.96500%
+  distance           |    0 
+  # breakpoints      |    0 
+  # long cycles      |    0 
+  # hurdles          |    0 
+  # fortresses       |    0 
+  # reuses           |    0 
+  Anchor correlation | 1.00 
+
+block 78: 4 anchors
+  Block lengths          272191    247717
+  Support (nuc)           81143     61514
+  Support (%)         29.81105% 24.83237%
+  distance           |    0 
+  # breakpoints      |    0 
+  # long cycles      |    0 
+  # hurdles          |    0 
+  # fortresses       |    0 
+  # reuses           |    0 
+  Anchor correlation | 1.00 
+
+block 79: 5 anchors
+  Block lengths           41404     40447
+  Support (nuc)           10684      9042
+  Support (%)         25.80427% 22.35518%
+  distance           |    0 
+  # breakpoints      |    0 
+  # long cycles      |    0 
+  # hurdles          |    0 
+  # fortresses       |    0 
+  # reuses           |    0 
+  Anchor correlation | 1.00 
+
+block 80: 9 anchors
+  Block lengths          151491    150557
+  Support (nuc)           54586     59291
+  Support (%)         36.03250% 39.38110%
+  distance           |    0 
+  # breakpoints      |    0 
+  # long cycles      |    0 
+  # hurdles          |    0 
+  # fortresses       |    0 
+  # reuses           |    0 
+  Anchor correlation | 1.00 
+
+block 81: 12 anchors
+  Block lengths          123176    207492
+  Support (nuc)           62991     63918
+  Support (%)         51.13902% 30.80504%
+  distance           |    0 
+  # breakpoints      |    0 
+  # long cycles      |    0 
+  # hurdles          |    0 
+  # fortresses       |    0 
+  # reuses           |    0 
+  Anchor correlation | 0.99 
+
+block 82: 2 anchors
+  Block lengths           12755     12653
+  Support (nuc)           12277     12530
+  Support (%)         96.25245% 99.02790%
+  distance           |    0 
+  # breakpoints      |    0 
+  # long cycles      |    0 
+  # hurdles          |    0 
+  # fortresses       |    0 
+  # reuses           |    0 
+  Anchor correlation | 1.00 
+
+block 83: 2 anchors
+  Block lengths            6563     24805
+  Support (nuc)            3936     19755
+  Support (%)         59.97257% 79.64120%
+  distance           |    0 
+  # breakpoints      |    0 
+  # long cycles      |    0 
+  # hurdles          |    0 
+  # fortresses       |    0 
+  # reuses           |    0 
+  Anchor correlation | 0.82 
+
+block 84: 5 anchors
+  Block lengths          202184    212084
+  Support (nuc)           21367     29709
+  Support (%)         10.56810% 14.00813%
+  distance           |    0 
+  # breakpoints      |    0 
+  # long cycles      |    0 
+  # hurdles          |    0 
+  # fortresses       |    0 
+  # reuses           |    0 
+  Anchor correlation | 1.00 
+
+block 85: 2 anchors
+  Block lengths            6002      8808
+  Support (nuc)            3294      6108
+  Support (%)         54.88171% 69.34605%
+  distance           |    0 
+  # breakpoints      |    0 
+  # long cycles      |    0 
+  # hurdles          |    0 
+  # fortresses       |    0 
+  # reuses           |    0 
+  Anchor correlation | 0.96 
+
+block 86: 2 anchors
+  Block lengths            9659      9249
+  Support (nuc)            9049      8620
+  Support (%)         93.68465% 93.19926%
+  distance           |    0 
+  # breakpoints      |    0 
+  # long cycles      |    0 
+  # hurdles          |    0 
+  # fortresses       |    0 
+  # reuses           |    0 
+  Anchor correlation | 1.00 
+
+block 87: 5 anchors
+  Block lengths           27903     33181
+  Support (nuc)           13255     13823
+  Support (%)         47.50385% 41.65938%
+  distance           |    1 
+  # breakpoints      |    2 
+  # long cycles      |    1 
+  # hurdles          |    0 
+  # fortresses       |    0 
+  # reuses           |    0 
+  Anchor correlation | 1.00 
+
+block 88: 12 anchors
+  Block lengths          164143    163768
+  Support (nuc)           22242     19863
+  Support (%)         13.55038% 12.12874%
+  distance           |    0 
+  # breakpoints      |    0 
+  # long cycles      |    0 
+  # hurdles          |    0 
+  # fortresses       |    0 
+  # reuses           |    0 
+  Anchor correlation | 1.00 
+
+block 89: 7 anchors
+  Block lengths          139072    142040
+  Support (nuc)           52480     49047
+  Support (%)         37.73585% 34.53041%
+  distance           |    0 
+  # breakpoints      |    0 
+  # long cycles      |    0 
+  # hurdles          |    0 
+  # fortresses       |    0 
+  # reuses           |    0 
+  Anchor correlation | 1.00 
+
+block 90: 11 anchors
+  Block lengths          302081    398339
+  Support (nuc)           60648    110455
+  Support (%)         20.07673% 27.72889%
+  distance           |    0 
+  # breakpoints      |    0 
+  # long cycles      |    0 
+  # hurdles          |    0 
+  # fortresses       |    0 
+  # reuses           |    0 
+  Anchor correlation | 1.00 
+
+block 91: 2 anchors
+  Block lengths           13798     12977
+  Support (nuc)           12447      8821
+  Support (%)         90.20873% 67.97411%
+  distance           |    0 
+  # breakpoints      |    0 
+  # long cycles      |    0 
+  # hurdles          |    0 
+  # fortresses       |    0 
+  # reuses           |    0 
+  Anchor correlation | 0.96 
+
+block 92: 3 anchors
+  Block lengths           53032     46247
+  Support (nuc)           20443     25114
+  Support (%)         38.54842% 54.30406%
+  distance           |    0 
+  # breakpoints      |    0 
+  # long cycles      |    0 
+  # hurdles          |    0 
+  # fortresses       |    0 
+  # reuses           |    0 
+  Anchor correlation | 0.99 
+
+block 93: 15 anchors
+  Block lengths          210654    331764
+  Support (nuc)           49543     43016
+  Support (%)         23.51866% 12.96584%
+  distance           |    0 
+  # breakpoints      |    0 
+  # long cycles      |    0 
+  # hurdles          |    0 
+  # fortresses       |    0 
+  # reuses           |    0 
+  Anchor correlation | 1.00 
+
+block 94: 4 anchors
+  Block lengths           53145     62295
+  Support (nuc)           15062     12486
+  Support (%)         28.34133% 20.04334%
+  distance           |    0 
+  # breakpoints      |    0 
+  # long cycles      |    0 
+  # hurdles          |    0 
+  # fortresses       |    0 
+  # reuses           |    0 
+  Anchor correlation | 1.00 
+
+block 95: 4 anchors
+  Block lengths           31824     32984
+  Support (nuc)           13476     21936
+  Support (%)         42.34540% 66.50497%
+  distance           |    0 
+  # breakpoints      |    0 
+  # long cycles      |    0 
+  # hurdles          |    0 
+  # fortresses       |    0 
+  # reuses           |    0 
+  Anchor correlation | 0.83 
+
+block 96: 2 anchors
+  Block lengths            3846      3769
+  Support (nuc)            2695      3328
+  Support (%)         70.07280% 88.29928%
+  distance           |    1 
+  # breakpoints      |    2 
+  # long cycles      |    1 
+  # hurdles          |    0 
+  # fortresses       |    0 
+  # reuses           |    0 
+  Anchor correlation | 0.86 
+
+block 97: 10 anchors
+  Block lengths           85281    109138
+  Support (nuc)           39797     59868
+  Support (%)         46.66573% 54.85532%
+  distance           |    0 
+  # breakpoints      |    0 
+  # long cycles      |    0 
+  # hurdles          |    0 
+  # fortresses       |    0 
+  # reuses           |    0 
+  Anchor correlation | 0.99 
+
+block 98: 3 anchors
+  Block lengths           15934     18910
+  Support (nuc)           15587      7492
+  Support (%)         97.82227% 39.61925%
+  distance           |    0 
+  # breakpoints      |    0 
+  # long cycles      |    0 
+  # hurdles          |    0 
+  # fortresses       |    0 
+  # reuses           |    0 
+  Anchor correlation | 0.97 
+
+block 99: 5 anchors
+  Block lengths           30170     42591
+  Support (nuc)           25704     19606
+  Support (%)         85.19722% 46.03320%
+  distance           |    0 
+  # breakpoints      |    0 
+  # long cycles      |    0 
+  # hurdles          |    0 
+  # fortresses       |    0 
+  # reuses           |    0 
+  Anchor correlation | 0.98 
+
+block 100: 11 anchors
+  Block lengths          374552    469891
+  Support (nuc)           54977    110472
+  Support (%)         14.67807% 23.51013%
+  distance           |    0 
+  # breakpoints      |    0 
+  # long cycles      |    0 
+  # hurdles          |    0 
+  # fortresses       |    0 
+  # reuses           |    0 
+  Anchor correlation | 0.96 
+
+block 101: 4 anchors
+  Block lengths           62294     59180
+  Support (nuc)            6348      6421
+  Support (%)         10.19039% 10.84995%
+  distance           |    0 
+  # breakpoints      |    0 
+  # long cycles      |    0 
+  # hurdles          |    0 
+  # fortresses       |    0 
+  # reuses           |    0 
+  Anchor correlation | 1.00 
+
+block 102: 9 anchors
+  Block lengths           97205    121641
+  Support (nuc)           76493     74589
+  Support (%)         78.69245% 61.31896%
+  distance           |    0 
+  # breakpoints      |    0 
+  # long cycles      |    0 
+  # hurdles          |    0 
+  # fortresses       |    0 
+  # reuses           |    0 
+  Anchor correlation | 1.00 
+
+block 103: 11 anchors
+  Block lengths          341325    388434
+  Support (nuc)           71971     48197
+  Support (%)         21.08577% 12.40803%
+  distance           |    0 
+  # breakpoints      |    0 
+  # long cycles      |    0 
+  # hurdles          |    0 
+  # fortresses       |    0 
+  # reuses           |    0 
+  Anchor correlation | 1.00 
+
+block 104: 8 anchors
+  Block lengths          181800    280195
+  Support (nuc)           35669     26750
+  Support (%)         19.61991%  9.54692%
+  distance           |    1 
+  # breakpoints      |    2 
+  # long cycles      |    1 
+  # hurdles          |    0 
+  # fortresses       |    0 
+  # reuses           |    0 
+  Anchor correlation | 0.96 
+
+block 105: 4 anchors
+  Block lengths           74641     47042
+  Support (nuc)           21759     35349
+  Support (%)         29.15154% 75.14349%
+  distance           |    0 
+  # breakpoints      |    0 
+  # long cycles      |    0 
+  # hurdles          |    0 
+  # fortresses       |    0 
+  # reuses           |    0 
+  Anchor correlation | 0.90 
+
+block 106: 30 anchors
+  Block lengths          454001    507009
+  Support (nuc)          115851    119100
+  Support (%)         25.51779% 23.49071%
+  distance           |    1 
+  # breakpoints      |    2 
+  # long cycles      |    1 
+  # hurdles          |    0 
+  # fortresses       |    0 
+  # reuses           |    0 
+  Anchor correlation | 1.00 
+
+block 107: 3 anchors
+  Block lengths           70977     81471
+  Support (nuc)           63105      4316
+  Support (%)         88.90908%  5.29759%
+  distance           |    0 
+  # breakpoints      |    0 
+  # long cycles      |    0 
+  # hurdles          |    0 
+  # fortresses       |    0 
+  # reuses           |    0 
+  Anchor correlation | 0.73 
+
+block 108: 2 anchors
+  Block lengths           99018    114783
+  Support (nuc)           98107     10346
+  Support (%)         99.07997%  9.01353%
+  distance           |    0 
+  # breakpoints      |    0 
+  # long cycles      |    0 
+  # hurdles          |    0 
+  # fortresses       |    0 
+  # reuses           |    0 
+  Anchor correlation | 0.51 
+
+block 109: 8 anchors
+  Block lengths          298117    373013
+  Support (nuc)           32221     70982
+  Support (%)         10.80817% 19.02936%
+  distance           |    0 
+  # breakpoints      |    0 
+  # long cycles      |    0 
+  # hurdles          |    0 
+  # fortresses       |    0 
+  # reuses           |    0 
+  Anchor correlation | 0.97 
+
+block 110: 5 anchors
+  Block lengths          109285     97946
+  Support (nuc)           77051     35976
+  Support (%)         70.50464% 36.73044%
   distance           |    0 
   # breakpoints      |    0 
   # long cycles      |    0 
@@ -965,118 +1373,34 @@ block 77: 6 anchors
   # reuses           |    0 
   Anchor correlation | 0.89 
 
-block 78: 18 anchors
-  Block lengths          537366    551007
-  Support (nuc)          153755    123897
-  Support (%)         28.61271% 22.48556%
-  distance           |    0 
-  # breakpoints      |    0 
-  # long cycles      |    0 
-  # hurdles          |    0 
-  # fortresses       |    0 
-  # reuses           |    0 
-  Anchor correlation | 1.00 
-
-block 79: 9 anchors
-  Block lengths          258019    295949
-  Support (nuc)           44629     70129
-  Support (%)         17.29679% 23.69631%
-  distance           |    0 
-  # breakpoints      |    0 
-  # long cycles      |    0 
-  # hurdles          |    0 
-  # fortresses       |    0 
-  # reuses           |    0 
-  Anchor correlation | 0.98 
-
-block 80: 4 anchors
-  Block lengths           74641     27242
-  Support (nuc)           21759     21618
-  Support (%)         29.15154% 79.35541%
-  distance           |    0 
-  # breakpoints      |    0 
-  # long cycles      |    0 
-  # hurdles          |    0 
-  # fortresses       |    0 
-  # reuses           |    0 
-  Anchor correlation | 0.92 
-
-block 81: 20 anchors
-  Block lengths          454001    531521
-  Support (nuc)           78068    101585
-  Support (%)         17.19556% 19.11213%
-  distance           |    0 
-  # breakpoints      |    0 
-  # long cycles      |    0 
-  # hurdles          |    0 
-  # fortresses       |    0 
-  # reuses           |    0 
-  Anchor correlation | 1.00 
-
-block 82: 3 anchors
-  Block lengths           70977     83384
-  Support (nuc)           63105      9664
-  Support (%)         88.90908% 11.58975%
-  distance           |    0 
-  # breakpoints      |    0 
-  # long cycles      |    0 
-  # hurdles          |    0 
-  # fortresses       |    0 
-  # reuses           |    0 
-  Anchor correlation | 0.64 
-
-block 83: 2 anchors
-  Block lengths           99018    108715
-  Support (nuc)           98107     16247
-  Support (%)         99.07997% 14.94458%
-  distance           |    0 
-  # breakpoints      |    0 
-  # long cycles      |    0 
-  # hurdles          |    0 
-  # fortresses       |    0 
-  # reuses           |    0 
-  Anchor correlation | 0.72 
-
-block 84: 7 anchors
-  Block lengths          275227    286204
-  Support (nuc)           29718     34233
-  Support (%)         10.79763% 11.96105%
-  distance           |    0 
-  # breakpoints      |    0 
-  # long cycles      |    0 
-  # hurdles          |    0 
-  # fortresses       |    0 
-  # reuses           |    0 
-  Anchor correlation | 1.00 
-
-block 85: 6 anchors
-  Block lengths          154253    159668
-  Support (nuc)           77713     51864
-  Support (%)         50.38022% 32.48240%
-  distance           |    0 
-  # breakpoints      |    0 
-  # long cycles      |    0 
-  # hurdles          |    0 
-  # fortresses       |    0 
-  # reuses           |    0 
-  Anchor correlation | 0.94 
-
-block 86: 2 anchors
-  Block lengths           21237     17446
-  Support (nuc)            9035     10298
-  Support (%)         42.54367% 59.02786%
+block 111: 3 anchors
+  Block lengths           16306     33429
+  Support (nuc)            8357     13308
+  Support (%)         51.25107% 39.80975%
   distance           |    1 
   # breakpoints      |    2 
   # long cycles      |    1 
   # hurdles          |    0 
   # fortresses       |    0 
   # reuses           |    0 
-  Anchor correlation | 0.94 
+  Anchor correlation | 0.96 
 
-block 87: 38 anchors
-  Block lengths          804598    819982
-  Support (nuc)          128408    260640
-  Support (%)         15.95927% 31.78606%
+block 112: 33 anchors
+  Block lengths          436817    598361
+  Support (nuc)          114035    188569
+  Support (%)         26.10590% 31.51425%
+  distance           |    0 
+  # breakpoints      |    0 
+  # long cycles      |    0 
+  # hurdles          |    0 
+  # fortresses       |    0 
+  # reuses           |    0 
+  Anchor correlation | 1.00 
+
+block 113: 3 anchors
+  Block lengths          204670    189596
+  Support (nuc)           29793     33791
+  Support (%)         14.55660% 17.82263%
   distance           |    0 
   # breakpoints      |    0 
   # long cycles      |    0 
@@ -1085,66 +1409,126 @@ block 87: 38 anchors
   # reuses           |    0 
   Anchor correlation | 0.99 
 
-block 88: 18 anchors
-  Block lengths          854687    777474
-  Support (nuc)          126586     94084
-  Support (%)         14.81080% 12.10124%
+block 114: 2 anchors
+  Block lengths           19399     97163
+  Support (nuc)           18042     64919
+  Support (%)         93.00479% 66.81453%
   distance           |    0 
   # breakpoints      |    0 
   # long cycles      |    0 
   # hurdles          |    0 
   # fortresses       |    0 
   # reuses           |    0 
-  Anchor correlation | 1.00 
+  Anchor correlation | 0.87 
 
-block 89: 29 anchors
-  Block lengths         2658207   1637668
-  Support (nuc)          177740    249500
-  Support (%)          6.68646% 15.23508%
+block 115: 8 anchors
+  Block lengths          164076    242468
+  Support (nuc)           64353     99801
+  Support (%)         39.22146% 41.16048%
   distance           |    0 
   # breakpoints      |    0 
   # long cycles      |    0 
   # hurdles          |    0 
   # fortresses       |    0 
   # reuses           |    0 
-  Anchor correlation | 0.80 
+  Anchor correlation | 0.94 
 
-block 90: 19 anchors
-  Block lengths          515213    694947
-  Support (nuc)           96828     90243
-  Support (%)         18.79378% 12.98559%
+block 116: 7 anchors
+  Block lengths          109652    120795
+  Support (nuc)           25506     44267
+  Support (%)         23.26086% 36.64638%
   distance           |    0 
   # breakpoints      |    0 
   # long cycles      |    0 
   # hurdles          |    0 
   # fortresses       |    0 
   # reuses           |    0 
-  Anchor correlation | 0.96 
+  Anchor correlation | 0.99 
 
-Totals: 932 anchors in 90 blocks
-  distance           |    9 
-  # breakpoints      |   17 
-  # long cycles      |    8 
+block 117: 9 anchors
+  Block lengths          275115    243655
+  Support (nuc)           47334     62452
+  Support (%)         17.20517% 25.63132%
+  distance           |    0 
+  # breakpoints      |    0 
+  # long cycles      |    0 
   # hurdles          |    0 
   # fortresses       |    0 
   # reuses           |    0 
+  Anchor correlation | 0.97 
 
-Tue May 23 14:58:50 2017: Macrorearrangement analysis
+block 118: 22 anchors
+  Block lengths          843327    716664
+  Support (nuc)          119564    200837
+  Support (%)         14.17766% 28.02387%
+  distance           |    0 
+  # breakpoints      |    0 
+  # long cycles      |    0 
+  # hurdles          |    0 
+  # fortresses       |    0 
+  # reuses           |    0 
+  Anchor correlation | 0.99 
+
+block 119: 7 anchors
+  Block lengths         1504168    223722
+  Support (nuc)           34867     72780
+  Support (%)          2.31803% 32.53145%
+  distance           |    0 
+  # breakpoints      |    0 
+  # long cycles      |    0 
+  # hurdles          |    0 
+  # fortresses       |    0 
+  # reuses           |    0 
+  Anchor correlation | 0.88 
+
+block 120: 17 anchors
+  Block lengths          515213    530918
+  Support (nuc)           80800     66717
+  Support (%)         15.68283% 12.56635%
+  distance           |    0 
+  # breakpoints      |    0 
+  # long cycles      |    0 
+  # hurdles          |    0 
+  # fortresses       |    0 
+  # reuses           |    0 
+  Anchor correlation | 0.97 
+
+block 121: 2 anchors
+  Block lengths           86491     58931
+  Support (nuc)            4379     21666
+  Support (%)          5.06295% 36.76503%
+  distance           |    0 
+  # breakpoints      |    0 
+  # long cycles      |    0 
+  # hurdles          |    0 
+  # fortresses       |    0 
+  # reuses           |    0 
+  Anchor correlation | 0.99 
+
+Totals: 1036 anchors in 121 blocks
+  distance           |   28 
+  # breakpoints      |   51 
+  # long cycles      |   24 
+  # hurdles          |    1 
+  # fortresses       |    0 
+  # reuses           |    0 
+
+Tue Jun  6 16:13:49 2017: Macrorearrangement analysis
 Macrorearrangement analysis
 # species:              2
-# blocks:               90
+# blocks:               121
 # chromosomes/species:  6 2 
 Distance Matrix:
-    0   60
-   60    0
+    0   83
+   83    0
 
 Number of Black Edges Matrix:
-   96   96
-   96   96
+  127  127
+  127  127
 
 Number of Cycles and Paths Matrix:
-   96   36
-   36   96
+  127   44
+   44  127
 
 Number of Gamma-Gamma Paths Matrix:
     0    0
@@ -1167,19 +1551,19 @@ Parameter gr Matrix:
     0    0
 
 Number of internal breakpoints Matrix:
-    0   89
-   89    0
+    0  120
+  120    0
 
 Number of external breakpoints Matrix:
     0    1
     1    0
 
 Number of breakpoint reuses Matrix:
-    0   30
-   30    0
+    0   45
+   45    0
 
-Tue May 23 14:58:50 2017: MGR microrearrangement files
-Tue May 23 14:58:50 2017: Breakpoint graph complexity analysis TODO
-Tue May 23 14:58:50 2017: Nadeau-Taylor model tests TODO
-Tue May 23 14:58:50 2017: Free space
-Tue May 23 14:58:50 2017: Done
+Tue Jun  6 16:13:49 2017: MGR microrearrangement files
+Tue Jun  6 16:13:49 2017: Breakpoint graph complexity analysis TODO
+Tue Jun  6 16:13:49 2017: Nadeau-Taylor model tests TODO
+Tue Jun  6 16:13:49 2017: Free space
+Tue Jun  6 16:13:49 2017: Done
