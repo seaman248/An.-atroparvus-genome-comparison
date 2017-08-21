@@ -36,7 +36,7 @@ seqs <- lapply(names(blocks), function(sp){
     end = sp_blocks$end,
     strand = sp_blocks$strand,
     col = 'black',
-    gene_type = 'side_blocks',
+    gene_type = 'blocks',
     chr = sp_blocks$chr
   ))
 })
@@ -57,7 +57,7 @@ xlims <- lapply(names(blocks), function(sp){
 })
 
 comparisons <- lapply(1:(length(seqs)-1), function(n){
-  bold <- 200
+  bold <- 400
   
   start1 <- middle(seqs[[n]]) - bold/2
   end1 <- middle(seqs[[n]]) + bold/2
@@ -75,7 +75,7 @@ comparisons <- lapply(1:(length(seqs)-1), function(n){
 
 
 # # visualize
-# tiff('./output/full.tiff', width = 5000, height = 1000, units = 'px', pointsize = 40)
+tiff('./output/full.tiff', width = 5000, height = 1000, units = 'px', pointsize = 40)
 
 plot_gene_map(
   dna_segs=seqs,
@@ -83,6 +83,6 @@ plot_gene_map(
   comparisons = comparisons
 )
 
-# dev.off()
+dev.off()
 
 # rm(list=ls())
