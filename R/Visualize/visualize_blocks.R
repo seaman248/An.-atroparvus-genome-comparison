@@ -57,7 +57,7 @@ xlims <- lapply(names(blocks), function(sp){
 })
 
 comparisons <- lapply(1:(length(seqs)-1), function(n){
-  bold <- 400
+  bold <- 10000
   
   start1 <- middle(seqs[[n]]) - bold/2
   end1 <- middle(seqs[[n]]) + bold/2
