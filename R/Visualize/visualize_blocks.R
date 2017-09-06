@@ -4,13 +4,6 @@ source('./R/Visualize/functions/parse_blocks.R')
 
 MIN_BLOCK_SIZE = 1000000
 
-
-# rows_to_bind <- list(
-#   c(334, 335, 336, 337), # e2 e4  e4
-#   c(768, 773, 774), # e5 e3  e3
-#   c(769, 770, 771, 772, 775) # e5 e4  e3
-# )
-
 blocks_file <- read.table('./R/GRIMM/output_data/blocks/blocks.txt', row.names = 1)
 
 V3_to_remove <- unlist(c(
@@ -36,13 +29,17 @@ V3_gam_overlaps <- blocks_file %>%
   dplyr::select(V3)
 ))
 
-rows_to_remove <- c(match(V3_to_remove, blocks_file$V3), 410, 335, 336, 334, 773, 774, 770, 771, 772, 775)
+V3_intra_chromosome_translocations <- blocks_file %>%
+  filter(V2 != V6 | V6 != V10 | V2 != V10) %>%
+  dplyr::select(V3)
+
+rows_to_remove <- c(match(V3_to_remove, blocks_file$V3))
 
 # blocks_file2 <- read.table('./data/blocks.txt', row.names = 1)
 # rows_to_remove <- as.numeric(row.names(blocks_file[(blocks_file[, 1] != blocks_file[, 5]) | (blocks_file[, 5] != blocks_file[, 9]), ]))
 # blocks_file2[(blocks_file2[, 1] != blocks_file2[, 5]) | (blocks_file2[, 5] != blocks_file2[, 9]), ]
 
-
+blocks_file <- blocks_file[-rows_to_remove, ]
 blocks <- parse_blocks(read.table('./R/GRIMM/output_data/blocks/blocks.txt')[-rows_to_remove, ])
 
 names(blocks) <- c('alb', 'atr', 'gam')
@@ -69,19 +66,22 @@ seqs <- lapply(names(blocks), function(sp){
   sp_blocks$strand <- sp_blocks$strand * blocks$atr$strand # atroparvus strand as basic
 
 
-  dna_seg(data.frame(
+  seg <- dna_seg(data.frame(
     name = row.names(sp_blocks),
     start = sp_blocks$start,
     end = sp_blocks$end,
     strand = sp_blocks$strand,
-    col = 'black',
+    col = 'grey',
     gene_type = 'blocks',
     chr = sp_blocks$chr,
     cex = 0.0001,
     lwd = 0.0001
     
   ))
+  seg$col[match(V3_intra_chromosome_translocations$V3, blocks_file$V3)] <- 'red'
+  seg
 })
+
 
 names(seqs) <- names(blocks)
 
@@ -93,7 +93,7 @@ xlims <- lapply(names(blocks), function(sp){
     dplyr::summarise(start = min(start), end = max(end)) %>%
     dplyr::select(chr, start, end)
 
-  # lims_table[el_to_reverse, c(2, 3)] <- lims_table[el_to_reverse, c(3, 2)]
+  lims_table[el_to_reverse, c(2, 3)] <- lims_table[el_to_reverse, c(3, 2)]
 
   as.vector(as.matrix(t(lims_table[, c(2, 3)])))
 })
@@ -101,16 +101,16 @@ xlims <- lapply(names(blocks), function(sp){
 comparisons <- lapply(1:(length(seqs)-1), function(n){
   bold <- 10000
 
-  start1 <- middle(seqs[[n]]) - bold/2
-  end1 <- middle(seqs[[n]]) + bold/2
-  start2 <- middle(seqs[[n+1]]) - bold/2
-  end2 <- middle(seqs[[n+1]]) + bold/2
+  # start1 <- middle(seqs[[n]]) - bold/2
+  # end1 <- middle(seqs[[n]]) + bold/2
+  # start2 <- middle(seqs[[n+1]]) - bold/2
+  # end2 <- middle(seqs[[n+1]]) + bold/2
 
-  # start1 <- seqs[[n]]$start
-  # end1 <- seqs[[n]]$end
-  # start2 <- seqs[[n+1]]$start
-  # end2 <- seqs[[n+1]]$end
-  # 
+  start1 <- seqs[[n]]$start
+  end1 <- seqs[[n]]$end
+  start2 <- seqs[[n+1]]$start
+  end2 <- seqs[[n+1]]$end
+
   comp <- data.frame(
     start1 = start1, end1 = end1,
     start2 = start2, end2 = end2
@@ -126,8 +126,8 @@ tiff('./output/full.tiff', width = 5000, height = 1000, units = 'px', res = 600,
 
 plot_gene_map(
   dna_segs=seqs,
-  xlims = xlims,
-  comparisons = comparisons
+  comparisons = comparisons,
+  xlims = xlims
 )
 
 dev.off()
