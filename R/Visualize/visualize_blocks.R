@@ -37,7 +37,10 @@ seqs <- lapply(names(blocks), function(sp){
     strand = sp_blocks$strand,
     col = 'black',
     gene_type = 'blocks',
-    chr = sp_blocks$chr
+    chr = sp_blocks$chr,
+    cex = 0.0001,
+    lwd = 0.0001
+    
   ))
 })
 
