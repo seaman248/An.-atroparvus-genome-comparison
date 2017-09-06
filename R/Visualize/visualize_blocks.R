@@ -122,7 +122,7 @@ comparisons <- lapply(1:(length(seqs)-1), function(n){
 
 
 # # visualize
-tiff('./output/full.tiff', width = 5000, height = 1000, units = 'px', pointsize = 40)
+tiff('./output/full.tiff', width = 5000, height = 1000, units = 'px', res = 600, pointsize = 4)
 
 plot_gene_map(
   dna_segs=seqs,
