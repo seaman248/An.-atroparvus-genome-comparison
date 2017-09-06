@@ -89,23 +89,28 @@ xlims <- lapply(names(blocks), function(sp){
   el_to_reverse <- which(c_left_arms[[sp]] == -1)
 
   lims_table <- seqs[[sp]] %>%
-    group_by(chr) %>%
-    summarise(start = min(start), end = max(end)) %>%
-    select(chr, start, end)
-  
-  lims_table[el_to_reverse, c(2, 3)] <- lims_table[el_to_reverse, c(3, 2)]
-  # 
+    dplyr::group_by(chr) %>%
+    dplyr::summarise(start = min(start), end = max(end)) %>%
+    dplyr::select(chr, start, end)
+
+  # lims_table[el_to_reverse, c(2, 3)] <- lims_table[el_to_reverse, c(3, 2)]
+
   as.vector(as.matrix(t(lims_table[, c(2, 3)])))
 })
 
 comparisons <- lapply(1:(length(seqs)-1), function(n){
   bold <- 10000
-  
+
   start1 <- middle(seqs[[n]]) - bold/2
   end1 <- middle(seqs[[n]]) + bold/2
   start2 <- middle(seqs[[n+1]]) - bold/2
   end2 <- middle(seqs[[n+1]]) + bold/2
-  
+
+  # start1 <- seqs[[n]]$start
+  # end1 <- seqs[[n]]$end
+  # start2 <- seqs[[n+1]]$start
+  # end2 <- seqs[[n+1]]$end
+  # 
   comp <- data.frame(
     start1 = start1, end1 = end1,
     start2 = start2, end2 = end2
