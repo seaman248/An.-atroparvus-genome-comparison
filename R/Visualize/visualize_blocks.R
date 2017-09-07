@@ -33,7 +33,7 @@ V3_intra_chromosome_translocations <- blocks_file %>%
   filter(V2 != V6 | V6 != V10 | V2 != V10) %>%
   dplyr::select(V3)
 
-rows_to_remove <- c(match(V3_to_remove, blocks_file$V3))
+rows_to_remove <- c(match(V3_to_remove, blocks_file$V3), 410)
 
 # blocks_file2 <- read.table('./data/blocks.txt', row.names = 1)
 # rows_to_remove <- as.numeric(row.names(blocks_file[(blocks_file[, 1] != blocks_file[, 5]) | (blocks_file[, 5] != blocks_file[, 9]), ]))
