@@ -59,7 +59,7 @@ seqs <- lapply(names(blocks), function(sp){
   sp_blocks <- blocks[[sp]]
   
   sp_blocks <- sp_blocks %>%
-    mutate(end = start + (end)) # length to end coordinates
+    mutate(end = start + end) # length to end coordinates
   
   sp_blocks <- data.frame(sp_blocks)
   
@@ -71,14 +71,12 @@ seqs <- lapply(names(blocks), function(sp){
     start = sp_blocks$start,
     end = sp_blocks$end,
     strand = sp_blocks$strand,
-    col = 'grey',
+    col = 'black',
     gene_type = 'blocks',
     chr = sp_blocks$chr,
-    cex = 0.0001,
-    lwd = 0.0001
+    lwd = 0.05
     
   ))
-  seg$col[match(V3_intra_chromosome_translocations$V3, blocks_file$V3)] <- 'red'
   seg
 })
 
@@ -101,15 +99,15 @@ xlims <- lapply(names(blocks), function(sp){
 comparisons <- lapply(1:(length(seqs)-1), function(n){
   bold <- 10000
 
-  # start1 <- middle(seqs[[n]]) - bold/2
-  # end1 <- middle(seqs[[n]]) + bold/2
-  # start2 <- middle(seqs[[n+1]]) - bold/2
-  # end2 <- middle(seqs[[n+1]]) + bold/2
+  start1 <- middle(seqs[[n]]) - bold/2
+  end1 <- middle(seqs[[n]]) + bold/2
+  start2 <- middle(seqs[[n+1]]) - bold/2
+  end2 <- middle(seqs[[n+1]]) + bold/2
 
-  start1 <- seqs[[n]]$start
-  end1 <- seqs[[n]]$end
-  start2 <- seqs[[n+1]]$start
-  end2 <- seqs[[n+1]]$end
+  # start1 <- seqs[[n]]$start
+  # end1 <- seqs[[n]]$start + bold
+  # start2 <- seqs[[n+1]]$start
+  # end2 <- seqs[[n+1]]$start + bold
 
   comp <- data.frame(
     start1 = start1, end1 = end1,
