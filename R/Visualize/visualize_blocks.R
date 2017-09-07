@@ -59,7 +59,7 @@ seqs <- lapply(names(blocks), function(sp){
   sp_blocks <- blocks[[sp]]
   
   sp_blocks <- sp_blocks %>%
-    mutate(end = start + (end * strand)) # length to end coordinates
+    mutate(end = start + (end)) # length to end coordinates
   
   sp_blocks <- data.frame(sp_blocks)
   
