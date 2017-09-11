@@ -131,3 +131,110 @@ plot_gene_map(
 dev.off()
 
 # rm(list=ls())
+
+
+# Зависимость длинны синтенного блока от удаленности от теломеры
+names(xlims) <- names(blocks)
+
+distance_from_telomere_table <- lapply(names(xlims), function(sp){
+    lims <- xlims[[sp]]
+    
+    coords <- bind_rows(lapply(seq(1, length(lims), 2), function(n){
+      data.frame(el = paste0('e', (n+1)/2), centromere = lims[n], telomere = lims[n+1])
+    }))
+    
+    bind_rows(apply(coords, 1, function(row){
+      blocks_from_el <- blocks[[sp]] %>% filter(chr == row[1])
+      
+      data.frame(
+        sp = sp,
+        el = row[1],
+        distance_from_telomere = abs(as.numeric(row[3]) - blocks_from_el$start),
+        length = blocks_from_el$end
+      )
+      
+    }))
+})
+
+names(distance_from_telomere_table) <- names(blocks)
+
+tiff('./output/dist-length_cor.tiff', width = 3500, height = 1000, units = 'px', res = 600, pointsize = 4)
+
+par(mfrow=c(1, 3))
+lapply(names(distance_from_telomere_table), function(sp){
+  
+  dist_table <- distance_from_telomere_table[[sp]]
+  quant_99 <- quantile(dist_table$length, probs = c(0.99)) # 99 percentile
+    
+  tab <- dist_table %>%
+    mutate(col = ifelse(length > quant_99, 'blue', 'black'), pch = ifelse(length > quant_99, 19, 1))
+  tab_99 <- tab %>% filter(length > quant_99)
+  
+  coeff <- coef(lm(length~distance_from_telomere, data = tab))
+  coeff_99 <- coef(lm(length~distance_from_telomere, data = tab%>%filter(length > quant_99)))
+  
+  cor <- round(cor(tab$length, tab$distance_from_telomere), 2)
+  cor_99 <- round(cor(tab_99$length, tab_99$distance_from_telomere), 2)
+  
+  
+  plot(tab$distance_from_telomere, tab$length, xlab = 'Distance from telomere, bp', ylab = 'Block length, bp', main = paste0(sp), lwd = 0.5, col = tab$col, pch = tab$pch)
+  abline(coef = coeff, col = 'red', lwd = 1)
+  abline(coef = coeff_99, col = 'blue')
+  text(x = max(tab$distance_from_telomere), y = max(tab$length), pos = 2, labels = paste0('r = ', cor), col = 'red')
+  text(x = max(tab$distance_from_telomere), y = max(tab$length)-120000, pos = 2, labels = paste0('r = ', cor_99), col = 'blue')
+  
+})
+
+dev.off()
+
+
+# Comparison with random model
+random_breaks <- floor(runif(nrow(blocks$atr)*2, min=0, max = max(blocks$atr$start)))
+random_breaks <- random_breaks[order(random_breaks)]
+
+random_blocks <- bind_rows(lapply(1:(length(random_breaks)-1), function(n){
+  data.frame(
+    start = random_breaks[n],
+    end = random_breaks[n+1],
+    length = random_breaks[n+1] - random_breaks[n]
+  )
+}))
+
+random_rows_to_remove <- sample(1:nrow(blocks_file), replace = F)
+
+wilcox.test(random_blocks$length[random_rows_to_remove], blocks$atr$end)
+
+# tiff('./output/compare_with_random_model.tiff', width = 1000, height = 1000, units = 'px', res = 200, pointsize = 4)
+ggplot() +
+  geom_density(aes(random_blocks[-random_rows_to_remove, 3]), fill = 'black', col = 'black', alpha = .5) +
+  # geom_density(aes(blocks$atr$end), fill = 'red', col = 'red', alpha = .5) +
+  # ylab('Частота') +
+  # xlab('Длина блока') +
+  stat_function(fun = sin, lwd = 3, col = 'blue')
+# dev.off()
+
+
+
+
+### Create table of translocations
+translocations <- blocks_file %>% filter(V2!=V6 | V6!=V10 | V2!=V10)
+colnames(translocations) <- c('alb_el', 'alb_start', 'alb_length', 'alb_strand', 'atr_el', 'atr_start', 'atr_length', 'atr_strand', 'gam_el', 'gam_start', 'gam_length', 'gam_strand')
+
+translocation_rows <- match(translocations$alb_start, blocks_file$V3)
+
+translocations <- bind_cols(lapply(names(xlims), function(sp){
+  lims <- xlims[[sp]]
+  
+  coords <- bind_rows(lapply(seq(1, length(lims), 2), function(n){
+    data.frame(el = paste0('e', (n+1)/2), centromere = lims[n])
+  }))
+  translocation_blocks <- blocks[[sp]] %>%
+    slice(translocation_rows) %>%
+    mutate(centromere_coord = coords$centromere[match(chr, coords$el)]) %>%
+    mutate(from_cent = abs(centromere_coord - start))%>%
+    dplyr::select(chr, end, strand, from_cent) %>%
+   setNames(c(chr = paste0(sp, '_chr'), end = paste0(sp, '_length'), strand = paste0(sp, '_strand'), from_cent = paste0(sp, '_bp-from-cent')))
+  
+}))
+
+write.csv2(translocations, './output/intrachr.csv')
