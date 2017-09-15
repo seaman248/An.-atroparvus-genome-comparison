@@ -192,25 +192,31 @@ dev.off()
 random_breaks <- floor(runif(nrow(blocks$atr)*2, min=0, max = max(blocks$atr$start)))
 random_breaks <- random_breaks[order(random_breaks)]
 
-random_blocks <- bind_rows(lapply(1:(length(random_breaks)-1), function(n){
+random_blocks<- bind_rows(lapply(1:(length(random_breaks)-1), function(m){
   data.frame(
-    start = random_breaks[n],
-    end = random_breaks[n+1],
-    length = random_breaks[n+1] - random_breaks[n]
+    # start = random_breaks[n],
+    # end = random_breaks[n+1],
+    length = random_breaks[m+1] - random_breaks[m]
   )
-}))
+}))$length
 
 random_rows_to_remove <- sample(1:nrow(blocks_file), replace = F)
+random_blocks <- random_blocks[random_rows_to_remove]
+wilcox_p <- wilcox.test(random_blocks, blocks$atr$end)
 
-wilcox.test(random_blocks$length[random_rows_to_remove], blocks$atr$end)
+random_99 <- quantile(random_blocks, probs = .99)
+atr_99 <- quantile(blocks$atr$end, probs = .99)
 
 # tiff('./output/compare_with_random_model.tiff', width = 1000, height = 1000, units = 'px', res = 200, pointsize = 4)
 ggplot() +
-  geom_density(aes(random_blocks[-random_rows_to_remove, 3]), fill = 'black', col = 'black', alpha = .5) +
-  # geom_density(aes(blocks$atr$end), fill = 'red', col = 'red', alpha = .5) +
-  # ylab('Частота') +
-  # xlab('Длина блока') +
-  stat_function(fun = sin, lwd = 3, col = 'blue')
+  geom_histogram(aes(random_blocks, y=..count../sum(..count..)), fill = 'white', col = 'black', alpha = .5) +
+  geom_vline(aes(xintercept = random_99)) +
+
+  geom_histogram(aes(blocks$atr$end, y=..count../sum(..count..)), fill = 'red', col = 'red', alpha = .5, binwidth = 30000) +
+  geom_vline(aes(xintercept = atr_99), col = 'red')+
+
+  ylab('Density') +
+  xlab('Blocks length') +
 # dev.off()
 
 
