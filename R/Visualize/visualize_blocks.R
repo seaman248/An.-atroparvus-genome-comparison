@@ -158,31 +158,62 @@ distance_from_telomere_table <- lapply(names(xlims), function(sp){
 
 names(distance_from_telomere_table) <- names(blocks)
 
-tiff('./output/dist-length_cor.tiff', width = 3500, height = 1000, units = 'px', res = 600, pointsize = 4)
+tiff('./output/dist-length_cor-2.tiff', width = 4500, height = 2500, units = 'px', res = 600, pointsize = 6)
 
-par(mfrow=c(1, 3))
+par(mfrow=c(3, 5))
 lapply(names(distance_from_telomere_table), function(sp){
   
-  dist_table <- distance_from_telomere_table[[sp]]
-  quant_99 <- quantile(dist_table$length, probs = c(0.99)) # 99 percentile
+  # quant_99 <- quantile(distance_from_telomere_table[[sp]]$length, probs = c(.98)) # 99 percentile
+  quant_99 <- mean(distance_from_telomere_table[[sp]]$length) + 3 * sd(distance_from_telomere_table[[sp]]$length)
+  
+  lapply(paste0('e', c(1:5)), function(elt){
     
-  tab <- dist_table %>%
-    mutate(col = ifelse(length > quant_99, 'blue', 'black'), pch = ifelse(length > quant_99, 19, 1))
-  tab_99 <- tab %>% filter(length > quant_99)
-  
-  coeff <- coef(lm(length~distance_from_telomere, data = tab))
-  coeff_99 <- coef(lm(length~distance_from_telomere, data = tab%>%filter(length > quant_99)))
-  
-  cor <- round(cor(tab$length, tab$distance_from_telomere), 2)
-  cor_99 <- round(cor(tab_99$length, tab_99$distance_from_telomere), 2)
-  
-  
-  plot(tab$distance_from_telomere, tab$length, xlab = 'Distance from telomere, bp', ylab = 'Block length, bp', main = paste0(sp), lwd = 0.5, col = tab$col, pch = tab$pch)
-  abline(coef = coeff, col = 'red', lwd = 1)
-  abline(coef = coeff_99, col = 'blue')
-  text(x = max(tab$distance_from_telomere), y = max(tab$length), pos = 2, labels = paste0('r = ', cor), col = 'red')
-  text(x = max(tab$distance_from_telomere), y = max(tab$length)-120000, pos = 2, labels = paste0('r = ', cor_99), col = 'blue')
-  
+    tab <- distance_from_telomere_table[[sp]] %>%
+      filter(el == elt) %>%
+      mutate(col = ifelse(length > quant_99, 'red', 'grey'), pch = ifelse(length > quant_99, 17, 20))
+
+    tab_99 <- tab %>% filter(length > quant_99)
+
+    coeff <- coef(lm(length~distance_from_telomere, data = tab))
+
+    cor <- round(cor(tab$length, tab$distance_from_telomere), 2)
+    
+    cent <- max(tab$distance_from_telomere)
+    xaxis_labels <- c(0, cent*0.25, cent*0.5, cent*0.75 ,cent)
+    
+
+    n_big_blocks_each_quantile <- tab %>%
+      group_by(gr = cut(distance_from_telomere, breaks = quantile(distance_from_telomere))) %>%
+      summarise(all_blocks = n(), big_blocks = length(col[col == 'red'])) %>%
+      mutate(big_blocks_percents = round(big_blocks/all_blocks*100, 1)) %>%
+      filter(!is.na(gr))
+    
+    num_of_big_blocks <- data.frame(
+      x_pos = max(tab$distance_from_telomere) * c(.125, .375, .625, .875),
+      labels = n_big_blocks_each_quantile$big_blocks
+    )
+    
+    num_of_big_blocks <- num_of_big_blocks %>%
+      mutate(col = ifelse(labels > 0, 'grey', 'white'))
+    
+    plot(tab$distance_from_telomere, tab$length, xlab = 'Relative distance from telomere, %', ylab = 'Block length, bp', main = paste0(sp, '/', unique(tab$el)), lwd = 0.4, col = tab$col, pch = tab$pch, xaxt="n", ylim = c(200, 1500000))
+    # abline(coef = coeff, col = 'red', lwd = 1)
+    if(nrow(tab_99) > 1){
+
+      # coeff_99 <- coef(lm(length~distance_from_telomere, data = tab%>%filter(length > quant_99)))
+      # abline(coef = coeff_99, col = 'blue')
+
+      # cor_99 <- round(cor(tab_99$length, tab_99$distance_from_telomere), 2)
+      # text(x = max(tab$distance_from_telomere), y = 1250000, pos = 2, labels = paste0('r = ', cor_99), col = 'blue', cex = 1.5)
+
+    }
+    # text(x = max(tab$distance_from_telomere), y = 1400000, pos = 2, labels = paste0('r = ', cor), col = 'red', cex = 1.5)
+    axis(1, at = xaxis_labels, labels = c('T', '25%', '50%', '75%', 'C'))
+    abline(v=xaxis_labels, col = 'grey', lty = 2)
+    abline(h=quant_99, col = 'red', lty = 2)
+    text(x = max(tab$distance_from_telomere), y = quant_99-100000, col = 'red', labels = '0.99 quantile', pos = 2)
+    # text(x = num_of_big_blocks$x_pos, y = 1300000, labels = num_of_big_blocks$labels)
+  })
 })
 
 dev.off()
