@@ -158,15 +158,15 @@ distance_from_telomere_table <- lapply(names(xlims), function(sp){
 
 names(distance_from_telomere_table) <- names(blocks)
 
-tiff('./output/dist-length_cor-2.tiff', width = 4500, height = 2500, units = 'px', res = 600, pointsize = 6)
+tiff('./output/dist-length_cor-2.tiff', width = 5000, height = 2500, units = 'px', res = 650, pointsize = 6)
 
 par(mfrow=c(3, 5))
 lapply(names(distance_from_telomere_table), function(sp){
   
-  # quant_99 <- quantile(distance_from_telomere_table[[sp]]$length, probs = c(.98)) # 99 percentile
-  quant_99 <- mean(distance_from_telomere_table[[sp]]$length) + 3 * sd(distance_from_telomere_table[[sp]]$length)
-  
+  quant_99 <- quantile(distance_from_telomere_table[[sp]]$length, probs = c(.99)) # 99 percentile
+
   lapply(paste0('e', c(1:5)), function(elt){
+    
     
     tab <- distance_from_telomere_table[[sp]] %>%
       filter(el == elt) %>%
@@ -196,47 +196,126 @@ lapply(names(distance_from_telomere_table), function(sp){
     num_of_big_blocks <- num_of_big_blocks %>%
       mutate(col = ifelse(labels > 0, 'grey', 'white'))
     
-    plot(tab$distance_from_telomere, tab$length, xlab = 'Relative distance from telomere, %', ylab = 'Block length, bp', main = paste0(sp, '/', unique(tab$el)), lwd = 0.4, col = tab$col, pch = tab$pch, xaxt="n", ylim = c(200, 1500000))
-    # abline(coef = coeff, col = 'red', lwd = 1)
-    if(nrow(tab_99) > 1){
-
-      # coeff_99 <- coef(lm(length~distance_from_telomere, data = tab%>%filter(length > quant_99)))
-      # abline(coef = coeff_99, col = 'blue')
-
-      # cor_99 <- round(cor(tab_99$length, tab_99$distance_from_telomere), 2)
-      # text(x = max(tab$distance_from_telomere), y = 1250000, pos = 2, labels = paste0('r = ', cor_99), col = 'blue', cex = 1.5)
-
-    }
-    # text(x = max(tab$distance_from_telomere), y = 1400000, pos = 2, labels = paste0('r = ', cor), col = 'red', cex = 1.5)
+    par(
+      las = 1, #labels always horizontal
+      cex.axis = 1.6, 
+      cex.lab = 1.8,
+      cex.main = 2
+    )
+    
+    plot(
+      tab$distance_from_telomere, tab$length,
+      xlab = 'Relative chromosome length, %',
+      ylab = 'Length, Mb',
+      main = paste0(sp, '/', unique(tab$el)),
+      lwd = 0.5,
+      col = tab$col,
+      pch = tab$pch,
+      xaxt="n",
+      yaxt = 'n',
+      ylim = c(200, 2100000),
+      cex = 2
+    )
     axis(1, at = xaxis_labels, labels = c('T', '25%', '50%', '75%', 'C'))
+    axis(2, at = c(500000, 1000000, 1500000, 2000000), labels = c(0.5, 1, 1.5, 2))
     abline(v=xaxis_labels, col = 'grey', lty = 2)
     abline(h=quant_99, col = 'red', lty = 2)
-    text(x = max(tab$distance_from_telomere), y = quant_99-100000, col = 'red', labels = '0.99 quantile', pos = 2)
+    # text(x = max(tab$distance_from_telomere), y = quant_99-100000, col = 'red', labels = '99p level', pos = 2)
     # text(x = num_of_big_blocks$x_pos, y = 1300000, labels = num_of_big_blocks$labels)
+    
+
   })
 })
+
+
+
 
 dev.off()
 
 
 # Comparison with random model
-random_breaks <- floor(runif(nrow(blocks$atr)*2, min=0, max = max(blocks$atr$start)))
-random_breaks <- random_breaks[order(random_breaks)]
 
-random_blocks<- bind_rows(lapply(1:(length(random_breaks)-1), function(m){
-  data.frame(
-    # start = random_breaks[n],
-    # end = random_breaks[n+1],
-    length = random_breaks[m+1] - random_breaks[m]
-  )
-}))$length
+generate_random_blocks <- function(n, genome_length){
+  random_breaks <- floor(runif(n*2, min=0, max = genome_length))
+  random_breaks <- random_breaks[order(random_breaks)]
+  
+  random_blocks <- lapply(1:(length(random_breaks)-1), function(m){
+    random_breaks[m+1] - random_breaks[m]
+  })
+  
+  random_rows_to_remove <- sample(1:n, replace = F)
+  unlist(random_blocks[random_rows_to_remove])
+}
 
-random_rows_to_remove <- sample(1:nrow(blocks_file), replace = F)
-random_blocks <- random_blocks[random_rows_to_remove]
-wilcox_p <- wilcox.test(random_blocks, blocks$atr$end)
+## Generate 10 samples of random blocks
 
-random_99 <- quantile(random_blocks, probs = .99)
-atr_99 <- quantile(blocks$atr$end, probs = .99)
+random_lengths <- lapply(1:1, function(n){
+  generate_random_blocks(nrow(blocks_file), sum(blocks$atr$end))
+})
+
+names(random_lengths) <- paste0('random_', 1:length(random_lengths))
+
+## Extract observed lengths from 3 species
+
+observed_lengths <- lapply(names(blocks), function(sp){
+  blocks[[sp]]$end
+})
+
+names(observed_lengths) <- names(blocks)
+# Find 99 percentile for random and observed blocks length
+
+find_percentiles <- function(list_of_lengths){
+  unlist(lapply(list_of_lengths, function(lengths){
+    quantile(lengths, probs = c(0.99))
+  }))
+}
+
+random_99p_mean <- mean(find_percentiles(random_lengths))
+observed_99p_mean <- mean(find_percentiles(observed_lengths))
+
+std <- function(x) sd(x)/sqrt(length(x)) # se function
+
+random_stat <- stack(bind_rows(random_lengths)) %>%
+  group_by(ind) %>%
+  summarise(p99 = quantile(values, probs=.99), mean_all = mean(values), mean_over99 = mean(values[values>p99]), se_over99 = std(values[values>p99]))
+
+observed_stat <- stack(bind_rows(observed_lengths)) %>%
+  group_by(ind) %>%
+  summarise(p99 = quantile(values, probs = .99), mean_all = mean(values), mean_over99 = mean(values[values>p99]), se_over99 = std(values[values>p99]))
+
+observed_lims_x_start <- seq(0.5, nrow(observed_stat)-0.5, 1)
+observed_lims_x_end <- observed_lims_x_start + 1
+random_lims_x_start <- seq(observed_lims_x_end[length(observed_lims_x_end)], nrow(random_stat)-0.5 + length(observed_lims_x_start), 1)
+random_lims_x_end <- random_lims_x_start + 1
+
+tiff('./output/compare_with_random_model2.tiff', width = 2500, height = 1500, units = 'px', res = 470, pointsize = 4)
+ggplot() +
+  geom_boxplot(data = stack(bind_cols(random_lengths)), aes(x = ind, y = values), fill = 'grey', colour = 'black') +
+  geom_boxplot(data = stack(bind_cols(observed_lengths)), aes(x = ind, y = values), fill = 'orange', colour = 'black') +
+  xlab('') +
+  ylab('Length, Mb') +
+  
+  geom_segment(aes(x = random_lims_x_start, xend = random_lims_x_end, y = random_stat$p99, yend = random_stat$p99), col = 'grey', linetype = 'dashed') +
+  geom_rect(aes(xmin = random_lims_x_start, xmax = random_lims_x_end, ymin = random_stat$mean_over99 - random_stat$se_over99, ymax = random_stat$mean_over99 + random_stat$se_over99), alpha = .5, fill = 'grey') +
+  geom_segment(aes(x = random_lims_x_start, xend = random_lims_x_end, y = random_stat$mean_over99, yend = random_stat$mean_over99), col = 'grey') +
+
+  geom_segment(aes(x = observed_lims_x_start, xend = observed_lims_x_end, y = observed_stat$p99, yend = observed_stat$p99), col = 'orange', linetype = 'dashed') +
+  geom_rect(aes(xmin = observed_lims_x_start, xmax = observed_lims_x_end, ymin = observed_stat$mean_over99 - observed_stat$se_over99, ymax = observed_stat$mean_over99 + observed_stat$se_over99), alpha = .4, fill = 'orange') +
+  geom_segment(aes(x = observed_lims_x_start, xend = observed_lims_x_end, y = observed_stat$mean_over99, yend = observed_stat$mean_over99), col = 'orange') +
+  
+  scale_x_discrete(labels = c('An. albimanus', 'An. atroparvus', 'An. gambiae', 'Random model')) +
+  scale_y_continuous(breaks = c(500000, 1000000, 1500000, 2000000), labels = c(0.5, 1, 1.5, 2)) +
+  annotate('text', x = c(observed_lims_x_end, random_lims_x_end), y = c(observed_stat$p99, random_stat$p99) - 20000, label = '99p level', colour = c(rep('orange', 3), 'grey'), size = 3, hjust = 1, vjust = 1)
+
+dev.off()
+
+wilcox_heatmap <- as.data.frame(bind_rows(lapply(random_lengths, function(random_length){
+  bind_cols(lapply(observed_lengths, function(observed_length){
+    wilcox.test(random_length, observed_length)$p.value < 0.01
+  }))
+})))
+
+rownames(wilcox_heatmap) <- paste0('random_', 1:length(random_lengths))
 
 # tiff('./output/compare_with_random_model.tiff', width = 1000, height = 1000, units = 'px', res = 200, pointsize = 4)
 ggplot() +
@@ -247,7 +326,7 @@ ggplot() +
   geom_vline(aes(xintercept = atr_99), col = 'red')+
 
   ylab('Density') +
-  xlab('Blocks length') +
+  xlab('Blocks length')
 # dev.off()
 
 
